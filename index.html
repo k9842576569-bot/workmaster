@@ -161,4 +161,44 @@ function editRow(index) {
   document.getElementById('district').value = item.district;
   document.getElementById('pincode').value = item.pincode;
   document.getElementById('inTime').value = item.inTime;
-  document.getElementById('outTime').value = item.out
+  document.getElementById('outTime').value = item.outTime;
+  document.getElementById('remarks').value = item.remarks;
+  editIndex = index;
+}
+
+function deleteRow(index) {
+  if(confirm('Are you sure you want to delete this record?')) {
+    data.splice(index,1);
+    localStorage.setItem('workData', JSON.stringify(data));
+    renderTable();
+  }
+}
+
+function clearForm() {
+  document.getElementById('branchCode').value = '';
+  document.getElementById('branchName').value = '';
+  document.getElementById('district').value = '';
+  document.getElementById('pincode').value = '';
+  document.getElementById('inTime').value = '';
+  document.getElementById('outTime').value = '';
+  document.getElementById('remarks').value = '';
+}
+
+function exportTableToExcel(tableID, filename = '') {
+  const table = document.getElementById(tableID);
+  const rows = Array.from(table.rows);
+  let csv = rows.map(row => Array.from(row.cells)
+      .slice(0,-1) // skip action column
+      .map(cell => `"${cell.innerText}"`).join(",")).join("\n");
+
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = filename ? filename + '.csv' : 'export.csv';
+  link.click();
+}
+
+renderTable(); // render on page load
+</script>
+</body>
+</html>
