@@ -16,6 +16,7 @@
   .btn-export { background: green; color: white; margin-top: 10px; }
   td.remarks-cell { max-width: 250px; word-wrap: break-word; white-space: pre-wrap; }
   input[type="text"], input[type="time"], input[type="date"], input[type="number"], textarea { width: 100%; }
+  .branch-row { display: grid; grid-template-columns: 3fr 1fr 1fr 1fr; gap:8px; align-items:center; }
 </style>
 </head>
 <body>
@@ -24,11 +25,15 @@
   <h2>Global Edge Work Master</h2>
 
   <!-- Data Entry Section -->
-  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;">
+  <div class="branch-row">
     <input type="text" id="branchCode" placeholder="Enter Branch Code">
+    <button type="button" onclick="fillBranch()">Search</button>
     <input type="text" id="branchName" placeholder="Branch Name" readonly>
     <input type="text" id="district" placeholder="District" readonly>
     <input type="text" id="pincode" placeholder="Pincode" readonly>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
     <input type="time" id="inTime" placeholder="In">
     <input type="time" id="outTime" placeholder="Out">
     <textarea id="remarks" placeholder="Remarks" rows="3"></textarea>
@@ -74,17 +79,11 @@ function formatTime12(time24) {
   hour = parseInt(hour);
   const ampm = hour >= 12 ? 'PM' : 'AM';
   hour = hour % 12;
-  hour = hour ? hour : 12; // 0 -> 12
+  hour = hour ? hour : 12;
   return `${hour}:${min} ${ampm}`;
 }
 
-// Auto-fill branch details on Tab or Enter
-document.getElementById('branchCode').addEventListener('keydown', function(e) {
-    if(e.key === 'Tab' || e.key === 'Enter') {
-        fillBranch();
-    }
-});
-
+// Auto-fill branch details
 function fillBranch() {
     if(!branchLoaded) {
         alert('Branch data is still loading. Please wait a moment.');
@@ -106,6 +105,16 @@ function fillBranch() {
         document.getElementById('pincode').value = '';
     }
 }
+
+// Also auto-fill on Tab/Enter for desktop
+document.getElementById('branchCode').addEventListener('keydown', function(e) {
+    if(e.key === 'Tab' || e.key === 'Enter') {
+        fillBranch();
+    }
+});
+
+// Auto-fill on blur for mobile
+document.getElementById('branchCode').addEventListener('blur', fillBranch);
 
 // WorkMaster table
 let data = JSON.parse(localStorage.getItem('workData')) || [];
