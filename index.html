@@ -5,7 +5,7 @@
 <title>Global Edge Work Master</title>
 <style>
   body { font-family: Arial; padding:12px; background:#f4f4f4; }
-  .box { max-width:900px; margin:auto; padding:16px; background:#fff; border-radius:8px; }
+  .box { max-width:950px; margin:auto; padding:16px; background:#fff; border-radius:8px; }
   input, button { padding:6px; margin:4px 0; }
   table { width: 100%; border-collapse: collapse; margin-top: 16px; }
   th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
@@ -24,7 +24,8 @@
 
   <!-- Data Entry Section -->
   <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;">
-    <input type="text" id="branchCode" placeholder="Branch Code">
+    <input list="branchCodes" id="branchCode" placeholder="Select Branch Code">
+    <datalist id="branchCodes"></datalist>
     <input type="text" id="branchName" placeholder="Branch Name" readonly>
     <input type="text" id="district" placeholder="District" readonly>
     <input type="text" id="pincode" placeholder="Pincode" readonly>
@@ -57,17 +58,22 @@
 </div>
 
 <script>
-// Load branch master
+// Branch master
 let branchMaster = {};
 fetch('branch_master.json')
   .then(res => res.json())
   .then(data => {
+    const dataList = document.getElementById('branchCodes');
     data.forEach(item => {
       branchMaster[item.BRANCH_CODE] = {
         name: item.BANCH_NAME,
         district: item.DISTRICT,
         pincode: item.PINCODE
       };
+      const option = document.createElement('option');
+      option.value = item.BRANCH_CODE;
+      option.label = `${item.BRANCH_CODE} - ${item.BRANCH_NAME}`;
+      dataList.appendChild(option);
     });
     console.log("Branch master loaded", branchMaster);
   })
@@ -125,15 +131,15 @@ function addData() {
   const remarks = document.getElementById('remarks').value.trim();
 
   if(!branchCode || !branchName) {
-    alert('Please fill Branch Code and ensure it is valid.');
+    alert('Please select a valid Branch Code.');
     return;
   }
 
   let entryID;
   if(editIndex >= 0) {
-    entryID = data[editIndex].entryID; // keep existing ID
+    entryID = data[editIndex].entryID;
   } else {
-    entryID = data.length ? Math.max(...data.map(d => parseInt(d.entryID))) + 1 : 1; // auto increment
+    entryID = data.length ? Math.max(...data.map(d => parseInt(d.entryID))) + 1 : 1;
   }
 
   const record = {
@@ -188,7 +194,7 @@ function exportTableToExcel(tableID, filename = '') {
   const table = document.getElementById(tableID);
   const rows = Array.from(table.rows);
   let csv = rows.map(row => Array.from(row.cells)
-      .slice(0,-1) // skip action column
+      .slice(0,-1)
       .map(cell => `"${cell.innerText}"`).join(",")).join("\n");
 
   const blob = new Blob([csv], { type: 'text/csv' });
@@ -198,7 +204,7 @@ function exportTableToExcel(tableID, filename = '') {
   link.click();
 }
 
-renderTable(); // render on page load
+renderTable();
 </script>
 </body>
 </html>
