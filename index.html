@@ -60,10 +60,13 @@
 <script>
 // Load keyed branch master JSON
 let branchMaster = {};
+let branchLoaded = false;
+
 fetch('branch_master.json')
   .then(res => res.json())
   .then(data => {
     branchMaster = data;
+    branchLoaded = true;
     console.log("Branch master loaded", Object.keys(branchMaster));
   })
   .catch(err => console.error("Failed to load branch_master.json:", err));
@@ -76,7 +79,14 @@ document.getElementById('branchCode').addEventListener('keydown', function(e) {
 });
 
 function fillBranch() {
+    if(!branchLoaded) {
+        alert('Branch data is still loading. Please try again in a moment.');
+        return;
+    }
+
     const code = document.getElementById('branchCode').value.trim();
+    if(!code) return;
+
     const branch = branchMaster[code];
     if(branch) {
         document.getElementById('branchName').value = branch.BANCH_NAME;
