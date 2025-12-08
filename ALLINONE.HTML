@@ -1,0 +1,175 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Global Edge Work Master</title>
+  
+
+
+<style>
+  /* add or replace existing CSS where needed */
+  body{font-family:Arial; padding:12px; background:#f4f4f4;}
+  .box{max-width:420px; margin:auto; padding:16px; border-radius:8px;}
+  input, button {width:100%; box-sizing:border-box; padding:10px; margin-top:8px;}
+  .menu button{display:inline-block; width:32%; margin:4px 1%;}
+  table{font-size:13px; overflow:auto; display:block; width:100%;}
+  @media (min-width:700px){
+    .box{max-width:900px;}
+    .menu button{width:auto;}
+  }
+</style>
+
+
+</head>
+<body>
+
+<h2>Global Edge Work Master</h2>
+
+<div class="menu">
+  <button onclick="show('daily')">Daily Entry</button>
+  <button onclick="show('branch')">Branch Master</button>
+  <button onclick="show('staff')">Staff Master</button>
+</div>
+
+<!-- ================= DAILY ENTRY ================= -->
+<div class="box" id="daily">
+
+  <h3>Daily Entry</h3>
+
+  <div class="row"><label>Mobile No</label><input id="mobile"></div>
+  <div class="row"><label>Date</label><input type="date" id="date"></div>
+  <div class="row"><label>Branch Code</label><input id="dbranchCode"></div>
+  <div class="row"><label>Branch Name</label><input id="dbranchName"></div>
+  <div class="row"><label>In Time</label><input type="time" id="inTime"></div>
+  <div class="row"><label>Out Time</label><input type="time" id="outTime"></div>
+  <div class="row"><label>Remarks</label><input id="remarks"></div>
+
+  <button onclick="addEntry()">Add Entry</button>
+
+  <table id="dailyTable">
+    <tr>
+      <th>EntryID</th>
+      <th>Mobile</th>
+      <th>Date</th>
+      <th>Branch Code</th>
+      <th>Branch Name</th>
+      <th>In</th>
+      <th>Out</th>
+      <th>Remarks</th>
+    </tr>
+  </table>
+</div>
+
+<!-- ================= BRANCH MASTER ================= -->
+<div class="box" id="branch">
+
+  <h3>Branch Master</h3>
+
+  <div class="row"><label>Branch Code</label><input id="branchCode"></div>
+  <div class="row"><label>Branch Name</label><input id="branchName"></div>
+  <div class="row"><label>District</label><input id="district"></div>
+
+  <button onclick="addBranch()">Add Branch</button>
+
+  <table id="branchTable">
+    <tr>
+      <th>Branch Code</th>
+      <th>Branch Name</th>
+      <th>District</th>
+    </tr>
+  </table>
+</div>
+
+<!-- ================= STAFF MASTER ================= -->
+<div class="box" id="staff">
+
+  <h3>Staff Master</h3>
+
+  <div class="row"><label>Staff Name</label><input id="staffName"></div>
+  <div class="row"><label>Staff Email</label><input id="staffEmail"></div>
+  <div class="row"><label>Staff Mobile</label><input id="staffMobile"></div>
+  <div class="row"><label>Role</label><input id="role"></div>
+
+  <button onclick="addStaff()">Add Staff</button>
+
+  <table id="staffTable">
+    <tr>
+      <th>Staff ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Role</th>
+    </tr>
+  </table>
+</div>
+
+<script>
+  function show(id) {
+    document.querySelectorAll(".box").forEach(b => b.style.display = "none");
+    document.getElementById(id).style.display = "block";
+  }
+
+  // ================= DAILY ENTRY =================
+  let entryID = 1;
+
+  document.getElementById("mobile").addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 10);
+  });
+
+  function addEntry() {
+    let table = document.getElementById("dailyTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = entryID++;
+    row.insertCell(1).innerHTML = mobile.value;
+    row.insertCell(2).innerHTML = date.value;
+    row.insertCell(3).innerHTML = dbranchCode.value;
+    row.insertCell(4).innerHTML = dbranchName.value;
+    row.insertCell(5).innerHTML = inTime.value;
+    row.insertCell(6).innerHTML = outTime.value;
+    row.insertCell(7).innerHTML = remarks.value;
+  }
+
+  // ================= BRANCH MASTER =================
+  function addBranch() {
+    let table = document.getElementById("branchTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = branchCode.value;
+    row.insertCell(1).innerHTML = branchName.value;
+    row.insertCell(2).innerHTML = district.value;
+  }
+
+  // ================= STAFF MASTER =================
+  let staffCounter = 1;
+
+  document.getElementById("staffMobile").addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 10);
+  });
+
+  function addStaff() {
+    let id = "STF" + String(staffCounter++).padStart(3, "0");
+
+    let table = document.getElementById("staffTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = id;
+    row.insertCell(1).innerHTML = staffName.value;
+    row.insertCell(2).innerHTML = staffEmail.value;
+    row.insertCell(3).innerHTML = staffMobile.value;
+    row.insertCell(4).innerHTML = role.value;
+  }
+
+  show("daily"); // default page
+</script>
+
+</body>
+</html>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(e => console.log('SW failed', e));
+  }
+</script>
+<link rel="manifest" href="/manifest.json">
