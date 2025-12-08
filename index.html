@@ -58,19 +58,13 @@
 </div>
 
 <script>
-// Branch master
+// Load keyed branch master JSON
 let branchMaster = {};
 fetch('branch_master.json')
   .then(res => res.json())
   .then(data => {
-    data.forEach(item => {
-      branchMaster[item.BRANCH_CODE] = {
-        name: item.BANCH_NAME,
-        district: item.DISTRICT,
-        pincode: item.PINCODE
-      };
-    });
-    console.log("Branch master loaded", branchMaster);
+    branchMaster = data;
+    console.log("Branch master loaded", Object.keys(branchMaster));
   })
   .catch(err => console.error("Failed to load branch_master.json:", err));
 
@@ -83,10 +77,11 @@ document.getElementById('branchCode').addEventListener('keydown', function(e) {
 
 function fillBranch() {
     const code = document.getElementById('branchCode').value.trim();
-    if(branchMaster[code]) {
-        document.getElementById('branchName').value = branchMaster[code].name;
-        document.getElementById('district').value = branchMaster[code].district;
-        document.getElementById('pincode').value = branchMaster[code].pincode;
+    const branch = branchMaster[code];
+    if(branch) {
+        document.getElementById('branchName').value = branch.BANCH_NAME;
+        document.getElementById('district').value = branch.DISTRICT;
+        document.getElementById('pincode').value = branch.PINCODE;
     } else {
         alert('Branch Code not found!');
         document.getElementById('branchName').value = '';
