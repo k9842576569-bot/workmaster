@@ -24,8 +24,8 @@
 
   <!-- Data Entry Section -->
   <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;">
-    <input list="branchCodes" id="branchCode" placeholder="Select Branch Code">
-    <datalist id="branchCodes"></datalist>
+    <input type="text" id="branchCode" placeholder="Enter Branch Code">
+    <button type="button" onclick="fillBranch()">Search Branch</button>
     <input type="text" id="branchName" placeholder="Branch Name" readonly>
     <input type="text" id="district" placeholder="District" readonly>
     <input type="text" id="pincode" placeholder="Pincode" readonly>
@@ -63,35 +63,37 @@ let branchMaster = {};
 fetch('branch_master.json')
   .then(res => res.json())
   .then(data => {
-    const dataList = document.getElementById('branchCodes');
     data.forEach(item => {
       branchMaster[item.BRANCH_CODE] = {
         name: item.BANCH_NAME,
         district: item.DISTRICT,
         pincode: item.PINCODE
       };
-      const option = document.createElement('option');
-      option.value = item.BRANCH_CODE;
-      option.label = `${item.BRANCH_CODE} - ${item.BRANCH_NAME}`;
-      dataList.appendChild(option);
     });
     console.log("Branch master loaded", branchMaster);
   })
   .catch(err => console.error("Failed to load branch_master.json:", err));
 
 // Auto-fill branch name, district, pincode
-document.getElementById('branchCode').addEventListener('input', function() {
-    const code = this.value.trim();
+document.getElementById('branchCode').addEventListener('keydown', function(e) {
+    if(e.key === 'Tab') {
+        fillBranch();
+    }
+});
+
+function fillBranch() {
+    const code = document.getElementById('branchCode').value.trim();
     if(branchMaster[code]) {
         document.getElementById('branchName').value = branchMaster[code].name;
         document.getElementById('district').value = branchMaster[code].district;
         document.getElementById('pincode').value = branchMaster[code].pincode;
     } else {
+        alert('Branch Code not found!');
         document.getElementById('branchName').value = '';
         document.getElementById('district').value = '';
         document.getElementById('pincode').value = '';
     }
-});
+}
 
 // WorkMaster table
 let data = JSON.parse(localStorage.getItem('workData')) || [];
@@ -131,7 +133,7 @@ function addData() {
   const remarks = document.getElementById('remarks').value.trim();
 
   if(!branchCode || !branchName) {
-    alert('Please select a valid Branch Code.');
+    alert('Please enter a valid Branch Code.');
     return;
   }
 
@@ -144,7 +146,7 @@ function addData() {
 
   const record = {
     entryID: entryID,
-    mobile: '', // empty for now
+    mobile: '', // future login field
     branchCode, branchName, district, pincode, inTime, outTime, remarks
   };
 
