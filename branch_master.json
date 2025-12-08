@@ -1,0 +1,6767 @@
+{
+   "249": {
+      "BANCH_NAME": "TRIPLICANE (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600005
+   },
+   "252": {
+      "BANCH_NAME": "VANIYAMBADI",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635751
+   },
+   "253": {
+      "BANCH_NAME": "TALLAKULAM (MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625002
+   },
+   "258": {
+      "BANCH_NAME": "MELUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625106
+   },
+   "261": {
+      "BANCH_NAME": "NANNIALM",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610105
+   },
+   "264": {
+      "BANCH_NAME": "POLUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606803
+   },
+   "265": {
+      "BANCH_NAME": "AMBATTUR INDUSTRIAL ESTATE",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600058
+   },
+   "267": {
+      "BANCH_NAME": "CHEYYAR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604407
+   },
+   "579": {
+      "BANCH_NAME": "SIRKALI",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609110
+   },
+   "755": {
+      "BANCH_NAME": "TIRUPPAPULIYUR (CUDDALORE)",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607002
+   },
+   "756": {
+      "BANCH_NAME": "ACB PARAMAGUDI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623707
+   },
+   "758": {
+      "BANCH_NAME": "ACB GINGEE",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604202
+   },
+   "759": {
+      "BANCH_NAME": "AVANASHI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641654
+   },
+   "764": {
+      "BANCH_NAME": "UTHAMAPALAYAM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625533
+   },
+   "765": {
+      "BANCH_NAME": "ACB TURAIYUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621010
+   },
+   "768": {
+      "BANCH_NAME": "TIRUNELVELI TOWN",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627006
+   },
+   "774": {
+      "BANCH_NAME": "SRIPERUMBUDUR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 602105
+   },
+   "775": {
+      "BANCH_NAME": "WALAJAPET",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632513
+   },
+   "776": {
+      "BANCH_NAME": "TIRUCHENDUR",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628215
+   },
+   "777": {
+      "BANCH_NAME": "TIRUTTANI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 631209
+   },
+   "786": {
+      "BANCH_NAME": "ACB MUDUKULATHUR",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623704
+   },
+   "787": {
+      "BANCH_NAME": "ACB TIRUPATTUR",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630211
+   },
+   "791": {
+      "BANCH_NAME": "NILAKOTTAI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624208
+   },
+   "793": {
+      "BANCH_NAME": "ARKONAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631001
+   },
+   "795": {
+      "BANCH_NAME": "SANKARANAYINARKOIL",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627756
+   },
+   "796": {
+      "BANCH_NAME": "PERAMBALUR",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621212
+   },
+   "797": {
+      "BANCH_NAME": "PAPANASAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614205
+   },
+   "799": {
+      "BANCH_NAME": "KODAIKANAL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624101
+   },
+   "800": {
+      "BANCH_NAME": "CHENNAI BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "804": {
+      "BANCH_NAME": "AMBASAMUDRAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627401
+   },
+   "807": {
+      "BANCH_NAME": "ACB ARIYALUR",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621704
+   },
+   "808": {
+      "BANCH_NAME": "ARNI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632301
+   },
+   "809": {
+      "BANCH_NAME": "ARUPPUKOTTAI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626101
+   },
+   "810": {
+      "BANCH_NAME": "ATTUR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636102
+   },
+   "821": {
+      "BANCH_NAME": "BODINAYAKANUR",
+      "DISTRICT": "THENI",
+      "PINCODE": 625513
+   },
+   "823": {
+      "BANCH_NAME": "CHIDAMBARAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608001
+   },
+   "824": {
+      "BANCH_NAME": "CHINGLEPUT",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603001
+   },
+   "827": {
+      "BANCH_NAME": "COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "828": {
+      "BANCH_NAME": "COONOOR",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643102
+   },
+   "829": {
+      "BANCH_NAME": "ACB CUDDALORE O.T.",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607003
+   },
+   "831": {
+      "BANCH_NAME": "DHARAPURAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638656
+   },
+   "832": {
+      "BANCH_NAME": "DHARMAPURI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636701
+   },
+   "835": {
+      "BANCH_NAME": "DINDIGUL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624001
+   },
+   "837": {
+      "BANCH_NAME": "ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638001
+   },
+   "839": {
+      "BANCH_NAME": "GOBICHETTIPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638452
+   },
+   "842": {
+      "BANCH_NAME": "GUDIYATTAM",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632602
+   },
+   "852": {
+      "BANCH_NAME": "ACB KALLAKURICHI",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 606202
+   },
+   "853": {
+      "BANCH_NAME": "KANCHEEPURAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631502
+   },
+   "855": {
+      "BANCH_NAME": "KARAIKUDI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630002
+   },
+   "856": {
+      "BANCH_NAME": "KARUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639001
+   },
+   "859": {
+      "BANCH_NAME": "KOVILPATTI",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628501
+   },
+   "862": {
+      "BANCH_NAME": "KRISHNAGIRI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635001
+   },
+   "863": {
+      "BANCH_NAME": "ACB KULITHALAI",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639104
+   },
+   "864": {
+      "BANCH_NAME": "KUMBAKONAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612001
+   },
+   "867": {
+      "BANCH_NAME": "KUZHITHURAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629165
+   },
+   "869": {
+      "BANCH_NAME": "MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "870": {
+      "BANCH_NAME": "MADURANTAKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603306
+   },
+   "872": {
+      "BANCH_NAME": "ACB MANNARGUDI",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614001
+   },
+   "875": {
+      "BANCH_NAME": "ACB MAYILADUTURAI",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609001
+   },
+   "877": {
+      "BANCH_NAME": "METTUR DAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636401
+   },
+   "878": {
+      "BANCH_NAME": "ANNA SALAI(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "879": {
+      "BANCH_NAME": "NAGAPATTINAM",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611001
+   },
+   "880": {
+      "BANCH_NAME": "NAGERCOIL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "881": {
+      "BANCH_NAME": "NAMAKKAL",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637001
+   },
+   "891": {
+      "BANCH_NAME": "UDHAGAMANDALAM",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643001
+   },
+   "894": {
+      "BANCH_NAME": "PALANI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624601
+   },
+   "896": {
+      "BANCH_NAME": "PATTUKKOTTAI",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614601
+   },
+   "898": {
+      "BANCH_NAME": "PERIAKULAM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625601
+   },
+   "899": {
+      "BANCH_NAME": "POLLACHI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642001
+   },
+   "902": {
+      "BANCH_NAME": "PUDUKKOTTAI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622001
+   },
+   "906": {
+      "BANCH_NAME": "RAJAPALAYAM",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626117
+   },
+   "908": {
+      "BANCH_NAME": "RAMANATHAPURAM",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623501
+   },
+   "912": {
+      "BANCH_NAME": "SAIDAPET(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600035
+   },
+   "913": {
+      "BANCH_NAME": "FORT MAIN ROAD SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636001
+   },
+   "918": {
+      "BANCH_NAME": "SIVAGANGA",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630561
+   },
+   "920": {
+      "BANCH_NAME": "ACB SRIVAIKUNTAM",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628601
+   },
+   "921": {
+      "BANCH_NAME": "SRIVILLIPUTTUR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626125
+   },
+   "924": {
+      "BANCH_NAME": "THANJAVUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613001
+   },
+   "928": {
+      "BANCH_NAME": "TENKASI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627811
+   },
+   "929": {
+      "BANCH_NAME": "ACB TINDIVANAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604001
+   },
+   "930": {
+      "BANCH_NAME": "TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "931": {
+      "BANCH_NAME": "TIRUMANGALAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625706
+   },
+   "932": {
+      "BANCH_NAME": "TIRUNELVELI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627001
+   },
+   "934": {
+      "BANCH_NAME": "TIRUPATTUR(VLR)",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635601
+   },
+   "935": {
+      "BANCH_NAME": "TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641601
+   },
+   "936": {
+      "BANCH_NAME": "TIRUTHURAIPOONDI",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614713
+   },
+   "937": {
+      "BANCH_NAME": "TIRUVALLUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 602001
+   },
+   "938": {
+      "BANCH_NAME": "TIRUVANNAMALAI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606601
+   },
+   "939": {
+      "BANCH_NAME": "TIRUVARUR",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610002
+   },
+   "943": {
+      "BANCH_NAME": "TUTICORIN",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628001
+   },
+   "944": {
+      "BANCH_NAME": "UDUMALPET",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642126
+   },
+   "947": {
+      "BANCH_NAME": "VELLORE",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632001
+   },
+   "949": {
+      "BANCH_NAME": "VILLUPURAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605602
+   },
+   "951": {
+      "BANCH_NAME": "VIRUDHUNAGAR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626001
+   },
+   "954": {
+      "BANCH_NAME": "VRIDDHACHALAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 606001
+   },
+   "956": {
+      "BANCH_NAME": "GUINDY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600032
+   },
+   "958": {
+      "BANCH_NAME": "NEYVELI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607801
+   },
+   "961": {
+      "BANCH_NAME": "SATTUR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626203
+   },
+   "962": {
+      "BANCH_NAME": "GOPALAPURAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600086
+   },
+   "965": {
+      "BANCH_NAME": "MYLAPORE",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600004
+   },
+   "968": {
+      "BANCH_NAME": "TIRUCHENGODE",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637211
+   },
+   "970": {
+      "BANCH_NAME": "ACB DEVAKOTTAI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630302
+   },
+   "971": {
+      "BANCH_NAME": "BHAVANI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638301
+   },
+   "972": {
+      "BANCH_NAME": "TIRUMAYAM",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622507
+   },
+   "973": {
+      "BANCH_NAME": "ACB ORATHANAD",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 641625
+   },
+   "974": {
+      "BANCH_NAME": "AGRI COMM BRANCH ARANTHANGI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 614616
+   },
+   "975": {
+      "BANCH_NAME": "SIVAKASI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626123
+   },
+   "978": {
+      "BANCH_NAME": "MUSIRI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621211
+   },
+   "980": {
+      "BANCH_NAME": "ACB TIRUVADANAI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623407
+   },
+   "985": {
+      "BANCH_NAME": "LALGUDI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621601
+   },
+   "987": {
+      "BANCH_NAME": "AMBATTUR(CHENNAI)",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600053
+   },
+   "988": {
+      "BANCH_NAME": "SME BRANCH MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625009
+   },
+   "990": {
+      "BANCH_NAME": "COIMBATORE CITY",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641001
+   },
+   "992": {
+      "BANCH_NAME": "ACB TIRUKKOYILUR",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 605757
+   },
+   "993": {
+      "BANCH_NAME": "CHENGAM",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606709
+   },
+   "994": {
+      "BANCH_NAME": "ACB SANKARI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 637301
+   },
+   "995": {
+      "BANCH_NAME": "MANAPPARAI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621306
+   },
+   "997": {
+      "BANCH_NAME": "ACB HARUR",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636903
+   },
+   "998": {
+      "BANCH_NAME": "JAYANKONDACHOLAPURAM",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621802
+   },
+   "999": {
+      "BANCH_NAME": "ACB KALKULAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629175
+   },
+   "1016": {
+      "BANCH_NAME": "GUDALUR",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643212
+   },
+   "1017": {
+      "BANCH_NAME": "SOWCARPET (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "1018": {
+      "BANCH_NAME": "VANDAVASI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604408
+   },
+   "1020": {
+      "BANCH_NAME": "THYAGARAYANAGAR(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "1021": {
+      "BANCH_NAME": "NANGUNERI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627108
+   },
+   "1024": {
+      "BANCH_NAME": "PONNERI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 601204
+   },
+   "1030": {
+      "BANCH_NAME": "OMALUR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636455
+   },
+   "1039": {
+      "BANCH_NAME": "ACB MANAMADURAI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630606
+   },
+   "1055": {
+      "BANCH_NAME": "IIT MADRAS",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600036
+   },
+   "1115": {
+      "BANCH_NAME": "ADYAR(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "1176": {
+      "BANCH_NAME": "NUNGAMBAKKAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600034
+   },
+   "1191": {
+      "BANCH_NAME": "TIRUKKALIKUNDRAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603109
+   },
+   "1243": {
+      "BANCH_NAME": "TAMBARAM(CHENNAI)",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600045
+   },
+   "1310": {
+      "BANCH_NAME": "RASIPURAM",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637408
+   },
+   "1311": {
+      "BANCH_NAME": "ACB ALANGUDI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622301
+   },
+   "1312": {
+      "BANCH_NAME": "TIRUCHIRAPALLI TOWN",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620008
+   },
+   "1363": {
+      "BANCH_NAME": "HEAVY ELECTRICAL KAILASAPURAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620014
+   },
+   "1384": {
+      "BANCH_NAME": "METTUPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641301
+   },
+   "1444": {
+      "BANCH_NAME": "KODAMBAKKAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600024
+   },
+   "1476": {
+      "BANCH_NAME": "MINT TERMINUS (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600079
+   },
+   "1479": {
+      "BANCH_NAME": "VINAYAGANAGAR (MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625020
+   },
+   "1498": {
+      "BANCH_NAME": "SATHYAMANGALAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638402
+   },
+   "1515": {
+      "BANCH_NAME": "PURASAWALKAM (CHENNAI )",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600007
+   },
+   "1516": {
+      "BANCH_NAME": "EGMORE (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600008
+   },
+   "1541": {
+      "BANCH_NAME": "SRI R K VIDYALAYA",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641020
+   },
+   "1603": {
+      "BANCH_NAME": "TIRUVOTTIYUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600019
+   },
+   "1617": {
+      "BANCH_NAME": "NATIONAL INSTITUTE OF TECHNOLOGY",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620015
+   },
+   "1618": {
+      "BANCH_NAME": "VELLORE TOWN",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632004
+   },
+   "1619": {
+      "BANCH_NAME": "PALAYAMKOTTAI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627002
+   },
+   "1645": {
+      "BANCH_NAME": "ACB AYYAMPALAYAM",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624204
+   },
+   "1669": {
+      "BANCH_NAME": "KOTTUR(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600085
+   },
+   "1674": {
+      "BANCH_NAME": "ACB SATHYAMANGALAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638401
+   },
+   "1682": {
+      "BANCH_NAME": "MANNADY (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600108
+   },
+   "1683": {
+      "BANCH_NAME": "WEST MAMBALAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600033
+   },
+   "1726": {
+      "BANCH_NAME": "ACB KODUMUDI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638151
+   },
+   "1741": {
+      "BANCH_NAME": "TEYNAMPET(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600018
+   },
+   "1793": {
+      "BANCH_NAME": "ROYAPETTAH (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600014
+   },
+   "1794": {
+      "BANCH_NAME": "NEW WASHERMANPET (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600081
+   },
+   "1844": {
+      "BANCH_NAME": "ACB TIRUVALLUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 602001
+   },
+   "1845": {
+      "BANCH_NAME": "ACB KARUVEPPILANKURICHI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 606110
+   },
+   "1852": {
+      "BANCH_NAME": "CHETPUT(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600031
+   },
+   "1853": {
+      "BANCH_NAME": "KILPAUK (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600010
+   },
+   "1854": {
+      "BANCH_NAME": "MANDAVELI (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600028
+   },
+   "1855": {
+      "BANCH_NAME": "RAJA ANNAMALAIPURAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600028
+   },
+   "1856": {
+      "BANCH_NAME": "PARK TOWN( CHENNAI )",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600003
+   },
+   "1857": {
+      "BANCH_NAME": "ASHOKNAGAR(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600083
+   },
+   "1897": {
+      "BANCH_NAME": "VADAPATHIMANGALAM",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610206
+   },
+   "1970": {
+      "BANCH_NAME": "SRIRANGAPALAYAM (SALEM)",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636007
+   },
+   "1983": {
+      "BANCH_NAME": "SRIRANGAM(TIRUCHIRAPALLI)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620006
+   },
+   "1985": {
+      "BANCH_NAME": "TIRUVANMIYUR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600041
+   },
+   "2185": {
+      "BANCH_NAME": "AIR FORCE STATION AVADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600055
+   },
+   "2186": {
+      "BANCH_NAME": "AIR FORCE STATION TAMBARAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600046
+   },
+   "2188": {
+      "BANCH_NAME": "ALANDUR ( CHENNAI )",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600016
+   },
+   "2189": {
+      "BANCH_NAME": "ALWARKURICHI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627412
+   },
+   "2190": {
+      "BANCH_NAME": "ALWARPET",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600018
+   },
+   "2191": {
+      "BANCH_NAME": "AMARAVATHI NAGAR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642102
+   },
+   "2192": {
+      "BANCH_NAME": "AMBUR",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635802
+   },
+   "2193": {
+      "BANCH_NAME": "ACB AMMAPETTAI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638311
+   },
+   "2194": {
+      "BANCH_NAME": "ANAIMALAI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642104
+   },
+   "2195": {
+      "BANCH_NAME": "ANDIPATTI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625512
+   },
+   "2196": {
+      "BANCH_NAME": "ANNA NAGAR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "2197": {
+      "BANCH_NAME": "ARAMBOLY",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629301
+   },
+   "2198": {
+      "BANCH_NAME": "ARCOT",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632503
+   },
+   "2199": {
+      "BANCH_NAME": "ACB ARUMANAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629151
+   },
+   "2200": {
+      "BANCH_NAME": "ATTAYAMPATTI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 637501
+   },
+   "2201": {
+      "BANCH_NAME": "AVADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600054
+   },
+   "2202": {
+      "BANCH_NAME": "AYANAVARAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600023
+   },
+   "2203": {
+      "BANCH_NAME": "BAGAYAM (VELLORE)",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632002
+   },
+   "2205": {
+      "BANCH_NAME": "BRAHMANA PERIA AGRAHARAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638005
+   },
+   "2208": {
+      "BANCH_NAME": "CHETTIPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641201
+   },
+   "2209": {
+      "BANCH_NAME": "CHEYUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641655
+   },
+   "2210": {
+      "BANCH_NAME": "DEVADANAPATTI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625602
+   },
+   "2213": {
+      "BANCH_NAME": "IDAPPADI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 637101
+   },
+   "2216": {
+      "BANCH_NAME": "INDUNAGAR",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643005
+   },
+   "2218": {
+      "BANCH_NAME": "JALLIPATTI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642112
+   },
+   "2219": {
+      "BANCH_NAME": "KALPAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603102
+   },
+   "2221": {
+      "BANCH_NAME": "KANGEYAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638701
+   },
+   "2222": {
+      "BANCH_NAME": "ACB KARUNGAL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629157
+   },
+   "2223": {
+      "BANCH_NAME": "KILAKKARAI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623517
+   },
+   "2225": {
+      "BANCH_NAME": "KOOTHANALLUR (THANJAVUR DIST.)",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610205
+   },
+   "2226": {
+      "BANCH_NAME": "KUGALUR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638313
+   },
+   "2227": {
+      "BANCH_NAME": "KURUMBUR",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628207
+   },
+   "2233": {
+      "BANCH_NAME": "MRL MANALI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600068
+   },
+   "2234": {
+      "BANCH_NAME": "MADRAS UNIVERSITY",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600005
+   },
+   "2235": {
+      "BANCH_NAME": "MADURAI KAMRAJ UNIVERSITY",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625021
+   },
+   "2239": {
+      "BANCH_NAME": "NANDAMBAKKAM (CHENNAI)",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600089
+   },
+   "2241": {
+      "BANCH_NAME": "NEIKKARAPATTI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624615
+   },
+   "2242": {
+      "BANCH_NAME": "NEYVELI BAZAAR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607803
+   },
+   "2244": {
+      "BANCH_NAME": "VALLUVARKOTTAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "2246": {
+      "BANCH_NAME": "OTHAKADAI MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625107
+   },
+   "2247": {
+      "BANCH_NAME": "ACB PALAMEDU",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625503
+   },
+   "2248": {
+      "BANCH_NAME": "PALLAVARAM (CHENNAI)",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600043
+   },
+   "2251": {
+      "BANCH_NAME": "ACB PANRUTI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607106
+   },
+   "2253": {
+      "BANCH_NAME": "ACB PARTHIBANUR",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623608
+   },
+   "2254": {
+      "BANCH_NAME": "PASUMALAI (MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625004
+   },
+   "2256": {
+      "BANCH_NAME": "PERAMBUR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600011
+   },
+   "2257": {
+      "BANCH_NAME": "PERIAMET(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600003
+   },
+   "2258": {
+      "BANCH_NAME": "PERNAMBUT",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 635810
+   },
+   "2259": {
+      "BANCH_NAME": "PONGALUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641667
+   },
+   "2262": {
+      "BANCH_NAME": "RANIPET",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632401
+   },
+   "2265": {
+      "BANCH_NAME": "ROYAPURAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600013
+   },
+   "2266": {
+      "BANCH_NAME": "SAIDAPET BAZAAR(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600015
+   },
+   "2267": {
+      "BANCH_NAME": "MOHANNAGAR TOWNSHIP",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636030
+   },
+   "2268": {
+      "BANCH_NAME": "ACB SATHIRAKUDI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623527
+   },
+   "2270": {
+      "BANCH_NAME": "ACB SHOLAVANDAN",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625214
+   },
+   "2274": {
+      "BANCH_NAME": "TN AGRI UNIV CAMPUS(CBE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641003
+   },
+   "2275": {
+      "BANCH_NAME": "ACB TARAMANGALAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636502
+   },
+   "2277": {
+      "BANCH_NAME": "THENI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625531
+   },
+   "2278": {
+      "BANCH_NAME": "THUCKANAICKENPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638506
+   },
+   "2281": {
+      "BANCH_NAME": "ACB TIRUVENGADU",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609114
+   },
+   "2283": {
+      "BANCH_NAME": "UDANGUDI",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628203
+   },
+   "2284": {
+      "BANCH_NAME": "ACB USILAMPATTI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625532
+   },
+   "2285": {
+      "BANCH_NAME": "ACB VANGAL",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639116
+   },
+   "2286": {
+      "BANCH_NAME": "VENNANDUR",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637505
+   },
+   "2288": {
+      "BANCH_NAME": "WORLD UNIV SER CENTRE CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600031
+   },
+   "2289": {
+      "BANCH_NAME": "AMMAN SANNATHI(MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "3061": {
+      "BANCH_NAME": "R.S.PURAM COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641002
+   },
+   "3062": {
+      "BANCH_NAME": "VALPARAI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642127
+   },
+   "3065": {
+      "BANCH_NAME": "ACB VILLUPURAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605602
+   },
+   "3081": {
+      "BANCH_NAME": "SME BRANCH THUVAKUDI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620015
+   },
+   "3128": {
+      "BANCH_NAME": "KARUNGUZHI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603303
+   },
+   "3143": {
+      "BANCH_NAME": "SPIC NAGAR (TUTICORIN)",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628005
+   },
+   "3160": {
+      "BANCH_NAME": "AUROVILLE INTL TOWNSHIP",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605101
+   },
+   "3161": {
+      "BANCH_NAME": "TENNUR(TIRUCHIRAPALLI)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620017
+   },
+   "3162": {
+      "BANCH_NAME": "LOVEDALE (OOTACAMUND)",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643003
+   },
+   "3234": {
+      "BANCH_NAME": "ACB THINGAL NAGAR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629802
+   },
+   "3273": {
+      "BANCH_NAME": "AMINJIKARAI(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600029
+   },
+   "3274": {
+      "BANCH_NAME": "BESANT NAGAR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600090
+   },
+   "3275": {
+      "BANCH_NAME": "VIVEKANANDA HOUSE (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600005
+   },
+   "3281": {
+      "BANCH_NAME": "KATTUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621601
+   },
+   "3302": {
+      "BANCH_NAME": "SINGANALLUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641005
+   },
+   "3303": {
+      "BANCH_NAME": "SIDCO AMBATTUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600050
+   },
+   "3306": {
+      "BANCH_NAME": "TONDIARPET (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600081
+   },
+   "3307": {
+      "BANCH_NAME": "CIT NAGAR(SAIDAPET)(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600035
+   },
+   "3308": {
+      "BANCH_NAME": "ELEPHANT GATE (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600003
+   },
+   "3331": {
+      "BANCH_NAME": "KULLANCHAVADI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607301
+   },
+   "3351": {
+      "BANCH_NAME": "NANGANALLUR (CHENNAI)",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600061
+   },
+   "3358": {
+      "BANCH_NAME": "SME BRANCH PALLIPALAYAM",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 638006
+   },
+   "3371": {
+      "BANCH_NAME": "DESUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604501
+   },
+   "3372": {
+      "BANCH_NAME": "PALAKARAI(TIRUCHIRAPALLI)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "3373": {
+      "BANCH_NAME": "ACB AMBATHURAI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624309
+   },
+   "3374": {
+      "BANCH_NAME": "PERNAMALLUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604503
+   },
+   "3395": {
+      "BANCH_NAME": "ACB PERAVURANI",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614804
+   },
+   "3408": {
+      "BANCH_NAME": "ANANDUR",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 624301
+   },
+   "3511": {
+      "BANCH_NAME": "MFL MANALI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600068
+   },
+   "3595": {
+      "BANCH_NAME": "SME BRANCH KURICHI COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641021
+   },
+   "3687": {
+      "BANCH_NAME": "SOMANGALAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 602109
+   },
+   "3688": {
+      "BANCH_NAME": "JOLARPETTAI",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635851
+   },
+   "3689": {
+      "BANCH_NAME": "ACB PALACODE",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636808
+   },
+   "3690": {
+      "BANCH_NAME": "GANAPATHY (COIMBATORE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641012
+   },
+   "3778": {
+      "BANCH_NAME": "WORAIYUR (TRICHY)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620003
+   },
+   "3779": {
+      "BANCH_NAME": "ACB SENDURAI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621714
+   },
+   "3780": {
+      "BANCH_NAME": "VIVEKANANDAPURAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629702
+   },
+   "3781": {
+      "BANCH_NAME": "KARIAPATTI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626106
+   },
+   "3782": {
+      "BANCH_NAME": "ACB PUDUPET",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607108
+   },
+   "3783": {
+      "BANCH_NAME": "MELVISHARAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632509
+   },
+   "3831": {
+      "BANCH_NAME": "AMMAPET",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614401
+   },
+   "3832": {
+      "BANCH_NAME": "TIRUCHULI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626129
+   },
+   "3833": {
+      "BANCH_NAME": "ACB KATTUMANNARKOIL",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608301
+   },
+   "3834": {
+      "BANCH_NAME": "ACB MARANDAHALLI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636806
+   },
+   "3865": {
+      "BANCH_NAME": "KANNAMANGALAM",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632311
+   },
+   "3870": {
+      "BANCH_NAME": "ANNA NAGAR(WEST) CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "3912": {
+      "BANCH_NAME": "ACB NANGAVALLI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636454
+   },
+   "3925": {
+      "BANCH_NAME": "VILATHIKULAM",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628907
+   },
+   "3952": {
+      "BANCH_NAME": "MADURAI AGRICULTURAL COLLEGE",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625104
+   },
+   "3953": {
+      "BANCH_NAME": "ACB MALLUR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636203
+   },
+   "4032": {
+      "BANCH_NAME": "MANNURPET BRANCH",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600050
+   },
+   "4033": {
+      "BANCH_NAME": "SME BRANCH EKKADUTHANGAL CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600097
+   },
+   "4034": {
+      "BANCH_NAME": "COMMERCIAL BRANCH MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "4035": {
+      "BANCH_NAME": "SME BRANCH WALAJAPET",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632513
+   },
+   "4059": {
+      "BANCH_NAME": "COMMERCIAL BRANCH RAJAPALAYAM",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626117
+   },
+   "4060": {
+      "BANCH_NAME": "SME BRANCH TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "4061": {
+      "BANCH_NAME": "COMMERCIAL BRANCH ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638003
+   },
+   "4105": {
+      "BANCH_NAME": "SAMB CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600008
+   },
+   "4201": {
+      "BANCH_NAME": "SPECIALISED COMMERCIAL BRANCH TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641602
+   },
+   "4236": {
+      "BANCH_NAME": "SPECIALISED PBB COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "4255": {
+      "BANCH_NAME": "P B B T NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "4271": {
+      "BANCH_NAME": "NAMBIYUR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638458
+   },
+   "4272": {
+      "BANCH_NAME": "VELLAKOIL",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638111
+   },
+   "4279": {
+      "BANCH_NAME": "NRI BRANCH ANNANAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "4285": {
+      "BANCH_NAME": "TIDEL PARK",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600113
+   },
+   "4299": {
+      "BANCH_NAME": "PB BRANCH ANNA NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600102
+   },
+   "4300": {
+      "BANCH_NAME": "PBB INDIRA NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "4308": {
+      "BANCH_NAME": "PBB BESANT NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600090
+   },
+   "4309": {
+      "BANCH_NAME": "PBB NUNGAMBAKKAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600006
+   },
+   "4327": {
+      "BANCH_NAME": "SME BRANCH GUINDY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600032
+   },
+   "4331": {
+      "BANCH_NAME": "PBB MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625002
+   },
+   "4374": {
+      "BANCH_NAME": "PBB K K NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600078
+   },
+   "4387": {
+      "BANCH_NAME": "AGRI COMM BRANCH ANUVIJAY TOWNSHIP",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627120
+   },
+   "4389": {
+      "BANCH_NAME": "PBB RAMNAGAR COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641012
+   },
+   "4406": {
+      "BANCH_NAME": "PERSONAL BANKING BR. VELLORE",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632006
+   },
+   "4470": {
+      "BANCH_NAME": "CPPC CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600092
+   },
+   "4487": {
+      "BANCH_NAME": "RACPC CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600008
+   },
+   "4651": {
+      "BANCH_NAME": "DEVANURPUDUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642207
+   },
+   "4675": {
+      "BANCH_NAME": "HVF AVADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600054
+   },
+   "4765": {
+      "BANCH_NAME": "NELLIKUPPAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607105
+   },
+   "4766": {
+      "BANCH_NAME": "PERUMALPURAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627007
+   },
+   "4792": {
+      "BANCH_NAME": "SAIBABA COLONY(COIMBATORE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641011
+   },
+   "4804": {
+      "BANCH_NAME": "OVERSEAS BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "4863": {
+      "BANCH_NAME": "ACB KALAVAI",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632506
+   },
+   "4870": {
+      "BANCH_NAME": "ACB AVALURPET",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604201
+   },
+   "4871": {
+      "BANCH_NAME": "ACB BHAVANISAGAR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638451
+   },
+   "4876": {
+      "BANCH_NAME": "KOTAGIRI",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643217
+   },
+   "4878": {
+      "BANCH_NAME": "MELAPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638051
+   },
+   "4879": {
+      "BANCH_NAME": "SANTHAVASAL",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606905
+   },
+   "4881": {
+      "BANCH_NAME": "TIRUNELVELI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627005
+   },
+   "4882": {
+      "BANCH_NAME": "AIR FORCE STATION SULUR COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641401
+   },
+   "4883": {
+      "BANCH_NAME": "ACB ANNAVASAL",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622101
+   },
+   "4891": {
+      "BANCH_NAME": "MANJAKUPPAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607001
+   },
+   "4892": {
+      "BANCH_NAME": "MIMISAL",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 614621
+   },
+   "4894": {
+      "BANCH_NAME": "ACB RAMESWARAM",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623526
+   },
+   "4898": {
+      "BANCH_NAME": "VEMBATTUR",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630565
+   },
+   "4899": {
+      "BANCH_NAME": "VOC NAGAR (THANJAVUR)",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613007
+   },
+   "4920": {
+      "BANCH_NAME": "ACB THENGAMPUTHUR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629603
+   },
+   "5007": {
+      "BANCH_NAME": "SMECC CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "5008": {
+      "BANCH_NAME": "SECC COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "5009": {
+      "BANCH_NAME": "RACPC MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625002
+   },
+   "5056": {
+      "BANCH_NAME": "TRADE FINANCE CPC CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "5071": {
+      "BANCH_NAME": "TRADE FINANCE CPC COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "5083": {
+      "BANCH_NAME": "PADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600050
+   },
+   "5090": {
+      "BANCH_NAME": "MOGAPPAIR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600037
+   },
+   "5132": {
+      "BANCH_NAME": "PONNAMARAVATHI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622407
+   },
+   "5145": {
+      "BANCH_NAME": "ACB CHINAMANNOOR",
+      "DISTRICT": "THENI",
+      "PINCODE": 625515
+   },
+   "5170": {
+      "BANCH_NAME": "STRESSED ASSET RECOVERY BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600008
+   },
+   "5199": {
+      "BANCH_NAME": "MADIPAKKAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600091
+   },
+   "5200": {
+      "BANCH_NAME": "PORUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600116
+   },
+   "5201": {
+      "BANCH_NAME": "POONAMALLEE",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600056
+   },
+   "5202": {
+      "BANCH_NAME": "ACB PULIYANGUDI (TIRUNELVELI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627855
+   },
+   "5236": {
+      "BANCH_NAME": "LCPC CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "5337": {
+      "BANCH_NAME": "ACB MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "5338": {
+      "BANCH_NAME": "ACB UDUMALPET",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642126
+   },
+   "5356": {
+      "BANCH_NAME": "ACB POLUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606803
+   },
+   "5379": {
+      "BANCH_NAME": "ACB CUMBUM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625516
+   },
+   "5380": {
+      "BANCH_NAME": "CHINTADRIPET CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "5381": {
+      "BANCH_NAME": "ACB JALAKANTAPURAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636501
+   },
+   "5384": {
+      "BANCH_NAME": "ACB ARASARKULAM",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 614801
+   },
+   "5580": {
+      "BANCH_NAME": "ACB KADATHUR",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 635303
+   },
+   "5581": {
+      "BANCH_NAME": "ACB VEERAGANUR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636116
+   },
+   "5582": {
+      "BANCH_NAME": "KURISILAPATTU",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635702
+   },
+   "5593": {
+      "BANCH_NAME": "AYYAMPETTAI",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631601
+   },
+   "5594": {
+      "BANCH_NAME": "ACB BELUR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636104
+   },
+   "5597": {
+      "BANCH_NAME": "PAPPAMPATTI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624621
+   },
+   "5599": {
+      "BANCH_NAME": "VADIVEESWARAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "5628": {
+      "BANCH_NAME": "PAVINJUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603312
+   },
+   "5629": {
+      "BANCH_NAME": "KANDASAMYPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638109
+   },
+   "5630": {
+      "BANCH_NAME": "PALAKURICHI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621308
+   },
+   "5631": {
+      "BANCH_NAME": "PANJAPATTI",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639119
+   },
+   "5632": {
+      "BANCH_NAME": "ACB TIRUVONAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614614
+   },
+   "5633": {
+      "BANCH_NAME": "KANAKKANPATTI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624613
+   },
+   "5634": {
+      "BANCH_NAME": "SAPTUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625705
+   },
+   "5635": {
+      "BANCH_NAME": "ACB MAILAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604304
+   },
+   "5636": {
+      "BANCH_NAME": "MADANUR",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635804
+   },
+   "5637": {
+      "BANCH_NAME": "ACB VANAPURAM",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606753
+   },
+   "5739": {
+      "BANCH_NAME": "SALEM STEEL PLANT CAMPUS",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636030
+   },
+   "5740": {
+      "BANCH_NAME": "VADAVALLI (DIST.COIMBATORE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641041
+   },
+   "5789": {
+      "BANCH_NAME": "MEENAMBAKKAM AIRPORT",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600027
+   },
+   "5790": {
+      "BANCH_NAME": "C T O COMPLEX COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "5795": {
+      "BANCH_NAME": "PODANUR(COIMBATORE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641023
+   },
+   "5797": {
+      "BANCH_NAME": "SANTHOME (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600028
+   },
+   "6225": {
+      "BANCH_NAME": "ACB KOLAPPALUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632313
+   },
+   "6226": {
+      "BANCH_NAME": "KARUMBUR",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635811
+   },
+   "6239": {
+      "BANCH_NAME": "NEDUNCHERI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608305
+   },
+   "6241": {
+      "BANCH_NAME": "AGRI COMM BRANCH RAMIANAHALLI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 635302
+   },
+   "6242": {
+      "BANCH_NAME": "MOOKANDAPALLI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635126
+   },
+   "6244": {
+      "BANCH_NAME": "ACB KOTTAPATTI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636906
+   },
+   "6245": {
+      "BANCH_NAME": "AGRI COMM BRANCH THOPPUR",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636352
+   },
+   "6394": {
+      "BANCH_NAME": "VILAPAKKAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632521
+   },
+   "6400": {
+      "BANCH_NAME": "ACB PALAYAMKOTTAI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608701
+   },
+   "6463": {
+      "BANCH_NAME": "ANNA UNIVERSITY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600025
+   },
+   "6489": {
+      "BANCH_NAME": "PWD COMPLEX CHEPAUK(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600005
+   },
+   "6495": {
+      "BANCH_NAME": "ARUMBAKKAM(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600106
+   },
+   "6577": {
+      "BANCH_NAME": "REDFIELDS (COIMBATORE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641045
+   },
+   "6616": {
+      "BANCH_NAME": "SME SIRUTHOZHIL BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600031
+   },
+   "6710": {
+      "BANCH_NAME": "ACB ASAVEERANKUDIKADU",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621709
+   },
+   "6711": {
+      "BANCH_NAME": "ATHANAVUR",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635853
+   },
+   "6719": {
+      "BANCH_NAME": "UDHYANATHAM",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 612902
+   },
+   "6720": {
+      "BANCH_NAME": "PERIASEVALAI",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 607209
+   },
+   "6722": {
+      "BANCH_NAME": "ACB SUTHAMALLI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621804
+   },
+   "6728": {
+      "BANCH_NAME": "POOLAVADI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642206
+   },
+   "6747": {
+      "BANCH_NAME": "THIRUVAIYARU",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613204
+   },
+   "6845": {
+      "BANCH_NAME": "KAMARAJAPURAM (BHEL TOWNSHIP)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620014
+   },
+   "6850": {
+      "BANCH_NAME": "SALIGRAMAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600093
+   },
+   "6874": {
+      "BANCH_NAME": "KIL-KOTAGIRI",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643216
+   },
+   "6902": {
+      "BANCH_NAME": "ACB PUDUPATTINAM",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609101
+   },
+   "6903": {
+      "BANCH_NAME": "ACB UPPIDAMANGALAM",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639114
+   },
+   "6911": {
+      "BANCH_NAME": "SAMALAPURAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641668
+   },
+   "6921": {
+      "BANCH_NAME": "PULANKINAR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642122
+   },
+   "6927": {
+      "BANCH_NAME": "TIRUVIDAIMARUDUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 601210
+   },
+   "6997": {
+      "BANCH_NAME": "ATHIMANJERIPET",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 631202
+   },
+   "7008": {
+      "BANCH_NAME": "VISHAMANGALAM",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635652
+   },
+   "7009": {
+      "BANCH_NAME": "ACB SUNDARAMPALLI",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635654
+   },
+   "7010": {
+      "BANCH_NAME": "SATHANUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606706
+   },
+   "7011": {
+      "BANCH_NAME": "ACB P.K.PURAM",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632209
+   },
+   "7012": {
+      "BANCH_NAME": "ALATHUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604408
+   },
+   "7013": {
+      "BANCH_NAME": "BHEL MUKUNDARAYAPURAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632406
+   },
+   "7014": {
+      "BANCH_NAME": "BHARATHIDASAN UNIVERSITY",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620024
+   },
+   "7015": {
+      "BANCH_NAME": "KODAVASAL",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 612601
+   },
+   "7023": {
+      "BANCH_NAME": "SME BRANCH TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641601
+   },
+   "7024": {
+      "BANCH_NAME": "LEATHER AND INTERNATIONAL BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "7035": {
+      "BANCH_NAME": "KOODAKOIL",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625022
+   },
+   "7039": {
+      "BANCH_NAME": "ADALUR",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624212
+   },
+   "7040": {
+      "BANCH_NAME": "ACB KOVILUR",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624706
+   },
+   "7041": {
+      "BANCH_NAME": "KOMARAPALAYAM",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 638183
+   },
+   "7042": {
+      "BANCH_NAME": "SME BRANCH KAPPALUR MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625008
+   },
+   "7043": {
+      "BANCH_NAME": "YERCAUD",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636601
+   },
+   "7053": {
+      "BANCH_NAME": "PALAVUR",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627114
+   },
+   "7055": {
+      "BANCH_NAME": "SIPCOT IND COMPLEX MANAMADURAI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630606
+   },
+   "7057": {
+      "BANCH_NAME": "THADIKKARANKONAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629851
+   },
+   "7066": {
+      "BANCH_NAME": "MADURAVOYAL",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600095
+   },
+   "7105": {
+      "BANCH_NAME": "MAHALINGAPURAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600034
+   },
+   "7106": {
+      "BANCH_NAME": "SHASTRI NAGAR(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "7107": {
+      "BANCH_NAME": "VEPERY(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600084
+   },
+   "7108": {
+      "BANCH_NAME": "VILLIVAKKAM (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600049
+   },
+   "7126": {
+      "BANCH_NAME": "POIGAI",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632114
+   },
+   "7127": {
+      "BANCH_NAME": "ODHIYATHUR",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 635809
+   },
+   "7140": {
+      "BANCH_NAME": "VICKRAMASINGAPURAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627425
+   },
+   "7200": {
+      "BANCH_NAME": "DADAGAPATTI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636006
+   },
+   "7201": {
+      "BANCH_NAME": "COMMERCIAL BRANCH SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636007
+   },
+   "7230": {
+      "BANCH_NAME": "GANESAPURAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641107
+   },
+   "7231": {
+      "BANCH_NAME": "PEELAMEDU (COIMBATORE)",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641004
+   },
+   "7271": {
+      "BANCH_NAME": "SME BRANCH BHAVANI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638301
+   },
+   "7274": {
+      "BANCH_NAME": "SME SIRUTHOZHIL BRANCH VELLORE",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632006
+   },
+   "7276": {
+      "BANCH_NAME": "CHINNADHARAPURAM",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639202
+   },
+   "7281": {
+      "BANCH_NAME": "TREASURY BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "7290": {
+      "BANCH_NAME": "KETTY VALLEY",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643215
+   },
+   "7306": {
+      "BANCH_NAME": "ACB R M Y MANALURPET",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 605754
+   },
+   "7347": {
+      "BANCH_NAME": "COMMERCIAL BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "7463": {
+      "BANCH_NAME": "ACB RMY KAVERIPATTINAM",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635112
+   },
+   "7464": {
+      "BANCH_NAME": "ACB RMY PENNAGARAM",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636810
+   },
+   "7482": {
+      "BANCH_NAME": "ARASARADI(MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625016
+   },
+   "7486": {
+      "BANCH_NAME": "MAMSAPURAM",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626124
+   },
+   "7487": {
+      "BANCH_NAME": "RAMALINGANAGAR (TIRUCHII)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620003
+   },
+   "7494": {
+      "BANCH_NAME": "ACB RMY POCHAMPALLI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635206
+   },
+   "7495": {
+      "BANCH_NAME": "ACB RMY UTHANGARAI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635207
+   },
+   "7496": {
+      "BANCH_NAME": "ACB R M Y KELAMANGALAM",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635113
+   },
+   "7536": {
+      "BANCH_NAME": "COMMERCIAL BRANCH COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "7544": {
+      "BANCH_NAME": "PARAVAKOTTAI",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614015
+   },
+   "7545": {
+      "BANCH_NAME": "RAYANALLUR",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614715
+   },
+   "7549": {
+      "BANCH_NAME": "AGRI COMM BRANCH KORATTI",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635602
+   },
+   "7559": {
+      "BANCH_NAME": "ACB AVOOR",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622515
+   },
+   "7560": {
+      "BANCH_NAME": "BALASAMUDRAM",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624610
+   },
+   "7561": {
+      "BANCH_NAME": "GENGUVARPATTI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625203
+   },
+   "7562": {
+      "BANCH_NAME": "JEYAMANGALAM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625603
+   },
+   "7563": {
+      "BANCH_NAME": "ACB KUMARAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625018
+   },
+   "7564": {
+      "BANCH_NAME": "SWAMINATHAPURAM",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 642113
+   },
+   "7565": {
+      "BANCH_NAME": "SENGAPPADAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625704
+   },
+   "7566": {
+      "BANCH_NAME": "THERKUTHERU",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625122
+   },
+   "7567": {
+      "BANCH_NAME": "THANICHAYAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625221
+   },
+   "7571": {
+      "BANCH_NAME": "ACB MANJALUMOODU",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629151
+   },
+   "7580": {
+      "BANCH_NAME": "THATCHUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632326
+   },
+   "7581": {
+      "BANCH_NAME": "VALLAM",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604505
+   },
+   "7582": {
+      "BANCH_NAME": "JAWAHARNAGAR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600082
+   },
+   "7583": {
+      "BANCH_NAME": "ACB SRIPURANTHAN",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621701
+   },
+   "7584": {
+      "BANCH_NAME": "ACB PONPARAPPI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621710
+   },
+   "7585": {
+      "BANCH_NAME": "ACB IRUMBILIKURICHI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621804
+   },
+   "7586": {
+      "BANCH_NAME": "KARVAZHI",
+      "DISTRICT": "KARUR",
+      "PINCODE": 638151
+   },
+   "7587": {
+      "BANCH_NAME": "KOVILUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639207
+   },
+   "7588": {
+      "BANCH_NAME": "THENNILAI",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639206
+   },
+   "7589": {
+      "BANCH_NAME": "ACB CHITTAR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 636311
+   },
+   "7590": {
+      "BANCH_NAME": "ACB OLAGADAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638314
+   },
+   "7591": {
+      "BANCH_NAME": "ACB PADIYUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638701
+   },
+   "7592": {
+      "BANCH_NAME": "KEMPANAICKENPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638503
+   },
+   "7593": {
+      "BANCH_NAME": "KADAMBUR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638503
+   },
+   "7594": {
+      "BANCH_NAME": "JANAPANCHATRAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600067
+   },
+   "7595": {
+      "BANCH_NAME": "EDAYANCHAVADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600103
+   },
+   "7596": {
+      "BANCH_NAME": "THIRUMANOOR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636202
+   },
+   "7597": {
+      "BANCH_NAME": "ACB A.MALLAPURAM",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636806
+   },
+   "7598": {
+      "BANCH_NAME": "ACB RAMAMOORTHY NAGAR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636354
+   },
+   "7600": {
+      "BANCH_NAME": "ACB ALAMPOONDI",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604151
+   },
+   "7605": {
+      "BANCH_NAME": "ACB KOONIMEDU",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604303
+   },
+   "7606": {
+      "BANCH_NAME": "SIRUPAKKAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 606123
+   },
+   "7611": {
+      "BANCH_NAME": "SHOLINGHUR",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631102
+   },
+   "7625": {
+      "BANCH_NAME": "K K NAGAR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600078
+   },
+   "7629": {
+      "BANCH_NAME": "TUTICORIN BAZAR",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628002
+   },
+   "7634": {
+      "BANCH_NAME": "BITHERKAD",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643240
+   },
+   "7635": {
+      "BANCH_NAME": "KAMBALAPATTI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642007
+   },
+   "7636": {
+      "BANCH_NAME": "ACB KETHANUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641671
+   },
+   "7639": {
+      "BANCH_NAME": "TREASURY BRANCH COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "7684": {
+      "BANCH_NAME": "NRI BR. CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "7771": {
+      "BANCH_NAME": "SIRUTHOZHIL BRANCH KARUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639001
+   },
+   "7790": {
+      "BANCH_NAME": "MULLANDIRAM",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632512
+   },
+   "7791": {
+      "BANCH_NAME": "SEMPALLI",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632601
+   },
+   "7792": {
+      "BANCH_NAME": "KORUKKAI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604409
+   },
+   "7824": {
+      "BANCH_NAME": "NAGAMANGALAM",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635113
+   },
+   "7825": {
+      "BANCH_NAME": "ELATHAGIRI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635108
+   },
+   "7846": {
+      "BANCH_NAME": "C MUTLUR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608102
+   },
+   "7847": {
+      "BANCH_NAME": "ACB ASAKALATHUR",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 606204
+   },
+   "7848": {
+      "BANCH_NAME": "ACB VEEDUR",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605652
+   },
+   "7849": {
+      "BANCH_NAME": "ACB EYYIL",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604204
+   },
+   "7850": {
+      "BANCH_NAME": "ACB MURUKKERI",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604303
+   },
+   "7851": {
+      "BANCH_NAME": "ACBTIRUPALAPANDAL",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 605766
+   },
+   "7852": {
+      "BANCH_NAME": "ACB KUMBAKONAM BAZAR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612001
+   },
+   "7880": {
+      "BANCH_NAME": "THANJAVUR MEDICAL COLLEGE",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613004
+   },
+   "7897": {
+      "BANCH_NAME": "COLLECTRATE BRANCH ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638011
+   },
+   "7921": {
+      "BANCH_NAME": "THENNAMPALAYAM(TIRUPUR)",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641604
+   },
+   "7922": {
+      "BANCH_NAME": "C.T.O. COMPLEX MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625020
+   },
+   "7940": {
+      "BANCH_NAME": "RACE COURSE ROAD COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "7948": {
+      "BANCH_NAME": "SELAIYUR CHENNAI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600073
+   },
+   "7990": {
+      "BANCH_NAME": "CHINMAYA NAGAR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600092
+   },
+   "7991": {
+      "BANCH_NAME": "GILL NAGAR (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600094
+   },
+   "7992": {
+      "BANCH_NAME": "MAHAKAVI BHARATHI NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600039
+   },
+   "7993": {
+      "BANCH_NAME": "VELLACHERRY (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600042
+   },
+   "7994": {
+      "BANCH_NAME": "ACB KAPPIARAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629169
+   },
+   "7995": {
+      "BANCH_NAME": "ACB KOTHANALLUR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629164
+   },
+   "8113": {
+      "BANCH_NAME": "SEVOOR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632316
+   },
+   "8114": {
+      "BANCH_NAME": "ACB KAMANDODDI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "8115": {
+      "BANCH_NAME": "GAJALNAICKENPATTI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636201
+   },
+   "8137": {
+      "BANCH_NAME": "MAMALLAN NAGAR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631502
+   },
+   "8145": {
+      "BANCH_NAME": "KANDASAMYPURAM (TUTICORIN)",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628002
+   },
+   "8155": {
+      "BANCH_NAME": "NARASIMHANAICKENPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641031
+   },
+   "8160": {
+      "BANCH_NAME": "NEHRUJI NAGAR (DINDIGUL)",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624007
+   },
+   "8167": {
+      "BANCH_NAME": "KARIMEDU (MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625016
+   },
+   "8178": {
+      "BANCH_NAME": "KARANTHATTANGUDI (THANJAVUR)",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612005
+   },
+   "8181": {
+      "BANCH_NAME": "MELACHINTHAMANI (TIRUCHI)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620002
+   },
+   "8276": {
+      "BANCH_NAME": "SIVANMALAI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638701
+   },
+   "8280": {
+      "BANCH_NAME": "PINNALUR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608704
+   },
+   "8281": {
+      "BANCH_NAME": "KANUR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608701
+   },
+   "8282": {
+      "BANCH_NAME": "ACB KALADUR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 606304
+   },
+   "8376": {
+      "BANCH_NAME": "ACB LABBAIKUDIKADU",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621108
+   },
+   "8464": {
+      "BANCH_NAME": "ACB MELAILANTHAIKULAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627951
+   },
+   "8467": {
+      "BANCH_NAME": "ACB PUNNAKAYAL",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628151
+   },
+   "8468": {
+      "BANCH_NAME": "ACB UCHINATHAM",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623115
+   },
+   "8469": {
+      "BANCH_NAME": "ACB S.THARAIKUDI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623135
+   },
+   "8471": {
+      "BANCH_NAME": "ILAYANKUDI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 623702
+   },
+   "8523": {
+      "BANCH_NAME": "ELANGAKURICHI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621302
+   },
+   "8608": {
+      "BANCH_NAME": "COIMBATORE NAGAR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641001
+   },
+   "8611": {
+      "BANCH_NAME": "ACB EDAYAKURICHI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621719
+   },
+   "8623": {
+      "BANCH_NAME": "ACB M.KALLUPATTI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625535
+   },
+   "8641": {
+      "BANCH_NAME": "WEST TOWER STREET",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "8647": {
+      "BANCH_NAME": "MODAGAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625702
+   },
+   "8653": {
+      "BANCH_NAME": "ACB KOTTAR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629002
+   },
+   "8654": {
+      "BANCH_NAME": "NAGAVEDU",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631002
+   },
+   "8676": {
+      "BANCH_NAME": "ROCK FORT CITY(TIRUCHIRAPALLI)",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620002
+   },
+   "8677": {
+      "BANCH_NAME": "TIRUPUR BAZAAR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641602
+   },
+   "8685": {
+      "BANCH_NAME": "ACB VARADARAJANPETTAI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621805
+   },
+   "8688": {
+      "BANCH_NAME": "SATHUVACHARI",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632009
+   },
+   "8906": {
+      "BANCH_NAME": "PALANCOTTAI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 628552
+   },
+   "8933": {
+      "BANCH_NAME": "CHOKKANATHAPURAM",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630313
+   },
+   "9106": {
+      "BANCH_NAME": "DEVATHOOR",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624614
+   },
+   "9107": {
+      "BANCH_NAME": "KANNIAPPAPILLAI PATTI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625512
+   },
+   "9184": {
+      "BANCH_NAME": "ACB MELAYAKUDI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623706
+   },
+   "9215": {
+      "BANCH_NAME": "ACB AGALAR",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643002
+   },
+   "9216": {
+      "BANCH_NAME": "AYYANSALAI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638402
+   },
+   "9313": {
+      "BANCH_NAME": "ACB SINGIPURAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636115
+   },
+   "9314": {
+      "BANCH_NAME": "VEERAPANDI (TIRUPUR)",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641605
+   },
+   "9315": {
+      "BANCH_NAME": "POLIPAKKAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632505
+   },
+   "9318": {
+      "BANCH_NAME": "PERUNGUDI(CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600096
+   },
+   "9360": {
+      "BANCH_NAME": "NALUR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626607
+   },
+   "9471": {
+      "BANCH_NAME": "ACB VALANDUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625532
+   },
+   "9472": {
+      "BANCH_NAME": "ADICHAPURAM",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614717
+   },
+   "9581": {
+      "BANCH_NAME": "CHAMIERS ROAD (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600035
+   },
+   "9582": {
+      "BANCH_NAME": "ANAICUT",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603312
+   },
+   "9583": {
+      "BANCH_NAME": "MELSANANKUPPAM",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635807
+   },
+   "9584": {
+      "BANCH_NAME": "NADUKUPPAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604303
+   },
+   "9585": {
+      "BANCH_NAME": "KUVANUR",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 605766
+   },
+   "9586": {
+      "BANCH_NAME": "ACB VANUR",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605109
+   },
+   "9587": {
+      "BANCH_NAME": "V KALLIPALAYAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641664
+   },
+   "9588": {
+      "BANCH_NAME": "ACB ODDANCHATRAM (PACHALUR)",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624619
+   },
+   "9589": {
+      "BANCH_NAME": "ACB CHEMMANVILAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629172
+   },
+   "9590": {
+      "BANCH_NAME": "VADAKKUR NORTH",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614902
+   },
+   "9591": {
+      "BANCH_NAME": "ACB VETTIKADU",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614902
+   },
+   "9592": {
+      "BANCH_NAME": "KUTHUR",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611105
+   },
+   "9602": {
+      "BANCH_NAME": "OKKANADU KEELAIYUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614632
+   },
+   "9603": {
+      "BANCH_NAME": "SAYAMALAI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 628552
+   },
+   "9664": {
+      "BANCH_NAME": "SIVAKASI TOWN",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626123
+   },
+   "9675": {
+      "BANCH_NAME": "KOYAMBEDU (CHENNAI)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600107
+   },
+   "9754": {
+      "BANCH_NAME": "TIRUKKUVALAI",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 610204
+   },
+   "9759": {
+      "BANCH_NAME": "PANANGUDI",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611002
+   },
+   "9760": {
+      "BANCH_NAME": "GULLAPURAM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625562
+   },
+   "9930": {
+      "BANCH_NAME": "INDUSTRIAL FINANCE BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600031
+   },
+   "9999": {
+      "BANCH_NAME": "CAG CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600008
+   },
+   "10042": {
+      "BANCH_NAME": "RACPC COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "10195": {
+      "BANCH_NAME": "CAC COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "10204": {
+      "BANCH_NAME": "SARB COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "10205": {
+      "BANCH_NAME": "RACPC TIRUCHIRAPPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "10315": {
+      "BANCH_NAME": "LADY DOAK COLLEGE MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625002
+   },
+   "10325": {
+      "BANCH_NAME": "RACPC SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636001
+   },
+   "10395": {
+      "BANCH_NAME": "CCPC CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "10412": {
+      "BANCH_NAME": "ANNA NAGAR MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625020
+   },
+   "10432": {
+      "BANCH_NAME": "GOVT COLL OF TECHNOLOGY COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641013
+   },
+   "10470": {
+      "BANCH_NAME": "MELMARUVATHUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603319
+   },
+   "10482": {
+      "BANCH_NAME": "ST XAVIERS COLLEGE",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627002
+   },
+   "10483": {
+      "BANCH_NAME": "ERAL",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628801
+   },
+   "10484": {
+      "BANCH_NAME": "SIPCOT PERUNDURAI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638052
+   },
+   "10491": {
+      "BANCH_NAME": "ACB ERIYUR",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630566
+   },
+   "10492": {
+      "BANCH_NAME": "KHAJAMALAI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620023
+   },
+   "10493": {
+      "BANCH_NAME": "ACB PUGALUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639136
+   },
+   "10501": {
+      "BANCH_NAME": "SURAMANGALAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636004
+   },
+   "10509": {
+      "BANCH_NAME": "MAHINDRA WORLD CITY",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603002
+   },
+   "10510": {
+      "BANCH_NAME": "UTHIRAMERUR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 603406
+   },
+   "10513": {
+      "BANCH_NAME": "THUDIYALUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641034
+   },
+   "10515": {
+      "BANCH_NAME": "KOLATHUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600099
+   },
+   "10516": {
+      "BANCH_NAME": "NEELANKARAI",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600115
+   },
+   "10525": {
+      "BANCH_NAME": "SHOLINGANALLUR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600119
+   },
+   "10612": {
+      "BANCH_NAME": "RASMECC VELLORE",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632006
+   },
+   "10617": {
+      "BANCH_NAME": "SULUR TOWN",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641402
+   },
+   "10618": {
+      "BANCH_NAME": "VEERAKERALAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641007
+   },
+   "10642": {
+      "BANCH_NAME": "EDAMALAIPATTI PUDUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "10660": {
+      "BANCH_NAME": "MANDARAKUPPAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607802
+   },
+   "10661": {
+      "BANCH_NAME": "MUTHUPET",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614704
+   },
+   "10663": {
+      "BANCH_NAME": "VILAMAL",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610004
+   },
+   "10664": {
+      "BANCH_NAME": "THIRUMANGALAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600101
+   },
+   "10665": {
+      "BANCH_NAME": "TIRUVANNAMALAI TOWN BRANCH",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606601
+   },
+   "10666": {
+      "BANCH_NAME": "THIRUNINRAVUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 602024
+   },
+   "10673": {
+      "BANCH_NAME": "TARAMANI CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600113
+   },
+   "10674": {
+      "BANCH_NAME": "ATNK- K BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600009
+   },
+   "10675": {
+      "BANCH_NAME": "VADAPALANI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600026
+   },
+   "10688": {
+      "BANCH_NAME": "ACB PUDUVAYAL",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630108
+   },
+   "11054": {
+      "BANCH_NAME": "CHETPET(TIRUVANNAMALAI)",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606801
+   },
+   "11055": {
+      "BANCH_NAME": "PALLADAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641664
+   },
+   "11056": {
+      "BANCH_NAME": "NAMAKKAL TOWN",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637001
+   },
+   "11057": {
+      "BANCH_NAME": "G H ROAD ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638009
+   },
+   "11058": {
+      "BANCH_NAME": "ACB DENKANIKOTTAI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635107
+   },
+   "11059": {
+      "BANCH_NAME": "AGRI COMM BRANCH RAYAKOTTAI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635116
+   },
+   "11060": {
+      "BANCH_NAME": "PARAMATHY VELUR",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 638182
+   },
+   "11061": {
+      "BANCH_NAME": "SARAVANAMPATTI COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641035
+   },
+   "11062": {
+      "BANCH_NAME": "PALANGANATHAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625003
+   },
+   "11063": {
+      "BANCH_NAME": "NARAYANAPURAM (MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625014
+   },
+   "11064": {
+      "BANCH_NAME": "ACB THIRUPPUVANAM",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630611
+   },
+   "11065": {
+      "BANCH_NAME": "ACB SURANDAI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627859
+   },
+   "11066": {
+      "BANCH_NAME": "ACB NATHAM",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624401
+   },
+   "11067": {
+      "BANCH_NAME": "BATLAGUNDU",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624202
+   },
+   "11068": {
+      "BANCH_NAME": "BYE PASS ROAD MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625010
+   },
+   "11069": {
+      "BANCH_NAME": "ACB CHINNASALEM",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 606201
+   },
+   "11070": {
+      "BANCH_NAME": "NEEDMANGALAM",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614404
+   },
+   "11071": {
+      "BANCH_NAME": "ULUNDURPET",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 606107
+   },
+   "11072": {
+      "BANCH_NAME": "ACB SANKARAPURAM",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 606401
+   },
+   "11073": {
+      "BANCH_NAME": "ACB KEERANUR",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622502
+   },
+   "11543": {
+      "BANCH_NAME": "NANJUNDAPURAM BRANCH",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641045
+   },
+   "11544": {
+      "BANCH_NAME": "PBB MADURAI CITY",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625009
+   },
+   "11557": {
+      "BANCH_NAME": "SRINIVASANAGAR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620017
+   },
+   "11603": {
+      "BANCH_NAME": "G A ROAD CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600021
+   },
+   "11604": {
+      "BANCH_NAME": "M M D A COLONY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600106
+   },
+   "11605": {
+      "BANCH_NAME": "RANGARAJAPURAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600024
+   },
+   "11606": {
+      "BANCH_NAME": "NELSON MANICKAM ROAD CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600029
+   },
+   "11653": {
+      "BANCH_NAME": "JAFFERKHANPET",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600083
+   },
+   "11654": {
+      "BANCH_NAME": "NRI ADAYAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "11655": {
+      "BANCH_NAME": "SHRINAGAR COLONY",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600015
+   },
+   "11715": {
+      "BANCH_NAME": "KODUGNGAIYUR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600118
+   },
+   "11716": {
+      "BANCH_NAME": "SHENOY NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600030
+   },
+   "11717": {
+      "BANCH_NAME": "NEW AVADI ROAD CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600010
+   },
+   "11718": {
+      "BANCH_NAME": "BYEPASS ROAD VELACHERY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600042
+   },
+   "11720": {
+      "BANCH_NAME": "WEST SAIDAPET",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600015
+   },
+   "11721": {
+      "BANCH_NAME": "VALMIKI NAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600041
+   },
+   "11722": {
+      "BANCH_NAME": "OLD MAHABALIPURAM ROAD (OMR)",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600041
+   },
+   "11732": {
+      "BANCH_NAME": "MRC NAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600028
+   },
+   "11733": {
+      "BANCH_NAME": "WEST VELACHERY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600042
+   },
+   "11736": {
+      "BANCH_NAME": "KELLEYS",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600010
+   },
+   "11738": {
+      "BANCH_NAME": "THIRUMURTHY NAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600034
+   },
+   "11753": {
+      "BANCH_NAME": "BRINDHAVAN NAGAR ADAMBAKKAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600088
+   },
+   "11771": {
+      "BANCH_NAME": "UTHANDI BRANCH",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600119
+   },
+   "11931": {
+      "BANCH_NAME": "GUMMIDIPOONDI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 601201
+   },
+   "11932": {
+      "BANCH_NAME": "OGGIYAM DURAIPAKKAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600097
+   },
+   "11933": {
+      "BANCH_NAME": "SME MARAIMALAINAGAR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603209
+   },
+   "11934": {
+      "BANCH_NAME": "THOTTIAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621215
+   },
+   "11935": {
+      "BANCH_NAME": "ACB VIRALIMALAI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 621316
+   },
+   "11937": {
+      "BANCH_NAME": "MANNACHANALLUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621005
+   },
+   "11938": {
+      "BANCH_NAME": "PBB SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636016
+   },
+   "11939": {
+      "BANCH_NAME": "ANTHIYUR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638501
+   },
+   "11940": {
+      "BANCH_NAME": "ACB VADAMADURAI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624802
+   },
+   "11941": {
+      "BANCH_NAME": "VEDASANDUR",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624710
+   },
+   "11942": {
+      "BANCH_NAME": "ACB COLACHEL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629251
+   },
+   "11944": {
+      "BANCH_NAME": "ACB ELUMALAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625535
+   },
+   "12244": {
+      "BANCH_NAME": "GOUNDAMPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641025
+   },
+   "12245": {
+      "BANCH_NAME": "KUNIAMUTHUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641008
+   },
+   "12247": {
+      "BANCH_NAME": "ACB RAMANPUDUR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629002
+   },
+   "12477": {
+      "BANCH_NAME": "PUNJAIPULIAMPATTI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638459
+   },
+   "12478": {
+      "BANCH_NAME": "ARACHALUR DIST-ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638101
+   },
+   "12512": {
+      "BANCH_NAME": "SME BRANCH P N ROAD TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641601
+   },
+   "12656": {
+      "BANCH_NAME": "KINATHUKADAVU",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642109
+   },
+   "12742": {
+      "BANCH_NAME": "ACB SINGAMPUNARI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630502
+   },
+   "12743": {
+      "BANCH_NAME": "AVANIAPURAM (MADURAI)",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625012
+   },
+   "12744": {
+      "BANCH_NAME": "POOMPUKAR NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600099
+   },
+   "12745": {
+      "BANCH_NAME": "MADUVANKARAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600088
+   },
+   "12746": {
+      "BANCH_NAME": "DR. ALAGAPPA ROAD CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600084
+   },
+   "12747": {
+      "BANCH_NAME": "18TH MAIN ROAD ANNA NAGAR WEST",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "12750": {
+      "BANCH_NAME": "SOUTH BOAG ROAD CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "12751": {
+      "BANCH_NAME": "JAINAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600106
+   },
+   "12757": {
+      "BANCH_NAME": "PARVATHIPURAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629003
+   },
+   "12758": {
+      "BANCH_NAME": "SME BRANCH DINDIGUL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624001
+   },
+   "12759": {
+      "BANCH_NAME": "ARUMUGANERI",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628202
+   },
+   "12760": {
+      "BANCH_NAME": "MALLANKINARU",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626109
+   },
+   "12761": {
+      "BANCH_NAME": "SIVAGIRI DIST-TIRUNELVELI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627757
+   },
+   "12762": {
+      "BANCH_NAME": "ACB THONDI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623409
+   },
+   "12764": {
+      "BANCH_NAME": "ANAIYUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625017
+   },
+   "12765": {
+      "BANCH_NAME": "VADIPATTI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625218
+   },
+   "12767": {
+      "BANCH_NAME": "THIRUTHANGAL",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626130
+   },
+   "12768": {
+      "BANCH_NAME": "KOTTUR DIST-THENI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625534
+   },
+   "12769": {
+      "BANCH_NAME": "PB BRANCH SAIBABA COLONY",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641011
+   },
+   "12770": {
+      "BANCH_NAME": "ACB ELAKKIMPATTI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636705
+   },
+   "12771": {
+      "BANCH_NAME": "ACB VAZHAPADI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636115
+   },
+   "12772": {
+      "BANCH_NAME": "AMMAPETTAI SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636003
+   },
+   "12773": {
+      "BANCH_NAME": "ACB THAMMAMPATTI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636113
+   },
+   "12774": {
+      "BANCH_NAME": "ACB DHARMAPURI TOWN",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636701
+   },
+   "12775": {
+      "BANCH_NAME": "ACB PAPPIREDDIPATTI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636905
+   },
+   "12776": {
+      "BANCH_NAME": "SME BRANCH COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641045
+   },
+   "12777": {
+      "BANCH_NAME": "SME BRANCH ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638001
+   },
+   "12778": {
+      "BANCH_NAME": "MANIAKARAMPALAYAM COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641006
+   },
+   "12779": {
+      "BANCH_NAME": "URC NAGAR ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638012
+   },
+   "12780": {
+      "BANCH_NAME": "MOOLAPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638002
+   },
+   "12781": {
+      "BANCH_NAME": "NETHIMEDU",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636002
+   },
+   "12784": {
+      "BANCH_NAME": "ACB KRISHNAGIRI TOWN",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635001
+   },
+   "12785": {
+      "BANCH_NAME": "ACB THALAIVASAL",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636112
+   },
+   "12786": {
+      "BANCH_NAME": "ACB MECHERI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636453
+   },
+   "12787": {
+      "BANCH_NAME": "VELAMPALAYAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641652
+   },
+   "12788": {
+      "BANCH_NAME": "NALLUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641604
+   },
+   "12789": {
+      "BANCH_NAME": "TIRUVANAIKOVIL",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620005
+   },
+   "12790": {
+      "BANCH_NAME": "ACB VALLAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613403
+   },
+   "12791": {
+      "BANCH_NAME": "THIRUPPANANDAL",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612504
+   },
+   "12792": {
+      "BANCH_NAME": "ACB REDDIPALAYAM",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621704
+   },
+   "12794": {
+      "BANCH_NAME": "KUTHALAM",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609801
+   },
+   "12795": {
+      "BANCH_NAME": "THILLAI NAGAR TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620018
+   },
+   "12796": {
+      "BANCH_NAME": "ACB ARAVAKURICHI",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639201
+   },
+   "12799": {
+      "BANCH_NAME": "ACB KOVILUR (GANDHARVAKOTTAI)",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 613301
+   },
+   "12800": {
+      "BANCH_NAME": "K.K. NAGAR TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620021
+   },
+   "12801": {
+      "BANCH_NAME": "NAVALPATTU",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620026
+   },
+   "12802": {
+      "BANCH_NAME": "CHETTIKULAM",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621104
+   },
+   "12803": {
+      "BANCH_NAME": "KRISHNAPURAM",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621116
+   },
+   "12805": {
+      "BANCH_NAME": "SME BRANCH KUMBAKONAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612001
+   },
+   "12806": {
+      "BANCH_NAME": "SME BRANCH THANJAVUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613007
+   },
+   "12807": {
+      "BANCH_NAME": "ACB PERAMBALUR TOWN",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621212
+   },
+   "12809": {
+      "BANCH_NAME": "KATTUPUTHUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621217
+   },
+   "12928": {
+      "BANCH_NAME": "SIRUSERI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603103
+   },
+   "12930": {
+      "BANCH_NAME": "KATTUPAKKAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600056
+   },
+   "12931": {
+      "BANCH_NAME": "SME THIRUMUDIVAKKAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600132
+   },
+   "12932": {
+      "BANCH_NAME": "GUDUVANCHERI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603202
+   },
+   "12933": {
+      "BANCH_NAME": "ORAGADAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 602105
+   },
+   "12934": {
+      "BANCH_NAME": "COLLECTORATE ROAD TIRUVANNAMALAI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606601
+   },
+   "12935": {
+      "BANCH_NAME": "CHINNA KANCHIPURAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631501
+   },
+   "12988": {
+      "BANCH_NAME": "ALAGANKULAM",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623512
+   },
+   "13065": {
+      "BANCH_NAME": "ICF BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600049
+   },
+   "13074": {
+      "BANCH_NAME": "KATPADI",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632007
+   },
+   "13075": {
+      "BANCH_NAME": "KAVERIPAKKAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632508
+   },
+   "13158": {
+      "BANCH_NAME": "VILANGUDI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625018
+   },
+   "13165": {
+      "BANCH_NAME": "SARB MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625020
+   },
+   "13241": {
+      "BANCH_NAME": "SME BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "13242": {
+      "BANCH_NAME": "RAJAJI SALAI BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "13361": {
+      "BANCH_NAME": "SME BRANCH ADYAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "13362": {
+      "BANCH_NAME": "SME BRANCH VIRUDHUNAGAR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626001
+   },
+   "13383": {
+      "BANCH_NAME": "CHROMEPET CHENNAI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600044
+   },
+   "13393": {
+      "BANCH_NAME": "AGRI COMM BRANCH THANTHONI",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639005
+   },
+   "13437": {
+      "BANCH_NAME": "KARAMADAI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641104
+   },
+   "13438": {
+      "BANCH_NAME": "AVANASHI ROAD COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641014
+   },
+   "13442": {
+      "BANCH_NAME": "PERUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641010
+   },
+   "13477": {
+      "BANCH_NAME": "ACB KANNIVADI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624705
+   },
+   "13831": {
+      "BANCH_NAME": "IRUNGATTUKOTTAI",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 602105
+   },
+   "13832": {
+      "BANCH_NAME": "VANDALUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600048
+   },
+   "13833": {
+      "BANCH_NAME": "ELAYIRAMPANNAI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626201
+   },
+   "13834": {
+      "BANCH_NAME": "PALANICHETTIPATTI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625531
+   },
+   "13835": {
+      "BANCH_NAME": "ACB WATRAP",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626132
+   },
+   "13836": {
+      "BANCH_NAME": "ACB SILATTUR",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 614622
+   },
+   "13837": {
+      "BANCH_NAME": "ACB KURUMBALUR",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621107
+   },
+   "13838": {
+      "BANCH_NAME": "POWER HOUSE BRANCH KODAMBAKKAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600024
+   },
+   "14160": {
+      "BANCH_NAME": "PADIYANALLUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600052
+   },
+   "14178": {
+      "BANCH_NAME": "KANJIKOIL",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638116
+   },
+   "14203": {
+      "BANCH_NAME": "ACB KAMUTHI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623603
+   },
+   "14254": {
+      "BANCH_NAME": "VELLIANKADU",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641104
+   },
+   "14360": {
+      "BANCH_NAME": "AGRI COMM BRANCH MAHENDRAGIRI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627133
+   },
+   "14361": {
+      "BANCH_NAME": "TIDEL PARK COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641014
+   },
+   "14370": {
+      "BANCH_NAME": "ADIRAMPATTINAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614701
+   },
+   "14376": {
+      "BANCH_NAME": "SME BRANCH AMBATTUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600058
+   },
+   "14400": {
+      "BANCH_NAME": "PERALAM",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 609405
+   },
+   "14401": {
+      "BANCH_NAME": "ACB AVUDAYARKOVIL",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 614618
+   },
+   "14402": {
+      "BANCH_NAME": "ACB VEDARANYAM",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 614810
+   },
+   "14439": {
+      "BANCH_NAME": "ACBCOIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "14440": {
+      "BANCH_NAME": "AYYAMPETTAI",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614201
+   },
+   "14441": {
+      "BANCH_NAME": "THEVARAM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625530
+   },
+   "14442": {
+      "BANCH_NAME": "ACB GUDALUR",
+      "DISTRICT": "THENI",
+      "PINCODE": 625518
+   },
+   "14462": {
+      "BANCH_NAME": "VADASERY",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "14463": {
+      "BANCH_NAME": "MUTHUNAGAR",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628008
+   },
+   "14464": {
+      "BANCH_NAME": "ACB KEEZHAPAVUR",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627808
+   },
+   "14502": {
+      "BANCH_NAME": "ACB R.S.MANGALAM",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623525
+   },
+   "14619": {
+      "BANCH_NAME": "NATRAMPALLI",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635852
+   },
+   "14620": {
+      "BANCH_NAME": "GURUVARAJAPALAYAM",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632107
+   },
+   "14621": {
+      "BANCH_NAME": "THAKKOLAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631151
+   },
+   "14622": {
+      "BANCH_NAME": "GANDHI NAGAR TIRUVANNAMALAI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606601
+   },
+   "14623": {
+      "BANCH_NAME": "JAMALIA",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600012
+   },
+   "14624": {
+      "BANCH_NAME": "DHASARATHAPURAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600093
+   },
+   "14625": {
+      "BANCH_NAME": "KARPAGAM GARDENS",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "14700": {
+      "BANCH_NAME": "UTHUKOTTAI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 602026
+   },
+   "14755": {
+      "BANCH_NAME": "RBO CHENGALPATTU",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603001
+   },
+   "14760": {
+      "BANCH_NAME": "RBO ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638011
+   },
+   "14762": {
+      "BANCH_NAME": "RBO TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641601
+   },
+   "14783": {
+      "BANCH_NAME": "DHALAVOIPURAM",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626188
+   },
+   "14784": {
+      "BANCH_NAME": "KUNNATHUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638103
+   },
+   "14798": {
+      "BANCH_NAME": "MICRO FINANCE COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641012
+   },
+   "14822": {
+      "BANCH_NAME": "MODAKURICHI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638104
+   },
+   "14893": {
+      "BANCH_NAME": "OTA ST.THOMAS MOUNT",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600016
+   },
+   "14955": {
+      "BANCH_NAME": "MADATHUKULAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642113
+   },
+   "14956": {
+      "BANCH_NAME": "MOHANUR",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637015
+   },
+   "14957": {
+      "BANCH_NAME": "PUTHUR EAST",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637212
+   },
+   "14961": {
+      "BANCH_NAME": "ACB ALANGANALLUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625501
+   },
+   "15017": {
+      "BANCH_NAME": "MALUMICHAMPATTI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641050
+   },
+   "15036": {
+      "BANCH_NAME": "ACB ILAMPILLAI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 637502
+   },
+   "15037": {
+      "BANCH_NAME": "NARASINGAPURAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636108
+   },
+   "15038": {
+      "BANCH_NAME": "PAPPARAPATTI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636809
+   },
+   "15055": {
+      "BANCH_NAME": "KUNDRATHUR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600069
+   },
+   "15218": {
+      "BANCH_NAME": "ANNUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641653
+   },
+   "15221": {
+      "BANCH_NAME": "DSSC WELLINGTON",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643231
+   },
+   "15264": {
+      "BANCH_NAME": "PERUMANALLUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641666
+   },
+   "15301": {
+      "BANCH_NAME": "THIRUVERUMBUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620019
+   },
+   "15305": {
+      "BANCH_NAME": "ACHARAPAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603301
+   },
+   "15329": {
+      "BANCH_NAME": "KAVINDAPADI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638455
+   },
+   "15418": {
+      "BANCH_NAME": "KARANTHAI (THANJAVUR)",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613002
+   },
+   "15419": {
+      "BANCH_NAME": "KARUMANDAPAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "15440": {
+      "BANCH_NAME": "RACPC ANNA NAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "15441": {
+      "BANCH_NAME": "RACPC OMR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600096
+   },
+   "15472": {
+      "BANCH_NAME": "KOVAIPUDUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641042
+   },
+   "15491": {
+      "BANCH_NAME": "MADAVARAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600060
+   },
+   "15492": {
+      "BANCH_NAME": "TIRUVERKADU",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600077
+   },
+   "15493": {
+      "BANCH_NAME": "MINJUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 601203
+   },
+   "15569": {
+      "BANCH_NAME": "K. PUDUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625007
+   },
+   "15570": {
+      "BANCH_NAME": "KOCHADAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625010
+   },
+   "15614": {
+      "BANCH_NAME": "ACB EZHUDESAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629154
+   },
+   "15617": {
+      "BANCH_NAME": "SMECC EKKADUTHANGAL",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600032
+   },
+   "15629": {
+      "BANCH_NAME": "SMECC AMBATTUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600058
+   },
+   "15633": {
+      "BANCH_NAME": "ACB NAGAL NAGAR",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624003
+   },
+   "15703": {
+      "BANCH_NAME": "ACB PARAMAKUDI BAZAAR",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623707
+   },
+   "15704": {
+      "BANCH_NAME": "ACB SALAIPUDUR",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638151
+   },
+   "15742": {
+      "BANCH_NAME": "VANIYAMBADI TOWN",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635752
+   },
+   "15763": {
+      "BANCH_NAME": "PICHANUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641105
+   },
+   "15764": {
+      "BANCH_NAME": "CHINNAMPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642003
+   },
+   "15797": {
+      "BANCH_NAME": "GUDIMANGALAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642201
+   },
+   "15798": {
+      "BANCH_NAME": "ACB VASANTHAPURAM",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637002
+   },
+   "15799": {
+      "BANCH_NAME": "SOWDARPATTI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625704
+   },
+   "15800": {
+      "BANCH_NAME": "BALAKRISHNAPURAM",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624005
+   },
+   "15801": {
+      "BANCH_NAME": "VADAGARAI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625601
+   },
+   "15822": {
+      "BANCH_NAME": "ACB VALAJANAGARAM(ARIYALUR)",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621704
+   },
+   "15824": {
+      "BANCH_NAME": "KRISHNARAYAPURAM",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639102
+   },
+   "15825": {
+      "BANCH_NAME": "SME NAGAPATTINAM",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611001
+   },
+   "15826": {
+      "BANCH_NAME": "PANRUTI BAZAAR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607106
+   },
+   "15842": {
+      "BANCH_NAME": "BHUVANAGIRI CHIDAMBARAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608601
+   },
+   "15879": {
+      "BANCH_NAME": "VARSANADU",
+      "DISTRICT": "THENI",
+      "PINCODE": 625579
+   },
+   "15880": {
+      "BANCH_NAME": "SANARPATTI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624304
+   },
+   "15881": {
+      "BANCH_NAME": "THOPPAMPATTY",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624617
+   },
+   "15896": {
+      "BANCH_NAME": "COLLECTORATE BRANCH SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636001
+   },
+   "15899": {
+      "BANCH_NAME": "KILARASAMPATTU",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632312
+   },
+   "15900": {
+      "BANCH_NAME": "VELLALUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641111
+   },
+   "15983": {
+      "BANCH_NAME": "KEEZHANATHAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627011
+   },
+   "15984": {
+      "BANCH_NAME": "THIRUMALAI NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600099
+   },
+   "15985": {
+      "BANCH_NAME": "ACB PANAMPATTU",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605103
+   },
+   "16100": {
+      "BANCH_NAME": "SATHY ROAD ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638003
+   },
+   "16114": {
+      "BANCH_NAME": "K K NAGAR MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625020
+   },
+   "16117": {
+      "BANCH_NAME": "VILLUPURAM MEDICAL COLLEGE",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605601
+   },
+   "16123": {
+      "BANCH_NAME": "SINGAPERUMAL KOIL",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603204
+   },
+   "16204": {
+      "BANCH_NAME": "MALLASAMUDRAM",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637503
+   },
+   "16205": {
+      "BANCH_NAME": "SOORANAM",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630713
+   },
+   "16206": {
+      "BANCH_NAME": "SILUKKAPATTI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630554
+   },
+   "16262": {
+      "BANCH_NAME": "SCAB AMBATTUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600098
+   },
+   "16283": {
+      "BANCH_NAME": "THIRU-VI-KA NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600082
+   },
+   "16284": {
+      "BANCH_NAME": "6 TH AVENUE ANNA NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "16285": {
+      "BANCH_NAME": "WALAJABAD",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631605
+   },
+   "16316": {
+      "BANCH_NAME": "NERKUNDRAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600107
+   },
+   "16317": {
+      "BANCH_NAME": "VIRUDHUNAGAR TOWN",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626001
+   },
+   "16318": {
+      "BANCH_NAME": "OTTAPIDARAM",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628401
+   },
+   "16319": {
+      "BANCH_NAME": "SIVAGANGA COLLECTORATE",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630561
+   },
+   "16320": {
+      "BANCH_NAME": "SME PUDUKOTTAI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622001
+   },
+   "16321": {
+      "BANCH_NAME": "RAJAGOPALAPURAM",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622003
+   },
+   "16332": {
+      "BANCH_NAME": "ALAPAKKAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600087
+   },
+   "16338": {
+      "BANCH_NAME": "NOLAMBUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600037
+   },
+   "16351": {
+      "BANCH_NAME": "KUMAR NAGAR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641603
+   },
+   "16384": {
+      "BANCH_NAME": "KANNAPPA NAGAR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641027
+   },
+   "16391": {
+      "BANCH_NAME": "NO 1 TOLL GATE TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621216
+   },
+   "16392": {
+      "BANCH_NAME": "SUBRAMANIAPURAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620020
+   },
+   "16393": {
+      "BANCH_NAME": "AIRPORT TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620007
+   },
+   "16394": {
+      "BANCH_NAME": "PONNAMPATTI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621314
+   },
+   "16402": {
+      "BANCH_NAME": "PAMMAL",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600075
+   },
+   "16403": {
+      "BANCH_NAME": "AYAPPAKAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600077
+   },
+   "16415": {
+      "BANCH_NAME": "GORIMEDU",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636008
+   },
+   "16454": {
+      "BANCH_NAME": "STRESSED ASSET MANAGEMENT BR COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641037
+   },
+   "16491": {
+      "BANCH_NAME": "JAIHINDPURAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625011
+   },
+   "16492": {
+      "BANCH_NAME": "THERKUVASAL",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "16503": {
+      "BANCH_NAME": "SAMAYANALLUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625402
+   },
+   "16520": {
+      "BANCH_NAME": "KARUNGALPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638003
+   },
+   "16525": {
+      "BANCH_NAME": "MAHARAJANAGAR",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627011
+   },
+   "16526": {
+      "BANCH_NAME": "NRI BRANCH TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620017
+   },
+   "16539": {
+      "BANCH_NAME": "SAINATHAPURAM",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632001
+   },
+   "16540": {
+      "BANCH_NAME": "AGRI COMM BRANCH TIRUPPATTUR TOWN",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635601
+   },
+   "16544": {
+      "BANCH_NAME": "GST ROAD CHENNAI",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600044
+   },
+   "16545": {
+      "BANCH_NAME": "KILKATTALAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600117
+   },
+   "16546": {
+      "BANCH_NAME": "EKKADUTHANGAL",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600032
+   },
+   "16547": {
+      "BANCH_NAME": "RAJIV GANDHI SALAI CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600096
+   },
+   "16548": {
+      "BANCH_NAME": "T. KALLUPATTI BRANCH",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625702
+   },
+   "16549": {
+      "BANCH_NAME": "PALANI TOWN",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624601
+   },
+   "16555": {
+      "BANCH_NAME": "P H ROAD BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600084
+   },
+   "16556": {
+      "BANCH_NAME": "WALAJAH ROAD BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600002
+   },
+   "16558": {
+      "BANCH_NAME": "PALLIKARANAI",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600100
+   },
+   "16559": {
+      "BANCH_NAME": "NRI VELACHERY",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600042
+   },
+   "16560": {
+      "BANCH_NAME": "MOGAPPAIR EAST",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600037
+   },
+   "16561": {
+      "BANCH_NAME": "VANAGARAM",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600095
+   },
+   "16562": {
+      "BANCH_NAME": "SME BRANCH VILLUPURAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605602
+   },
+   "16573": {
+      "BANCH_NAME": "ACB ATHOOR",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624701
+   },
+   "16787": {
+      "BANCH_NAME": "GANGAVALLI BRANCH",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636105
+   },
+   "16788": {
+      "BANCH_NAME": "PARUTHIPATTU BRANCH",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600071
+   },
+   "16819": {
+      "BANCH_NAME": "AIR FORCE STATION THANJAVUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613005
+   },
+   "16829": {
+      "BANCH_NAME": "ACB KALAYARKOIL",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630551
+   },
+   "16830": {
+      "BANCH_NAME": "TIRUVARUR TOWN",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610001
+   },
+   "16831": {
+      "BANCH_NAME": "ACB MADUKKUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614903
+   },
+   "16844": {
+      "BANCH_NAME": "THIYAGADURGAM",
+      "DISTRICT": "KALLAKURICHI",
+      "PINCODE": 606206
+   },
+   "16849": {
+      "BANCH_NAME": "SME TIRUVANNAMALAI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606604
+   },
+   "16923": {
+      "BANCH_NAME": "TIRUNAGAR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625006
+   },
+   "17121": {
+      "BANCH_NAME": "KANNANKURICHI SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636008
+   },
+   "17122": {
+      "BANCH_NAME": "ACB KOLATHUR SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636303
+   },
+   "17124": {
+      "BANCH_NAME": "TUTICORIN TOWN",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628002
+   },
+   "17181": {
+      "BANCH_NAME": "PADUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603103
+   },
+   "17182": {
+      "BANCH_NAME": "URAPAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603210
+   },
+   "17193": {
+      "BANCH_NAME": "RACPC MRC NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600028
+   },
+   "17247": {
+      "BANCH_NAME": "KORATTUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600080
+   },
+   "17280": {
+      "BANCH_NAME": "NGO COLONY TIRUNELVELI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627007
+   },
+   "17281": {
+      "BANCH_NAME": "NAGERCOIL TOWN",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "17282": {
+      "BANCH_NAME": "MANNARGUDI TOWN",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 614001
+   },
+   "17605": {
+      "BANCH_NAME": "UTHUKULI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638752
+   },
+   "17612": {
+      "BANCH_NAME": "MULANUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638106
+   },
+   "17674": {
+      "BANCH_NAME": "VINAYAGAPURAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641006
+   },
+   "17712": {
+      "BANCH_NAME": "SIVAGANGA MEDICAL COLLEGE",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630561
+   },
+   "17713": {
+      "BANCH_NAME": "BHEL TIRUMAYAM",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622505
+   },
+   "17743": {
+      "BANCH_NAME": "SIVADHAPURAM SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636307
+   },
+   "17767": {
+      "BANCH_NAME": "TAMBARAM TOWN",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600045
+   },
+   "17843": {
+      "BANCH_NAME": "HASTHINAPURAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600044
+   },
+   "17871": {
+      "BANCH_NAME": "GANDHI NAGAR ADYAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "17880": {
+      "BANCH_NAME": "INS RAJALI ARAKONAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631006
+   },
+   "17920": {
+      "BANCH_NAME": "NRI VELLORE",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632006
+   },
+   "17922": {
+      "BANCH_NAME": "ARAKONAM TOWN",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631003
+   },
+   "17931": {
+      "BANCH_NAME": "NRI SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636007
+   },
+   "17932": {
+      "BANCH_NAME": "ALAGARKOVIL",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625301
+   },
+   "17933": {
+      "BANCH_NAME": "TIRUPORUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603110
+   },
+   "17934": {
+      "BANCH_NAME": "THIRUMULLAIVOYAL",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600062
+   },
+   "17935": {
+      "BANCH_NAME": "ACB KARUR TOWN",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639001
+   },
+   "17937": {
+      "BANCH_NAME": "AYYAPPANTHANGAL",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600056
+   },
+   "17938": {
+      "BANCH_NAME": "RACPC AYYAPPANTHANGAL",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600056
+   },
+   "17939": {
+      "BANCH_NAME": "ACB BARGUR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635104
+   },
+   "17987": {
+      "BANCH_NAME": "SATHANKULAM",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628704
+   },
+   "18063": {
+      "BANCH_NAME": "ACB PATTUKOTTAI TOWN",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 614601
+   },
+   "18068": {
+      "BANCH_NAME": "SUNGUVARCHTRAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 602106
+   },
+   "18107": {
+      "BANCH_NAME": "LAKSHMIPURAM",
+      "DISTRICT": "THENI",
+      "PINCODE": 625523
+   },
+   "18111": {
+      "BANCH_NAME": "ACB GANDHI GRAMAM - KARUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639004
+   },
+   "18112": {
+      "BANCH_NAME": "ACB VENGAMEDU",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639006
+   },
+   "18158": {
+      "BANCH_NAME": "ANDALPURAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625003
+   },
+   "18164": {
+      "BANCH_NAME": "NAZARETH",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628617
+   },
+   "18169": {
+      "BANCH_NAME": "ACB SWAMIMALAI",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612302
+   },
+   "18177": {
+      "BANCH_NAME": "SEMBANARKOIL",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609309
+   },
+   "18178": {
+      "BANCH_NAME": "VALANGAIMAN",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 612804
+   },
+   "18191": {
+      "BANCH_NAME": "BHARATHINAGAR",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623503
+   },
+   "18203": {
+      "BANCH_NAME": "MUTHUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638105
+   },
+   "18220": {
+      "BANCH_NAME": "VARATHARAJAPURAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641015
+   },
+   "18226": {
+      "BANCH_NAME": "SCAB TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "18227": {
+      "BANCH_NAME": "RAMAPURAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600089
+   },
+   "18228": {
+      "BANCH_NAME": "HNI ASHOK NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600083
+   },
+   "18229": {
+      "BANCH_NAME": "VALASARAVAKKAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600087
+   },
+   "18246": {
+      "BANCH_NAME": "PICHAMPALAYAM PUDUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641603
+   },
+   "18247": {
+      "BANCH_NAME": "NAGAMALAI PUDUKOTTAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625019
+   },
+   "18265": {
+      "BANCH_NAME": "DINDIGUL TOWN",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624001
+   },
+   "18271": {
+      "BANCH_NAME": "PALAVAKKAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600041
+   },
+   "18272": {
+      "BANCH_NAME": "KOTIVAKKAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600041
+   },
+   "18288": {
+      "BANCH_NAME": "MELAKALKANDARKOTTAI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620011
+   },
+   "18290": {
+      "BANCH_NAME": "KOTTAKUPPAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605104
+   },
+   "18292": {
+      "BANCH_NAME": "MTH ROAD AVADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600071
+   },
+   "18316": {
+      "BANCH_NAME": "SME SIVAKASI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626123
+   },
+   "18326": {
+      "BANCH_NAME": "SIRUTHOZHIL THENI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625531
+   },
+   "18327": {
+      "BANCH_NAME": "ELLIS NAGAR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625010
+   },
+   "18343": {
+      "BANCH_NAME": "ACB KULASEKARAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629161
+   },
+   "18365": {
+      "BANCH_NAME": "KANDIGAI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600127
+   },
+   "18370": {
+      "BANCH_NAME": "KILVELUR",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611104
+   },
+   "18379": {
+      "BANCH_NAME": "THEEVATTIPATTI",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636351
+   },
+   "18393": {
+      "BANCH_NAME": "ARCOT ROAD PORUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600116
+   },
+   "18394": {
+      "BANCH_NAME": "MEDAVAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600100
+   },
+   "18402": {
+      "BANCH_NAME": "KONGANAPURAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 637102
+   },
+   "18529": {
+      "BANCH_NAME": "SME RAJAJI SALAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "18571": {
+      "BANCH_NAME": "AVIYUR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626106
+   },
+   "18579": {
+      "BANCH_NAME": "TRUSTPURAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600024
+   },
+   "18613": {
+      "BANCH_NAME": "THIRUKATTUPALLI",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613101
+   },
+   "18615": {
+      "BANCH_NAME": "MAYILADUTHURAI TOWN",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609003
+   },
+   "18637": {
+      "BANCH_NAME": "MOOLAKADAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600060
+   },
+   "18642": {
+      "BANCH_NAME": "CHITHODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638102
+   },
+   "18664": {
+      "BANCH_NAME": "PETTAVAITHALAI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 639112
+   },
+   "18667": {
+      "BANCH_NAME": "WASHERMANPET",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600021
+   },
+   "18669": {
+      "BANCH_NAME": "TENKASI TOWN",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627811
+   },
+   "18670": {
+      "BANCH_NAME": "ALANGULAM",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627851
+   },
+   "18687": {
+      "BANCH_NAME": "MINSURITTI",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 612903
+   },
+   "18714": {
+      "BANCH_NAME": "VELLORE FORT CITY",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632001
+   },
+   "18724": {
+      "BANCH_NAME": "CENTRAL UNIVERSITY OF TAMILNADU TIRUVARU",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610101
+   },
+   "18725": {
+      "BANCH_NAME": "NACHIYARKOIL",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612602
+   },
+   "18734": {
+      "BANCH_NAME": "TIRUTTANI TOWN",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 631209
+   },
+   "18751": {
+      "BANCH_NAME": "ERUMAIPATTI",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637013
+   },
+   "18867": {
+      "BANCH_NAME": "SIRUVALLUR ROAD",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600011
+   },
+   "18968": {
+      "BANCH_NAME": "ACB MANAMELKUDI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 614620
+   },
+   "18969": {
+      "BANCH_NAME": "VALIGANDAPURAM",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621115
+   },
+   "18977": {
+      "BANCH_NAME": "KEELAPALUVUR",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621707
+   },
+   "18984": {
+      "BANCH_NAME": "VEERAPANJAN",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625020
+   },
+   "19225": {
+      "BANCH_NAME": "SEZ SARAVANAMPATTI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641035
+   },
+   "19237": {
+      "BANCH_NAME": "MUSEUM ROAD BRANCH EGMORE",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600008
+   },
+   "20243": {
+      "BANCH_NAME": "GREAMS ROAD BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600006
+   },
+   "20289": {
+      "BANCH_NAME": "PANAGAL PARK BRANCH T NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "20352": {
+      "BANCH_NAME": "HARRINGTON ROAD CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600031
+   },
+   "20403": {
+      "BANCH_NAME": "SOLUR",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635802
+   },
+   "20430": {
+      "BANCH_NAME": "VOC PARK BRANCH COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "20934": {
+      "BANCH_NAME": "PORUR BAZAAR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600116
+   },
+   "20941": {
+      "BANCH_NAME": "CHERRY ROAD SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636007
+   },
+   "20946": {
+      "BANCH_NAME": "BHARATHI NAGAR VELACHERRY",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600042
+   },
+   "20993": {
+      "BANCH_NAME": "MARKET COMPLEX BRANCH KOYEMBEDU",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600092
+   },
+   "21011": {
+      "BANCH_NAME": "SMEC TEYNAMPET",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600018
+   },
+   "21099": {
+      "BANCH_NAME": "THAMBIAH ROAD WEST MAMBALAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600033
+   },
+   "21226": {
+      "BANCH_NAME": "KUMARASAMY NAGAR SHOLINGANALLUR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600119
+   },
+   "21234": {
+      "BANCH_NAME": "TAMBARAM MAIN ROAD PALLIKARANAI",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600100
+   },
+   "21308": {
+      "BANCH_NAME": "SIVANANDAPURAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641035
+   },
+   "21334": {
+      "BANCH_NAME": "POZHICHALUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600074
+   },
+   "21453": {
+      "BANCH_NAME": "AVARAMPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641006
+   },
+   "21455": {
+      "BANCH_NAME": "SECRETARIAT COLONY KELLYS",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600010
+   },
+   "21600": {
+      "BANCH_NAME": "KARUMATHAMPATTI TOWN PANCHAYAT",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641668
+   },
+   "21619": {
+      "BANCH_NAME": "TANK STREET BRANCH HOSUR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "21620": {
+      "BANCH_NAME": "CHITLAPAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600064
+   },
+   "21634": {
+      "BANCH_NAME": "MADAMBAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600073
+   },
+   "21654": {
+      "BANCH_NAME": "PERUNGALATHUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600063
+   },
+   "21711": {
+      "BANCH_NAME": "SWAMINAGAR URAPAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603211
+   },
+   "21724": {
+      "BANCH_NAME": "FAIRLANDS BRANCH SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636016
+   },
+   "21741": {
+      "BANCH_NAME": "PERUNDURAI",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638052
+   },
+   "21760": {
+      "BANCH_NAME": "TIRUPPUR TOWN",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641601
+   },
+   "21798": {
+      "BANCH_NAME": "MP ROAD BRANCH KALAPATTI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641004
+   },
+   "21836": {
+      "BANCH_NAME": "KAYARAMBEDU",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603202
+   },
+   "21869": {
+      "BANCH_NAME": "KELAMBAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603103
+   },
+   "21936": {
+      "BANCH_NAME": "ULIYAMPALAYAM COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641007
+   },
+   "21953": {
+      "BANCH_NAME": "SIKKARAYAPURAM THIRUVALLUR",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600128
+   },
+   "21979": {
+      "BANCH_NAME": "PALLAPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641103
+   },
+   "22114": {
+      "BANCH_NAME": "SOUTH BYE PASS PALAYAMKOTTAI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627005
+   },
+   "30220": {
+      "BANCH_NAME": "BROADWAY CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600001
+   },
+   "30284": {
+      "BANCH_NAME": "BALAJI NAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600014
+   },
+   "30462": {
+      "BANCH_NAME": "NRI BRANCH COIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "31760": {
+      "BANCH_NAME": "PB BRANCH ASHOK NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600083
+   },
+   "32465": {
+      "BANCH_NAME": "NEHRU NAGAR KALAPATTI BR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641014
+   },
+   "40155": {
+      "BANCH_NAME": "OLD BANGALORE ROAD BRANCH HOSUR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "40169": {
+      "BANCH_NAME": "NORTHUSMANROADBR TNAGAR CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "40203": {
+      "BANCH_NAME": "C.P RAMASAMY ROAD BRANCH",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600018
+   },
+   "40226": {
+      "BANCH_NAME": "WHITESROADBRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600014
+   },
+   "40236": {
+      "BANCH_NAME": "LUZ BRANCH MYLAPORE",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600004
+   },
+   "40250": {
+      "BANCH_NAME": "ST THOMAS MOUNT BRANCH CHENNAI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600016
+   },
+   "40297": {
+      "BANCH_NAME": "KILPAUKGARDENCHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600010
+   },
+   "40327": {
+      "BANCH_NAME": "BAGALURHOSURTAMILNADU",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635103
+   },
+   "40330": {
+      "BANCH_NAME": "MATHIGIRI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635110
+   },
+   "40348": {
+      "BANCH_NAME": "CARSTREETBRANCHSALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636001
+   },
+   "40377": {
+      "BANCH_NAME": "NETHAJISTREET ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638001
+   },
+   "40398": {
+      "BANCH_NAME": "ANCHETTY",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635102
+   },
+   "40438": {
+      "BANCH_NAME": "ATHIMUGAM",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635105
+   },
+   "40460": {
+      "BANCH_NAME": "HARITA",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "40528": {
+      "BANCH_NAME": "KONGUNAGAR .TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641607
+   },
+   "40541": {
+      "BANCH_NAME": "VELANDIPALAYAMCOIMBATORE",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641011
+   },
+   "40551": {
+      "BANCH_NAME": "AVINASHITOWNBRANCH",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641654
+   },
+   "40637": {
+      "BANCH_NAME": "FIVEROADSCIRCLESALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636004
+   },
+   "40638": {
+      "BANCH_NAME": "BABYNAGAR VELACHERRYCHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600113
+   },
+   "40656": {
+      "BANCH_NAME": "KALIAMMANKOILSTREET KOYAMBEDU",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600092
+   },
+   "40922": {
+      "BANCH_NAME": "POTHARI",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603203
+   },
+   "40991": {
+      "BANCH_NAME": "BHARATHI SALAI TRIPLICANE",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600014
+   },
+   "41088": {
+      "BANCH_NAME": "MODACHURROAD GOBICHETTIPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638476
+   },
+   "41181": {
+      "BANCH_NAME": "AGRI COMM BRANCH AVALAPALLY",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "50661": {
+      "BANCH_NAME": "BASHYAKARLU ROAD CO",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641002
+   },
+   "50783": {
+      "BANCH_NAME": "PUDUR PIRUVU TIRU",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641608
+   },
+   "50868": {
+      "BANCH_NAME": "VASANTHA NAGAR MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625003
+   },
+   "51271": {
+      "BANCH_NAME": "MEYYANUR SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636004
+   },
+   "51407": {
+      "BANCH_NAME": "PALANIAPA STREET ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638009
+   },
+   "60342": {
+      "BANCH_NAME": "CHENNAI ADAMBAKAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 600088
+   },
+   "60395": {
+      "BANCH_NAME": "ROUNDTANA - ANNANAGAR BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600040
+   },
+   "61039": {
+      "BANCH_NAME": "RACPC TAMBARAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600073
+   },
+   "61040": {
+      "BANCH_NAME": "RACPC COIMBATORE NORTH",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641018
+   },
+   "61068": {
+      "BANCH_NAME": "SMEC TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "61071": {
+      "BANCH_NAME": "SIRUTHOZHIL BRANCH TUTICORIN",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628001
+   },
+   "61074": {
+      "BANCH_NAME": "SMEC SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636001
+   },
+   "61075": {
+      "BANCH_NAME": "SMEC MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625002
+   },
+   "61170": {
+      "BANCH_NAME": "SIRUTHOZHIL BRANCH KOVILPATTI",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628501
+   },
+   "61171": {
+      "BANCH_NAME": "SIRUTHOZHIL BRANCH ARUPUKKOTAI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626101
+   },
+   "61179": {
+      "BANCH_NAME": "MARAKANAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604303
+   },
+   "61254": {
+      "BANCH_NAME": "PERSONAL BANKING BRANCH TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "61258": {
+      "BANCH_NAME": "MADUKKARAI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641105
+   },
+   "61273": {
+      "BANCH_NAME": "ALWARTHIRUNAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600087
+   },
+   "61275": {
+      "BANCH_NAME": "RASMEC HOSUR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635126
+   },
+   "61290": {
+      "BANCH_NAME": "VADALUR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607303
+   },
+   "61291": {
+      "BANCH_NAME": "ANUPANNADI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625009
+   },
+   "61304": {
+      "BANCH_NAME": "SME HOSUR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635126
+   },
+   "61626": {
+      "BANCH_NAME": "KARAMBAKUDI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622302
+   },
+   "61627": {
+      "BANCH_NAME": "THIRUNAGESWARAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612204
+   },
+   "61628": {
+      "BANCH_NAME": "ARUPPUKOTTAI TOWN",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626101
+   },
+   "61661": {
+      "BANCH_NAME": "SOMARASAMPETTAI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620102
+   },
+   "61662": {
+      "BANCH_NAME": "CRPF AVADI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600065
+   },
+   "61685": {
+      "BANCH_NAME": "MAMANGAM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636011
+   },
+   "61686": {
+      "BANCH_NAME": "SAMAYAPURAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621112
+   },
+   "61703": {
+      "BANCH_NAME": "THANDRAMPATTU",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606707
+   },
+   "61704": {
+      "BANCH_NAME": "COLLEGE ROAD KARAIKUDI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630003
+   },
+   "61705": {
+      "BANCH_NAME": "KORADACHERI",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 613703
+   },
+   "61725": {
+      "BANCH_NAME": "NOYYAL",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639117
+   },
+   "61726": {
+      "BANCH_NAME": "IDAYAKOTTAI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624704
+   },
+   "61766": {
+      "BANCH_NAME": "MUDICHUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600048
+   },
+   "61767": {
+      "BANCH_NAME": "TIRUVANCHERRY",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600126
+   },
+   "61787": {
+      "BANCH_NAME": "SELVAPURAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641026
+   },
+   "61789": {
+      "BANCH_NAME": "KALLIDAIKURICHI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627416
+   },
+   "61791": {
+      "BANCH_NAME": "KARIMANGALAM",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 635111
+   },
+   "61792": {
+      "BANCH_NAME": "PERAIYUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625703
+   },
+   "61793": {
+      "BANCH_NAME": "HOSUR SIPCOT",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635126
+   },
+   "61797": {
+      "BANCH_NAME": "CHERAN MA NAGAR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641035
+   },
+   "61798": {
+      "BANCH_NAME": "SME GANAPATHY",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641012
+   },
+   "61799": {
+      "BANCH_NAME": "MANGALAPURAM",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 636202
+   },
+   "61800": {
+      "BANCH_NAME": "PUTHAN SANTHAI",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637019
+   },
+   "61805": {
+      "BANCH_NAME": "SRIPURAM",
+      "DISTRICT": "VELLORE",
+      "PINCODE": 632055
+   },
+   "62240": {
+      "BANCH_NAME": "OOMACHIKULAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625014
+   },
+   "62244": {
+      "BANCH_NAME": "MELMALAYANUR",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604204
+   },
+   "62245": {
+      "BANCH_NAME": "SHEVAPET",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636002
+   },
+   "62282": {
+      "BANCH_NAME": "THIRUMAZHISAI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 600124
+   },
+   "62283": {
+      "BANCH_NAME": "MANGALAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641663
+   },
+   "62290": {
+      "BANCH_NAME": "HOSUR BAZAAR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "62440": {
+      "BANCH_NAME": "AMCC KRISHNAGIRI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635001
+   },
+   "62441": {
+      "BANCH_NAME": "AMCC ARAKONAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 631001
+   },
+   "62442": {
+      "BANCH_NAME": "AMCC VILLUPURAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605602
+   },
+   "62443": {
+      "BANCH_NAME": "AMCC CHIDAMBARAM",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 608001
+   },
+   "62444": {
+      "BANCH_NAME": "AMCC AVINASHI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641654
+   },
+   "62446": {
+      "BANCH_NAME": "AMCC ARIYALUR",
+      "DISTRICT": "Ariyalur",
+      "PINCODE": 621704
+   },
+   "62447": {
+      "BANCH_NAME": "AMCC MAYILADUTHURAI",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609001
+   },
+   "62448": {
+      "BANCH_NAME": "AMCC MANAPARAI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621306
+   },
+   "62449": {
+      "BANCH_NAME": "AMCC ATTUR",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636102
+   },
+   "62450": {
+      "BANCH_NAME": "AMCC KALKULAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629175
+   },
+   "62451": {
+      "BANCH_NAME": "AMCC RAMANATHAPURAM",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623501
+   },
+   "62453": {
+      "BANCH_NAME": "AMCC NANGUNERI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627108
+   },
+   "62454": {
+      "BANCH_NAME": "AMCC NAGERCOIL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "62457": {
+      "BANCH_NAME": "AMCC PERAMBALUR",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621212
+   },
+   "62460": {
+      "BANCH_NAME": "AMCC CHINGLEPUT",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603001
+   },
+   "62462": {
+      "BANCH_NAME": "AMCC DHARMAPURI",
+      "DISTRICT": "DHARMAPURI",
+      "PINCODE": 636701
+   },
+   "62463": {
+      "BANCH_NAME": "AMCC DINDIGUL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624001
+   },
+   "62464": {
+      "BANCH_NAME": "AMCC GOBICHETTIPALAYAM",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638452
+   },
+   "62465": {
+      "BANCH_NAME": "AMCC KANCHEEPURAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631502
+   },
+   "62466": {
+      "BANCH_NAME": "AMCC KARAIKUDI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630001
+   },
+   "62467": {
+      "BANCH_NAME": "AMCC KARUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639001
+   },
+   "62469": {
+      "BANCH_NAME": "AMCC KUMBAKONAM",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612001
+   },
+   "62470": {
+      "BANCH_NAME": "AMCC KUZHITHURAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629165
+   },
+   "62471": {
+      "BANCH_NAME": "AMCC NAGAPATTINAM",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611001
+   },
+   "62472": {
+      "BANCH_NAME": "AMCC NAMAKKAL",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637001
+   },
+   "62473": {
+      "BANCH_NAME": "AMCC UDHAGAMANDALAM",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643001
+   },
+   "62474": {
+      "BANCH_NAME": "AMCC PALANI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624601
+   },
+   "62475": {
+      "BANCH_NAME": "AMCC POLLACHI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642001
+   },
+   "62476": {
+      "BANCH_NAME": "AMCC PUDUKOTTAI",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622001
+   },
+   "62477": {
+      "BANCH_NAME": "AMCC TENKASI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627811
+   },
+   "62478": {
+      "BANCH_NAME": "AMCC TIRUMANGALAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625706
+   },
+   "62479": {
+      "BANCH_NAME": "AMCC TIRUNELVELI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627001
+   },
+   "62480": {
+      "BANCH_NAME": "AMCC THIRUPATTUR",
+      "DISTRICT": "TIRUPATHUR",
+      "PINCODE": 635601
+   },
+   "62481": {
+      "BANCH_NAME": "AMCC TIRUVALLUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 602001
+   },
+   "62482": {
+      "BANCH_NAME": "AMCC TIRUVANNAMALAI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606601
+   },
+   "62483": {
+      "BANCH_NAME": "AMCC TUTICORIN",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628001
+   },
+   "62485": {
+      "BANCH_NAME": "AMCC SATTUR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626203
+   },
+   "62486": {
+      "BANCH_NAME": "AMCC NEYVELI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607801
+   },
+   "62487": {
+      "BANCH_NAME": "AMCC RBO TRICHY",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620001
+   },
+   "62488": {
+      "BANCH_NAME": "AMCC UDUMALPET",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642126
+   },
+   "62489": {
+      "BANCH_NAME": "AMCC THENI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625531
+   },
+   "62490": {
+      "BANCH_NAME": "AMCC METTUPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641301
+   },
+   "62491": {
+      "BANCH_NAME": "AMCC VOC NAGAR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613007
+   },
+   "62492": {
+      "BANCH_NAME": "AMCC TIRUVARUR",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610002
+   },
+   "62493": {
+      "BANCH_NAME": "AMCC URC NAGAR ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638012
+   },
+   "62494": {
+      "BANCH_NAME": "AMCC PUDHUR PIRIVU",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641608
+   },
+   "63210": {
+      "BANCH_NAME": "OMALUR TOWN",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636455
+   },
+   "63214": {
+      "BANCH_NAME": "CHEKKANURANI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625514
+   },
+   "63717": {
+      "BANCH_NAME": "SME TIRUTTANI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 631209
+   },
+   "63718": {
+      "BANCH_NAME": "SME TIRUVALLUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 602001
+   },
+   "63719": {
+      "BANCH_NAME": "SME PONNERI",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 601204
+   },
+   "63722": {
+      "BANCH_NAME": "SME BRANCH PERUNGUDI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600096
+   },
+   "63723": {
+      "BANCH_NAME": "SME BRANCH TIRUPAPPULIYUR",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607002
+   },
+   "63724": {
+      "BANCH_NAME": "SME BRANCH PERAMBALUR",
+      "DISTRICT": "Perambalur",
+      "PINCODE": 621212
+   },
+   "63816": {
+      "BANCH_NAME": "SME KARAIKUDI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630002
+   },
+   "63817": {
+      "BANCH_NAME": "SME PALANI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624601
+   },
+   "63832": {
+      "BANCH_NAME": "VIKRAVANDI",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605652
+   },
+   "63837": {
+      "BANCH_NAME": "TITTAGUDI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 606106
+   },
+   "64006": {
+      "BANCH_NAME": "MAMBAKKAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600127
+   },
+   "64020": {
+      "BANCH_NAME": "CENTRALISED RETAIL ASSETS MANAGEMENT",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600006
+   },
+   "64033": {
+      "BANCH_NAME": "KADAMBATHUR",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 631203
+   },
+   "64060": {
+      "BANCH_NAME": "KANNIGAPURAM",
+      "DISTRICT": "RANIPET",
+      "PINCODE": 632517
+   },
+   "64077": {
+      "BANCH_NAME": "KILPENNATHUR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 604601
+   },
+   "64094": {
+      "BANCH_NAME": "KUTTUDANKADU",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628103
+   },
+   "64101": {
+      "BANCH_NAME": "RACPC SATTUR",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626203
+   },
+   "64103": {
+      "BANCH_NAME": "RACPC THENI",
+      "DISTRICT": "THENI",
+      "PINCODE": 625531
+   },
+   "64104": {
+      "BANCH_NAME": "RACPC NAGERCOIL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "64105": {
+      "BANCH_NAME": "RACPC TIRUNELVELI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627001
+   },
+   "64117": {
+      "BANCH_NAME": "RACPC NAGAPATTINAM",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 611001
+   },
+   "64118": {
+      "BANCH_NAME": "RACPC THANJAVUR",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613001
+   },
+   "64121": {
+      "BANCH_NAME": "RACPC DINDIGUL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624001
+   },
+   "64129": {
+      "BANCH_NAME": "RACPC KARAIKUDI",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630001
+   },
+   "64138": {
+      "BANCH_NAME": "RACPC VILLUPURAM",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605602
+   },
+   "64143": {
+      "BANCH_NAME": "RACPC CHENGELPET",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603001
+   },
+   "64158": {
+      "BANCH_NAME": "RACPC ERODE",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638003
+   },
+   "64159": {
+      "BANCH_NAME": "RACPC KARUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639005
+   },
+   "64162": {
+      "BANCH_NAME": "RACPC TIRUPUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641604
+   },
+   "64265": {
+      "BANCH_NAME": "PODATHURPET",
+      "DISTRICT": "THIRUVALLUR",
+      "PINCODE": 631208
+   },
+   "64309": {
+      "BANCH_NAME": "VIRUDHUNAGAR MEDICAL COLLEGE KOORAIKUNDU",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626001
+   },
+   "64310": {
+      "BANCH_NAME": "TIRUNELVELI MEDICAL COLLEGE",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627011
+   },
+   "64320": {
+      "BANCH_NAME": "STARTUP BRANCH CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600113
+   },
+   "64349": {
+      "BANCH_NAME": "AMAYAPURAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621307
+   },
+   "64350": {
+      "BANCH_NAME": "SEKKANAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621315
+   },
+   "64363": {
+      "BANCH_NAME": "MELUR TOWN",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625106
+   },
+   "64424": {
+      "BANCH_NAME": "MINI RACPC NEYVELI",
+      "DISTRICT": "CUDDALORE",
+      "PINCODE": 607801
+   },
+   "64430": {
+      "BANCH_NAME": "YEMBAL",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622204
+   },
+   "64455": {
+      "BANCH_NAME": "KANJI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606702
+   },
+   "64456": {
+      "BANCH_NAME": "CHEYYUR",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603302
+   },
+   "64511": {
+      "BANCH_NAME": "SME BRANCH MEPZ TAMBARAM",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 600047
+   },
+   "64517": {
+      "BANCH_NAME": "MINI RACPC METTUPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641104
+   },
+   "64592": {
+      "BANCH_NAME": "BYEPASS ROAD DINDIGUL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624004
+   },
+   "64593": {
+      "BANCH_NAME": "UPPILIAPURAM",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 621011
+   },
+   "64666": {
+      "BANCH_NAME": "PUDUKOTTAI MEDICAL COLLEGE MULLUR",
+      "DISTRICT": "PUDUKKOTTAI",
+      "PINCODE": 622004
+   },
+   "64704": {
+      "BANCH_NAME": "SHOOLAGIRI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635117
+   },
+   "64718": {
+      "BANCH_NAME": "SIPCOT GANGAIKONDAN",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627357
+   },
+   "64735": {
+      "BANCH_NAME": "HOME LOAN CENTRE POLLACHI",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642001
+   },
+   "64831": {
+      "BANCH_NAME": "KALLAL",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630305
+   },
+   "64832": {
+      "BANCH_NAME": "SAYALKUDI",
+      "DISTRICT": "RAMANATHAPURAM",
+      "PINCODE": 623120
+   },
+   "64834": {
+      "BANCH_NAME": "SILVARPATTI",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624622
+   },
+   "64887": {
+      "BANCH_NAME": "SIRUTHOZHIL TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620008
+   },
+   "70005": {
+      "BANCH_NAME": "COMMERCIAL ROAD UDHAGAMANDALAM",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643001
+   },
+   "70008": {
+      "BANCH_NAME": "SIMMAKKAL",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "70009": {
+      "BANCH_NAME": "SHENCOTTAH",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627809
+   },
+   "70010": {
+      "BANCH_NAME": "ACB VALLIYOOR",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627117
+   },
+   "70011": {
+      "BANCH_NAME": "SIRUTHOZHIL NAGERCOIL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "70012": {
+      "BANCH_NAME": "AGRI COMM BRANCH COLACHEL TOWN",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629251
+   },
+   "70013": {
+      "BANCH_NAME": "ACB KANYAKUMARI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629702
+   },
+   "70014": {
+      "BANCH_NAME": "MARTHANDAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629165
+   },
+   "70015": {
+      "BANCH_NAME": "SUCHEENDRAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629704
+   },
+   "70016": {
+      "BANCH_NAME": "THIRUVITHAMCODE",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629174
+   },
+   "70017": {
+      "BANCH_NAME": "ACB THIRUVATTAR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629177
+   },
+   "70209": {
+      "BANCH_NAME": "ACB KALAKAD",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627501
+   },
+   "70246": {
+      "BANCH_NAME": "CHIDAMBARAM NAGAR TUTICORIN",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628003
+   },
+   "70280": {
+      "BANCH_NAME": "BOOTHAPANDY",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629852
+   },
+   "70287": {
+      "BANCH_NAME": "KANNUMAMOODU",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629170
+   },
+   "70289": {
+      "BANCH_NAME": "ACB THENGAPATTANAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629173
+   },
+   "70303": {
+      "BANCH_NAME": "SME TIRUNELVELI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627001
+   },
+   "70313": {
+      "BANCH_NAME": "WEST MASI STREET MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625001
+   },
+   "70319": {
+      "BANCH_NAME": "PAPPANAICKEN PALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641037
+   },
+   "70320": {
+      "BANCH_NAME": "ANNANAGAR EAST CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600102
+   },
+   "70328": {
+      "BANCH_NAME": "RAJAJI ROAD SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636007
+   },
+   "70333": {
+      "BANCH_NAME": "MANAVALAKURICHI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629252
+   },
+   "70371": {
+      "BANCH_NAME": "VILLUKURI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629180
+   },
+   "70387": {
+      "BANCH_NAME": "ACB KOLLEMKODE",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629160
+   },
+   "70389": {
+      "BANCH_NAME": "BEDFORD CIRCLE COONOOR",
+      "DISTRICT": "NILGIRIS",
+      "PINCODE": 643101
+   },
+   "70390": {
+      "BANCH_NAME": "KOVAI ROAD KARUR",
+      "DISTRICT": "KARUR",
+      "PINCODE": 639002
+   },
+   "70404": {
+      "BANCH_NAME": "MYLAUDY",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629403
+   },
+   "70411": {
+      "BANCH_NAME": "USMAN ROAD T NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600017
+   },
+   "70419": {
+      "BANCH_NAME": "THANJAVUR TOWN",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613009
+   },
+   "70472": {
+      "BANCH_NAME": "ERODE CITY BRANCH",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638001
+   },
+   "70488": {
+      "BANCH_NAME": "MUTTAKKAD",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629164
+   },
+   "70496": {
+      "BANCH_NAME": "ASARIPALLAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629201
+   },
+   "70505": {
+      "BANCH_NAME": "IRENIPURAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629197
+   },
+   "70524": {
+      "BANCH_NAME": "ACB ALANJI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629159
+   },
+   "70526": {
+      "BANCH_NAME": "INDIRA NAGAR ADYAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600020
+   },
+   "70530": {
+      "BANCH_NAME": "ANNANAGAR WEST EXTENSION CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600101
+   },
+   "70548": {
+      "BANCH_NAME": "THADICOMBU ROAD DINDIGUL",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624001
+   },
+   "70565": {
+      "BANCH_NAME": "TANJORE MAIN ROAD TIRUVERUMBUR",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620014
+   },
+   "70567": {
+      "BANCH_NAME": "ACB PALLIYADI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629169
+   },
+   "70569": {
+      "BANCH_NAME": "ACB ENIAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629193
+   },
+   "70570": {
+      "BANCH_NAME": "ELDAMS ROAD BRANCH ALWARPET",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600018
+   },
+   "70589": {
+      "BANCH_NAME": "ACB THOOTHUR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629176
+   },
+   "70609": {
+      "BANCH_NAME": "PEYODU",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629201
+   },
+   "70644": {
+      "BANCH_NAME": "SME ANNA SALAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600018
+   },
+   "70654": {
+      "BANCH_NAME": "GANDHI ROAD SIVAKASI",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626123
+   },
+   "70657": {
+      "BANCH_NAME": "KOVILPATTI BAZAAR",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628501
+   },
+   "70674": {
+      "BANCH_NAME": "SARB II CHENNAI",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600108
+   },
+   "70686": {
+      "BANCH_NAME": "NAGARAJAKOVIL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "70688": {
+      "BANCH_NAME": "PNSB BR. RAJA ANNAMALAIPURAM",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600028
+   },
+   "70718": {
+      "BANCH_NAME": "SAMATHANAPURAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627002
+   },
+   "70741": {
+      "BANCH_NAME": "LAKSHMANASAMY SALAI KK NAGAR",
+      "DISTRICT": "CHENNAI",
+      "PINCODE": 600078
+   },
+   "70759": {
+      "BANCH_NAME": "HAPP BRANCH TIRUCHI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620025
+   },
+   "70772": {
+      "BANCH_NAME": "PARAKKAI KANYAKUMARI DIST",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629601
+   },
+   "70780": {
+      "BANCH_NAME": "SME BRANCH KANCHEEPURAM",
+      "DISTRICT": "KANCHIPURAM",
+      "PINCODE": 631502
+   },
+   "70804": {
+      "BANCH_NAME": "THIRUVANNAMALAI BAZAAR",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 606601
+   },
+   "70805": {
+      "BANCH_NAME": "ALAGAPURAM-SALEM",
+      "DISTRICT": "SALEM",
+      "PINCODE": 636016
+   },
+   "70806": {
+      "BANCH_NAME": "ACB VILLUPURAM TOWN",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 605602
+   },
+   "70819": {
+      "BANCH_NAME": "RAJAPALAYAM TOWN",
+      "DISTRICT": "VIRUDHUNAGAR",
+      "PINCODE": 626117
+   },
+   "70831": {
+      "BANCH_NAME": "SME ARNI",
+      "DISTRICT": "THIRUVANNAMALAI",
+      "PINCODE": 632301
+   },
+   "70843": {
+      "BANCH_NAME": "STATION ROAD BRANCH HOSUR",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635109
+   },
+   "70844": {
+      "BANCH_NAME": "SUNDARAPURAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641024
+   },
+   "70847": {
+      "BANCH_NAME": "CHENGALPATTU TOWN BRANCH",
+      "DISTRICT": "CHENGALPATTU",
+      "PINCODE": 603001
+   },
+   "70849": {
+      "BANCH_NAME": "VELLAMADAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629305
+   },
+   "70852": {
+      "BANCH_NAME": "ACB PUDHUKADAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629171
+   },
+   "70864": {
+      "BANCH_NAME": "ROYAKOTAI FLY OVER BRANCH KRISHNAGIRI",
+      "DISTRICT": "Krishnagiri",
+      "PINCODE": 635001
+   },
+   "70865": {
+      "BANCH_NAME": "ACB KARAIKUDI TOWN",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630002
+   },
+   "70889": {
+      "BANCH_NAME": "VILLAPURAM",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625012
+   },
+   "70891": {
+      "BANCH_NAME": "KOSAKULAM PUDUR",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625007
+   },
+   "70892": {
+      "BANCH_NAME": "ACB KUMBAKONAM TOWN",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 612001
+   },
+   "70897": {
+      "BANCH_NAME": "NRI BRANCH NAGERCOIL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629001
+   },
+   "70922": {
+      "BANCH_NAME": "MANUR",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627201
+   },
+   "70929": {
+      "BANCH_NAME": "KADAYANALLUR",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627759
+   },
+   "70930": {
+      "BANCH_NAME": "COURTALLAM ROAD TENKASI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627811
+   },
+   "70972": {
+      "BANCH_NAME": "AGASTHIYALINGAMPALAYAM BRANCH KANGEYAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 638701
+   },
+   "70973": {
+      "BANCH_NAME": "DHARAPURAM ROAD ODDANCHATRAM",
+      "DISTRICT": "DINDIGUL",
+      "PINCODE": 624619
+   },
+   "71004": {
+      "BANCH_NAME": "ACB TINDIVANAM TOWN",
+      "DISTRICT": "Villupuram",
+      "PINCODE": 604001
+   },
+   "71046": {
+      "BANCH_NAME": "SITHAMALLI",
+      "DISTRICT": "MAYILADUTHURAI",
+      "PINCODE": 609205
+   },
+   "71047": {
+      "BANCH_NAME": "THALAIGNAYIRU",
+      "DISTRICT": "NAGAPATTINAM",
+      "PINCODE": 614712
+   },
+   "71051": {
+      "BANCH_NAME": "LINGAMPATTI",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628502
+   },
+   "71052": {
+      "BANCH_NAME": "ERACHAKULAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629901
+   },
+   "71053": {
+      "BANCH_NAME": "ACB THUCKALAY",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629175
+   },
+   "71054": {
+      "BANCH_NAME": "MYLERIPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641032
+   },
+   "71055": {
+      "BANCH_NAME": "NAICKENPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641020
+   },
+   "71056": {
+      "BANCH_NAME": "KEERANATHAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641035
+   },
+   "71057": {
+      "BANCH_NAME": "MADAPPUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641668
+   },
+   "71058": {
+      "BANCH_NAME": "KARAVALUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641670
+   },
+   "71059": {
+      "BANCH_NAME": "KALANGAL",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641402
+   },
+   "71060": {
+      "BANCH_NAME": "AACHIPATTI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642002
+   },
+   "71061": {
+      "BANCH_NAME": "THENNAMANNALLUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641109
+   },
+   "71062": {
+      "BANCH_NAME": "SEERAPPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641105
+   },
+   "71063": {
+      "BANCH_NAME": "ODANTHURAI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641305
+   },
+   "71064": {
+      "BANCH_NAME": "KATTUR",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641667
+   },
+   "71065": {
+      "BANCH_NAME": "CHINNAVEERAMPATTY",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 642154
+   },
+   "71137": {
+      "BANCH_NAME": "CHOOZHAL BRANCH",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629153
+   },
+   "71138": {
+      "BANCH_NAME": "THEROOR",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629704
+   },
+   "71139": {
+      "BANCH_NAME": "VALAYANKULAM BRANCH MADURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625022
+   },
+   "71141": {
+      "BANCH_NAME": "KEEZHA AMBUR",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627418
+   },
+   "71142": {
+      "BANCH_NAME": "KARAIKURICHI",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627417
+   },
+   "71143": {
+      "BANCH_NAME": "PULIYARAI",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627813
+   },
+   "71144": {
+      "BANCH_NAME": "EETTIVEERAMPALAYAM",
+      "DISTRICT": "TIRUPPUR",
+      "PINCODE": 641666
+   },
+   "71148": {
+      "BANCH_NAME": "PUDUR TIRUVARUR",
+      "DISTRICT": "THIRUVARUR",
+      "PINCODE": 610205
+   },
+   "71154": {
+      "BANCH_NAME": "MARUDUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641104
+   },
+   "71155": {
+      "BANCH_NAME": "AMBARAMPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642103
+   },
+   "71157": {
+      "BANCH_NAME": "KAREGOUNDENPALAYAM",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641697
+   },
+   "71164": {
+      "BANCH_NAME": "THENKARAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629180
+   },
+   "71165": {
+      "BANCH_NAME": "KANDANVILAI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629810
+   },
+   "71170": {
+      "BANCH_NAME": "DERISANAMCOPE",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629851
+   },
+   "71175": {
+      "BANCH_NAME": "KEELA KADAYAM",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627415
+   },
+   "71178": {
+      "BANCH_NAME": "CHINNAKALLIPATTI",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 641302
+   },
+   "71187": {
+      "BANCH_NAME": "IIM TIRUCHIRAPALLI",
+      "DISTRICT": "TIRUCHIRAPALLI",
+      "PINCODE": 620024
+   },
+   "71195": {
+      "BANCH_NAME": "TIRUCHENGODE TOWN BRANCH",
+      "DISTRICT": "NAMAKKAL",
+      "PINCODE": 637209
+   },
+   "71197": {
+      "BANCH_NAME": "SATHYAMANGALAM TOWN",
+      "DISTRICT": "ERODE",
+      "PINCODE": 638402
+   },
+   "71199": {
+      "BANCH_NAME": "SOORAKOTTAI",
+      "DISTRICT": "THANJAVUR",
+      "PINCODE": 613001
+   },
+   "71206": {
+      "BANCH_NAME": "THIRUPATHISARAM",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629901
+   },
+   "71219": {
+      "BANCH_NAME": "KUMARANKUDI",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629177
+   },
+   "71229": {
+      "BANCH_NAME": "MANTHITHOPPU",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628501
+   },
+   "71231": {
+      "BANCH_NAME": "THALAIYUR",
+      "DISTRICT": "SIVAGANGA",
+      "PINCODE": 630302
+   },
+   "71232": {
+      "BANCH_NAME": "GOPALAPURAM MANNUR",
+      "DISTRICT": "COIMBATORE",
+      "PINCODE": 642005
+   },
+   "71235": {
+      "BANCH_NAME": "SME SANKARANKOVIL",
+      "DISTRICT": "TENKASI",
+      "PINCODE": 627756
+   },
+   "71245": {
+      "BANCH_NAME": "KURUVITHURAI",
+      "DISTRICT": "MADURAI",
+      "PINCODE": 625207
+   },
+   "71248": {
+      "BANCH_NAME": "PALUGAL",
+      "DISTRICT": "KANYAKUMARI",
+      "PINCODE": 629170
+   },
+   "71252": {
+      "BANCH_NAME": "MELA AUTHOOR",
+      "DISTRICT": "TOOTHUKUDI",
+      "PINCODE": 628151
+   },
+   "71256": {
+      "BANCH_NAME": "VADAKKANKULAM",
+      "DISTRICT": "TIRUNELVELI",
+      "PINCODE": 627116
+   },
+   "99991": {
+      "BANCH_NAME": "UNKNOWN_BRANCH",
+      "DISTRICT": "OFFICIAL",
+      "PINCODE": 999999
+   },
+   "99992": {
+      "BANCH_NAME": "PERSONAL LEAVE",
+      "DISTRICT": "OFFICIAL",
+      "PINCODE": 999999
+   },
+   "99993": {
+      "BANCH_NAME": "OFFICIAL  LEAVE",
+      "DISTRICT": "OFFICIAL",
+      "PINCODE": 999999
+   },
+   "99994": {
+      "BANCH_NAME": "For_Bill_Issue",
+      "DISTRICT": "OFFICIAL",
+      "PINCODE": 999999
+   }
+}
