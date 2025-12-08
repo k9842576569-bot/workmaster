@@ -29,16 +29,15 @@
     <input type="text" id="branchCode" placeholder="Enter Branch Code" style="flex:2;">
     <button type="button" onclick="fillBranch()" style="flex:1;">Search</button>
     <input type="text" id="branchName" placeholder="Branch Name" readonly style="flex:3;">
-    <input type="text" id="district" placeholder="District" readonly style="flex:2;">
-    <input type="text" id="pincode" placeholder="Pincode" readonly style="flex:1;">
   </div>
 
   <!-- In/Out and Remarks -->
-  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:8px;">
     <input type="time" id="inTime" placeholder="In">
     <input type="time" id="outTime" placeholder="Out">
-    <textarea id="remarks" placeholder="Remarks" rows="3"></textarea>
   </div>
+
+  <textarea id="remarks" placeholder="Remarks" rows="3" style="width:100%;"></textarea>
 
   <button onclick="addData()">Add / Update</button>
   <button class="btn-export" onclick="exportTableToExcel('dataTable', 'WorkMaster')">Export to Excel</button>
@@ -97,13 +96,14 @@ function fillBranch() {
     const branch = branchMaster[code];
     if(branch) {
         document.getElementById('branchName').value = branch.BANCH_NAME;
-        document.getElementById('district').value = branch.DISTRICT;
-        document.getElementById('pincode').value = branch.PINCODE;
+        // Store hidden fields in dataset
+        document.getElementById('branchCode').dataset.district = branch.DISTRICT;
+        document.getElementById('branchCode').dataset.pincode = branch.PINCODE;
     } else {
         alert('Branch Code not found!');
         document.getElementById('branchName').value = '';
-        document.getElementById('district').value = '';
-        document.getElementById('pincode').value = '';
+        document.getElementById('branchCode').dataset.district = '';
+        document.getElementById('branchCode').dataset.pincode = '';
     }
 }
 
@@ -148,8 +148,8 @@ function renderTable() {
 function addData() {
   const branchCode = document.getElementById('branchCode').value.trim();
   const branchName = document.getElementById('branchName').value.trim();
-  const district = document.getElementById('district').value.trim();
-  const pincode = document.getElementById('pincode').value.trim();
+  const district = document.getElementById('branchCode').dataset.district || '';
+  const pincode = document.getElementById('branchCode').dataset.pincode || '';
   const inTime = document.getElementById('inTime').value.trim();
   const outTime = document.getElementById('outTime').value.trim();
   const remarks = document.getElementById('remarks').value.trim();
@@ -167,9 +167,7 @@ function addData() {
   }
 
   const record = {
-    entryID: entryID,
-    mobile: '', // future login field
-    branchCode, branchName, district, pincode, inTime, outTime, remarks
+    entryID, mobile:'', branchCode, branchName, district, pincode, inTime, outTime, remarks
   };
 
   if(editIndex >= 0) {
@@ -188,8 +186,8 @@ function editRow(index) {
   const item = data[index];
   document.getElementById('branchCode').value = item.branchCode;
   document.getElementById('branchName').value = item.branchName;
-  document.getElementById('district').value = item.district;
-  document.getElementById('pincode').value = item.pincode;
+  document.getElementById('branchCode').dataset.district = item.district;
+  document.getElementById('branchCode').dataset.pincode = item.pincode;
   document.getElementById('inTime').value = item.inTime;
   document.getElementById('outTime').value = item.outTime;
   document.getElementById('remarks').value = item.remarks;
@@ -207,8 +205,8 @@ function deleteRow(index) {
 function clearForm() {
   document.getElementById('branchCode').value = '';
   document.getElementById('branchName').value = '';
-  document.getElementById('district').value = '';
-  document.getElementById('pincode').value = '';
+  document.getElementById('branchCode').dataset.district = '';
+  document.getElementById('branchCode').dataset.pincode = '';
   document.getElementById('inTime').value = '';
   document.getElementById('outTime').value = '';
   document.getElementById('remarks').value = '';
