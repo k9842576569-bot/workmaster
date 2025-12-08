@@ -6,7 +6,7 @@
 <style>
   body { font-family: Arial; padding:12px; background:#f4f4f4; }
   .box { max-width:950px; margin:auto; padding:16px; background:#fff; border-radius:8px; }
-  input, button, textarea { padding:6px; margin:4px 0; box-sizing:border-box; }
+  input, button, textarea, select { padding:6px; margin:4px 0; box-sizing:border-box; }
   table { width: 100%; border-collapse: collapse; margin-top: 16px; }
   th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
   th { background: #eee; }
@@ -15,8 +15,9 @@
   .btn-delete { background: red; color: white; }
   .btn-export { background: green; color: white; margin-top: 10px; }
   td.remarks-cell { max-width: 250px; word-wrap: break-word; white-space: pre-wrap; }
-  input[type="text"], input[type="time"], input[type="date"], input[type="number"], textarea { width: 100%; }
+  input[type="text"], select, textarea { width: 100%; }
   .branch-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+  .time-row { display:flex; gap:4px; align-items:center; }
 </style>
 </head>
 <body>
@@ -35,12 +36,22 @@
   <input type="text" id="district" placeholder="District" style="display:none;">
   <input type="text" id="pincode" placeholder="Pincode" style="display:none;">
 
-  <!-- In/Out and Remarks -->
-  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:8px;">
-    <input type="time" id="inTime" placeholder="In">
-    <input type="time" id="outTime" placeholder="Out">
+  <!-- In/Out time dropdowns -->
+  <div class="time-row">
+    <label>In:</label>
+    <select id="inHour">${Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select>
+    :
+    <select id="inMinute">${Array.from({length:60},(_,i)=>`<option value="${i.toString().padStart(2,'0')}">${i.toString().padStart(2,'0')}</option>`).join('')}</select>
+    <select id="inAMPM"><option value="AM">AM</option><option value="PM">PM</option></select>
+
+    <label style="margin-left:20px;">Out:</label>
+    <select id="outHour">${Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}</select>
+    :
+    <select id="outMinute">${Array.from({length:60},(_,i)=>`<option value="${i.toString().padStart(2,'0')}">${i.toString().padStart(2,'0')}</option>`).join('')}</select>
+    <select id="outAMPM"><option value="AM">AM</option><option value="PM">PM</option></select>
   </div>
 
+  <!-- Remarks -->
   <textarea id="remarks" placeholder="Remarks" rows="3" style="width:100%;"></textarea>
 
   <button onclick="addData()">Add / Update</button>
@@ -76,15 +87,11 @@ fetch('branch_master.json')
   .then(data => { branchMaster = data; branchLoaded = true; })
   .catch(err => console.error("Failed to load branch_master.json:", err));
 
-// Convert 24-hour HH:MM to 12-hour AM/PM
-function formatTime12(time24) {
-  if(!time24) return '';
-  let [hour, min] = time24.split(':');
-  hour = parseInt(hour);
-  const ampm = hour >= 12 ? 'PM' : 'AM';
-  hour = hour % 12;
-  hour = hour ? hour : 12;
-  return `${hour}:${min} ${ampm}`;
+// Format selected time as "HH:MM AM/PM"
+function getTime(idHour, idMinute, idAMPM) {
+  return document.getElementById(idHour).value + ':' + 
+         document.getElementById(idMinute).value + ' ' +
+         document.getElementById(idAMPM).value;
 }
 
 // Auto-fill branch details
@@ -131,8 +138,8 @@ function renderTable() {
       <td>${item.branchName}</td>
       <td>${item.district}</td>
       <td>${item.pincode}</td>
-      <td>${formatTime12(item.inTime)}</td>
-      <td>${formatTime12(item.outTime)}</td>
+      <td>${item.inTime}</td>
+      <td>${item.outTime}</td>
       <td class="remarks-cell">${item.remarks}</td>
       <td>
         <button class="btn btn-edit" onclick="editRow(${index})">Edit</button>
@@ -148,8 +155,8 @@ function addData() {
   const branchName = document.getElementById('branchName').value.trim();
   const district = document.getElementById('district').value;
   const pincode = document.getElementById('pincode').value;
-  const inTime = document.getElementById('inTime').value.trim();
-  const outTime = document.getElementById('outTime').value.trim();
+  const inTime = getTime('inHour','inMinute','inAMPM');
+  const outTime = getTime('outHour','outMinute','outAMPM');
   const remarks = document.getElementById('remarks').value.trim();
 
   if(!branchCode || !branchName) {
@@ -164,9 +171,7 @@ function addData() {
     entryID = data.length ? Math.max(...data.map(d => parseInt(d.entryID))) + 1 : 1;
   }
 
-  const record = {
-    entryID, mobile:'', branchCode, branchName, district, pincode, inTime, outTime, remarks
-  };
+  const record = { entryID, mobile:'', branchCode, branchName, district, pincode, inTime, outTime, remarks };
 
   if(editIndex >= 0) {
     data[editIndex] = record;
@@ -186,8 +191,21 @@ function editRow(index) {
   document.getElementById('branchName').value = item.branchName;
   document.getElementById('district').value = item.district;
   document.getElementById('pincode').value = item.pincode;
-  document.getElementById('inTime').value = item.inTime;
-  document.getElementById('outTime').value = item.outTime;
+
+  // Split inTime
+  let [inHMin, inAMPM] = item.inTime.split(' ');
+  let [inH, inM] = inHMin.split(':');
+  document.getElementById('inHour').value = inH;
+  document.getElementById('inMinute').value = inM;
+  document.getElementById('inAMPM').value = inAMPM;
+
+  // Split outTime
+  let [outHMin, outAMPM] = item.outTime.split(' ');
+  let [outH, outM] = outHMin.split(':');
+  document.getElementById('outHour').value = outH;
+  document.getElementById('outMinute').value = outM;
+  document.getElementById('outAMPM').value = outAMPM;
+
   document.getElementById('remarks').value = item.remarks;
   editIndex = index;
 }
@@ -205,9 +223,13 @@ function clearForm() {
   document.getElementById('branchName').value = '';
   document.getElementById('district').value = '';
   document.getElementById('pincode').value = '';
-  document.getElementById('inTime').value = '';
-  document.getElementById('outTime').value = '';
   document.getElementById('remarks').value = '';
+  document.getElementById('inHour').value = 1;
+  document.getElementById('inMinute').value = '00';
+  document.getElementById('inAMPM').value = 'AM';
+  document.getElementById('outHour').value = 1;
+  document.getElementById('outMinute').value = '00';
+  document.getElementById('outAMPM').value = 'AM';
 }
 
 function exportTableToExcel(tableID, filename = '') {
