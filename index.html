@@ -25,7 +25,6 @@
   <!-- Data Entry Section -->
   <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;">
     <input type="text" id="branchCode" placeholder="Enter Branch Code">
-    <button type="button" onclick="fillBranch()">Search Branch</button>
     <input type="text" id="branchName" placeholder="Branch Name" readonly>
     <input type="text" id="district" placeholder="District" readonly>
     <input type="text" id="pincode" placeholder="Pincode" readonly>
@@ -64,23 +63,19 @@ let branchLoaded = false;
 
 fetch('branch_master.json')
   .then(res => res.json())
-  .then(data => {
-    branchMaster = data;
-    branchLoaded = true;
-    console.log("Branch master loaded", Object.keys(branchMaster));
-  })
+  .then(data => { branchMaster = data; branchLoaded = true; })
   .catch(err => console.error("Failed to load branch_master.json:", err));
 
-// Auto-fill branch name, district, pincode
+// Auto-fill branch details on Tab
 document.getElementById('branchCode').addEventListener('keydown', function(e) {
-    if(e.key === 'Tab') {
+    if(e.key === 'Tab' || e.key === 'Enter') {
         fillBranch();
     }
 });
 
 function fillBranch() {
     if(!branchLoaded) {
-        alert('Branch data is still loading. Please try again in a moment.');
+        alert('Branch data is still loading. Please wait a moment.');
         return;
     }
 
