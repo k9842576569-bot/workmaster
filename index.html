@@ -3,21 +3,21 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Global Edge Work Master</title>
+
 <style>
 body { font-family: Arial; padding:12px; background:#f4f4f4; }
 .box { max-width:1000px; margin:auto; padding:16px; background:#fff; border-radius:8px; }
 input, select, textarea, button { width:100%; padding:6px; margin:4px 0; }
 table { width:100%; border-collapse:collapse; margin-top:12px; }
-th, td { border:1px solid #ccc; padding:6px; text-align:left; }
+th, td { border:1px solid #ccc; padding:6px; text-align:left; vertical-align:top; }
 th { background:#eee; }
-.btn { padding:4px 8px; cursor:pointer; }
 .btn-edit { background:orange; color:#fff; }
 .btn-delete { background:red; color:#fff; }
 .btn-export { background:green; color:#fff; margin-top:10px; }
 .row { display:flex; gap:8px; flex-wrap:wrap; }
 .col { flex:1; }
-.time-row { display:flex; gap:5px; align-items:center; }
-td { vertical-align:top; white-space:pre-wrap; word-break:break-word; }
+.time-row { display:flex; gap:4px; align-items:center; }
+td { white-space:pre-wrap; word-break:break-word; }
 </style>
 </head>
 
@@ -32,29 +32,53 @@ td { vertical-align:top; white-space:pre-wrap; word-break:break-word; }
   <div class="col"><input id="branchName" placeholder="Branch Name" readonly></div>
 </div>
 
-<!-- Hidden for future -->
+<!-- Hidden District & Pincode -->
 <input id="district" style="display:none">
 <input id="pincode" style="display:none">
 
-<!-- Time -->
+<!-- ✅✅✅ TIME 1–12 + AM PM (NO JS) -->
 <div class="row">
-  <div class="col time-row">
-    <b>In:</b>
-    <select id="inHour"></select> :
-    <select id="inMinute"></select>
-    <select id="inAMPM">
-      <option>AM</option><option>PM</option>
-    </select>
-  </div>
 
-  <div class="col time-row">
-    <b>Out:</b>
-    <select id="outHour"></select> :
-    <select id="outMinute"></select>
-    <select id="outAMPM">
-      <option>AM</option><option>PM</option>
-    </select>
-  </div>
+<div class="col time-row">
+<b>In:</b>
+<select id="inHour">
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option><option>11</option><option>12</option>
+</select> :
+
+<select id="inMinute">
+<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option>
+<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
+<option>10</option><option>15</option><option>20</option><option>25</option><option>30</option>
+<option>35</option><option>40</option><option>45</option><option>50</option><option>55</option>
+</select>
+
+<select id="inAMPM">
+<option>AM</option><option>PM</option>
+</select>
+</div>
+
+<div class="col time-row">
+<b>Out:</b>
+<select id="outHour">
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option><option>11</option><option>12</option>
+</select> :
+
+<select id="outMinute">
+<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option>
+<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
+<option>10</option><option>15</option><option>20</option><option>25</option><option>30</option>
+<option>35</option><option>40</option><option>45</option><option>50</option><option>55</option>
+</select>
+
+<select id="outAMPM">
+<option>AM</option><option>PM</option>
+</select>
+</div>
+
 </div>
 
 <textarea id="remarks" rows="4" placeholder="Remarks (Long text supported)"></textarea>
@@ -76,58 +100,26 @@ td { vertical-align:top; white-space:pre-wrap; word-break:break-word; }
 </div>
 
 <script>
-// ✅ POPULATE TIME DROPDOWNS ✅
-function loadTime() {
-  for(let i=1;i<=12;i++){
-    inHour.innerHTML += `<option>${i}</option>`;
-    outHour.innerHTML += `<option>${i}</option>`;
-  }
-  for(let i=0;i<60;i++){
-    let m = i.toString().padStart(2,"0");
-    inMinute.innerHTML += `<option>${m}</option>`;
-    outMinute.innerHTML += `<option>${m}</option>`;
-  }
-}
-loadTime();
-
-// ✅ LOAD BRANCH JSON ✅
 let branchMaster = {};
-fetch("branch_master.json")
-.then(r => r.json())
-.then(d => branchMaster = d);
+fetch("branch_master.json").then(r=>r.json()).then(d=>branchMaster=d);
 
-// ✅ AUTO SEARCH ✅
 function fillBranch(){
-  let code = branchCode.value.trim();
-  let b = branchMaster[code];
-  if(!b){
-    alert("Branch Code Not Found!");
-    branchName.value = "";
-    district.value = "";
-    pincode.value = "";
-    return;
-  }
+  let b = branchMaster[branchCode.value.trim()];
+  if(!b){ alert("Branch Code Not Found!"); return; }
   branchName.value = b.BANCH_NAME;
   district.value = b.DISTRICT;
   pincode.value = b.PINCODE;
 }
 
-branchCode.addEventListener("blur", fillBranch);
-
-// ✅ STORAGE ✅
 let data = JSON.parse(localStorage.getItem("work")) || [];
-let edit = -1;
+let edit=-1;
 
 function addData(){
-  if(!branchCode.value || !branchName.value){
-    alert("Enter valid Branch Code");
-    return;
-  }
+  if(!branchCode.value||!branchName.value){ alert("Enter Branch"); return; }
 
-  let inTime = `${inHour.value}:${inMinute.value} ${inAMPM.value}`;
-  let outTime = `${outHour.value}:${outMinute.value} ${outAMPM.value}`;
-
-  let id = edit>=0 ? data[edit].id : (data.length+1);
+  let inTime = inHour.value+":"+inMinute.value+" "+inAMPM.value;
+  let outTime = outHour.value+":"+outMinute.value+" "+outAMPM.value;
+  let id = edit>=0 ? data[edit].id : data.length+1;
 
   let rec = {
     id, branchCode:branchCode.value, branchName:branchName.value,
@@ -138,39 +130,34 @@ function addData(){
   if(edit>=0){ data[edit]=rec; edit=-1; }
   else data.push(rec);
 
-  localStorage.setItem("work", JSON.stringify(data));
-  clear();
-  render();
+  localStorage.setItem("work",JSON.stringify(data));
+  render(); clear();
 }
 
 function render(){
-  let tbody = document.querySelector("#table tbody");
-  tbody.innerHTML = "";
+  let tb=document.querySelector("#table tbody");
+  tb.innerHTML="";
   data.forEach((r,i)=>{
-    tbody.innerHTML += `
-    <tr>
-    <td>${r.id}</td><td>${r.branchCode}</td><td>${r.branchName}</td>
-    <td>${r.district}</td><td>${r.pincode}</td>
-    <td>${r.inTime}</td><td>${r.outTime}</td>
-    <td>${r.remarks}</td>
-    <td>
-      <button class="btn btn-edit" onclick="editRow(${i})">Edit</button>
-      <button class="btn btn-delete" onclick="delRow(${i})">Del</button>
-    </td>
-    </tr>`;
+    tb.innerHTML+=`<tr>
+<td>${r.id}</td><td>${r.branchCode}</td><td>${r.branchName}</td>
+<td>${r.district}</td><td>${r.pincode}</td>
+<td>${r.inTime}</td><td>${r.outTime}</td>
+<td>${r.remarks}</td>
+<td>
+<button class="btn-edit" onclick="editRow(${i})">Edit</button>
+<button class="btn-delete" onclick="delRow(${i})">Del</button>
+</td></tr>`;
   });
 }
 
 function editRow(i){
   let r=data[i];
-  branchCode.value=r.branchCode;
-  fillBranch();
+  branchCode.value=r.branchCode; fillBranch();
   let a=r.inTime.split(/[: ]/);
   inHour.value=a[0]; inMinute.value=a[1]; inAMPM.value=a[2];
   let b=r.outTime.split(/[: ]/);
   outHour.value=b[0]; outMinute.value=b[1]; outAMPM.value=b[2];
-  remarks.value=r.remarks;
-  edit=i;
+  remarks.value=r.remarks; edit=i;
 }
 
 function delRow(i){
