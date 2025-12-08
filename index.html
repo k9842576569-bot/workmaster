@@ -6,15 +6,16 @@
 <style>
   body { font-family: Arial; padding:12px; background:#f4f4f4; }
   .box { max-width:950px; margin:auto; padding:16px; background:#fff; border-radius:8px; }
-  input, button { padding:6px; margin:4px 0; }
+  input, button, textarea { padding:6px; margin:4px 0; box-sizing:border-box; }
   table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
   th { background: #eee; }
   .btn { padding: 4px 8px; cursor:pointer; margin:0 2px; }
   .btn-edit { background: orange; color: white; }
   .btn-delete { background: red; color: white; }
   .btn-export { background: green; color: white; margin-top: 10px; }
-  input[type="text"], input[type="date"], input[type="number"] { width: 100%; box-sizing: border-box; }
+  td.remarks-cell { max-width: 250px; word-wrap: break-word; white-space: pre-wrap; }
+  input[type="text"], input[type="time"], input[type="date"], input[type="number"], textarea { width: 100%; }
 </style>
 </head>
 <body>
@@ -28,9 +29,9 @@
     <input type="text" id="branchName" placeholder="Branch Name" readonly>
     <input type="text" id="district" placeholder="District" readonly>
     <input type="text" id="pincode" placeholder="Pincode" readonly>
-    <input type="text" id="inTime" placeholder="In">
-    <input type="text" id="outTime" placeholder="Out">
-    <input type="text" id="remarks" placeholder="Remarks">
+    <input type="time" id="inTime" placeholder="In">
+    <input type="time" id="outTime" placeholder="Out">
+    <textarea id="remarks" placeholder="Remarks" rows="3"></textarea>
   </div>
 
   <button onclick="addData()">Add / Update</button>
@@ -66,7 +67,18 @@ fetch('branch_master.json')
   .then(data => { branchMaster = data; branchLoaded = true; })
   .catch(err => console.error("Failed to load branch_master.json:", err));
 
-// Auto-fill branch details on Tab
+// Convert 24-hour HH:MM to 12-hour AM/PM
+function formatTime12(time24) {
+  if(!time24) return '';
+  let [hour, min] = time24.split(':');
+  hour = parseInt(hour);
+  const ampm = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12;
+  hour = hour ? hour : 12; // 0 -> 12
+  return `${hour}:${min} ${ampm}`;
+}
+
+// Auto-fill branch details on Tab or Enter
 document.getElementById('branchCode').addEventListener('keydown', function(e) {
     if(e.key === 'Tab' || e.key === 'Enter') {
         fillBranch();
@@ -111,9 +123,9 @@ function renderTable() {
       <td>${item.branchName}</td>
       <td>${item.district}</td>
       <td>${item.pincode}</td>
-      <td>${item.inTime}</td>
-      <td>${item.outTime}</td>
-      <td>${item.remarks}</td>
+      <td>${formatTime12(item.inTime)}</td>
+      <td>${formatTime12(item.outTime)}</td>
+      <td class="remarks-cell">${item.remarks}</td>
       <td>
         <button class="btn btn-edit" onclick="editRow(${index})">Edit</button>
         <button class="btn btn-delete" onclick="deleteRow(${index})">Delete</button>
