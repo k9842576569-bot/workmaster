@@ -16,7 +16,7 @@
   .btn-export { background: green; color: white; margin-top: 10px; }
   td.remarks-cell { max-width: 250px; word-wrap: break-word; white-space: pre-wrap; }
   input[type="text"], input[type="time"], input[type="date"], input[type="number"], textarea { width: 100%; }
-  .branch-row { display: grid; grid-template-columns: 3fr 1fr 1fr 1fr; gap:8px; align-items:center; }
+  .branch-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
 </style>
 </head>
 <body>
@@ -24,15 +24,16 @@
 <div class="box">
   <h2>Global Edge Work Master</h2>
 
-  <!-- Data Entry Section -->
+  <!-- Branch input row with Search button -->
   <div class="branch-row">
-    <input type="text" id="branchCode" placeholder="Enter Branch Code">
-    <button type="button" onclick="fillBranch()">Search</button>
-    <input type="text" id="branchName" placeholder="Branch Name" readonly>
-    <input type="text" id="district" placeholder="District" readonly>
-    <input type="text" id="pincode" placeholder="Pincode" readonly>
+    <input type="text" id="branchCode" placeholder="Enter Branch Code" style="flex:2;">
+    <button type="button" onclick="fillBranch()" style="flex:1;">Search</button>
+    <input type="text" id="branchName" placeholder="Branch Name" readonly style="flex:3;">
+    <input type="text" id="district" placeholder="District" readonly style="flex:2;">
+    <input type="text" id="pincode" placeholder="Pincode" readonly style="flex:1;">
   </div>
 
+  <!-- In/Out and Remarks -->
   <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
     <input type="time" id="inTime" placeholder="In">
     <input type="time" id="outTime" placeholder="Out">
@@ -106,7 +107,7 @@ function fillBranch() {
     }
 }
 
-// Also auto-fill on Tab/Enter for desktop
+// Auto-fill on Tab/Enter for desktop
 document.getElementById('branchCode').addEventListener('keydown', function(e) {
     if(e.key === 'Tab' || e.key === 'Enter') {
         fillBranch();
