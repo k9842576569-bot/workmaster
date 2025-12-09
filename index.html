@@ -8,18 +8,19 @@
 <style>
 body{font-family:Arial;background:#f2f2f2;padding:10px;}
 .box{max-width:900px;margin:auto;background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 10px #aaa;}
-input,button,textarea,select{padding:10px;font-size:16px;margin:5px 0;}
+input,button,textarea,select{padding:10px;font-size:16px;margin:5px 0;width:100%;}
 button{background:#007bff;color:white;border:none;border-radius:5px;}
 .hidden{display:none;}
 table{width:100%;border-collapse:collapse;margin-top:15px;}
 td,th{border:1px solid #ccc;padding:6px;}
 th{background:#eee;}
 .role{color:green;font-weight:bold;}
-textarea{width:100%;height:120px;}
+textarea{height:120px;}
 
 .search-row{display:flex;gap:6px;}
 .search-row input{flex:1;}
 .search-row button{width:120px;background:#28a745;}
+
 .time-row{display:flex;gap:6px;}
 .time-row input{flex:1;}
 .time-row select{width:90px;}
@@ -28,7 +29,6 @@ textarea{width:100%;height:120px;}
 
 <body>
 
-<!-- LOGIN -->
 <div class="box" id="loginBox">
 <h2>Staff Login</h2>
 <input id="loginMobile" placeholder="Mobile Number">
@@ -37,54 +37,40 @@ textarea{width:100%;height:120px;}
 <p id="loginError" style="color:red;"></p>
 </div>
 
-<!-- MAIN SCREEN -->
 <div class="box hidden" id="mainBox">
 <h2>Work Master</h2>
 <p id="welcome"></p>
 <p id="role" class="role"></p>
 
-<h3>New Entry</h3>
-
 <label>Work Date</label>
 <input type="date" id="workDate">
 
-<!-- SEARCH -->
 <div class="search-row">
   <input id="branchCode" placeholder="Enter Branch Code">
   <button onclick="searchBranch()">SEARCH</button>
 </div>
 
 <input id="branchName" placeholder="Branch Name" readonly>
-
-<!-- Hidden fields -->
 <input type="hidden" id="district">
 <input type="hidden" id="pincode">
 
 <label>In Time</label>
 <div class="time-row">
-  <input id="inTime" placeholder="HH:MM">
-  <select id="inAmPm">
-    <option>AM</option>
-    <option>PM</option>
-  </select>
+  <input id="inTime">
+  <select id="inAmPm"><option>AM</option><option>PM</option></select>
 </div>
 
 <label>Out Time</label>
 <div class="time-row">
-  <input id="outTime" placeholder="HH:MM">
-  <select id="outAmPm">
-    <option>AM</option>
-    <option>PM</option>
-  </select>
+  <input id="outTime">
+  <select id="outAmPm"><option>AM</option><option>PM</option></select>
 </div>
 
-<textarea id="remarks" placeholder="Remarks (Long text allowed)"></textarea>
+<textarea id="remarks" placeholder="Remarks"></textarea>
 
-<button onclick="addEntry()">Save Entry</button>
-
-<button id="exportBtn" onclick="exportExcel()">Export Excel</button>
-<button onclick="openChange()">Change Password</button>
-<button onclick="logout()" style="background:red;">Logout</button>
+<button onclick="addEntry()">SAVE ENTRY</button>
+<button id="exportBtn" onclick="exportExcel()">EXPORT EXCEL</button>
+<button onclick="logout()" style="background:red;">LOGOUT</button>
 
 <table>
 <thead>
@@ -106,26 +92,13 @@ textarea{width:100%;height:120px;}
 <p id="msg" style="color:green;"></p>
 </div>
 
-<!-- CHANGE PASSWORD -->
-<div class="box hidden" id="changeBox">
-<h2>Change Password</h2>
-<input type="password" id="oldPass" placeholder="Old Password">
-<input type="password" id="newPass" placeholder="New Password">
-<input type="password" id="confirmPass" placeholder="Confirm Password">
-<button onclick="updatePassword()">Update</button>
-<button onclick="back()">Back</button>
-<p id="passMsg" style="color:red;"></p>
-</div>
-
 <script>
 let staffData={}, branchData={}, currentUser=null;
 let workData = JSON.parse(localStorage.getItem("workData")) || [];
 
-/* LOAD FILES */
 fetch("staff_master.json").then(r=>r.json()).then(d=>staffData=d);
 fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
 
-/* LOGIN */
 function login(){
   for(let k in staffData){
     if(staffData[k].Mobile===loginMobile.value && staffData[k].Password===loginPassword.value){
@@ -142,10 +115,8 @@ function login(){
   loginError.innerText="Invalid Login!";
 }
 
-/* LOGOUT */
 function logout(){ location.reload(); }
 
-/* BRANCH SEARCH */
 function searchBranch(){
   let code = branchCode.value.trim();
   if(branchData[code]){
@@ -158,48 +129,45 @@ function searchBranch(){
   }
 }
 
-/* ✅ DUPLICATE PREVENTION + SAVE */
+/* ✅ ✅ ✅ FINAL DUPLICATE BLOCK LOGIC ✅ ✅ ✅ */
 function addEntry(){
 
-  let date = workDate.value;
-  let code = branchCode.value.trim();
-  let name = branchName.value;
-  let dist = district.value;
-  let pin = pincode.value;
-  let inT = inTime.value + " " + inAmPm.value;
-  let outT = outTime.value + " " + outAmPm.value;
-  let rem = remarks.value;
+  let date = workDate.value.trim();
+  let code = String(branchCode.value.trim());
 
-  if(!date || !code || !name){
-    alert("Date, Branch Code & Branch Name Required!");
+  if(!date || !code || !branchName.value){
+    alert("Date & Branch are required");
     return;
   }
 
-  // ✅ BLOCK SAME DATE + SAME BRANCH
-  let duplicate = workData.find(x => x.date === date && x.code === code);
-  if(duplicate){
-    alert("❌ This Branch Already Entered For This Date!");
-    return;
+  let isDuplicate = workData.some(x => 
+      String(x.date).trim() === date && 
+      String(x.code).trim() === code
+  );
+
+  if(isDuplicate){
+    alert("❌ DUPLICATE BLOCKED!\nThis Branch is already entered for the same date.");
+    return; // ✅ HARD STOP
   }
 
   let rec = {
-    date:date,
-    code:code,
-    name:name,
-    dist:dist,
-    pin:pin,
-    in:inT,
-    out:outT,
-    rem:rem
+    date: date,
+    code: code,
+    name: branchName.value,
+    dist: district.value,
+    pin: pincode.value,
+    in: inTime.value + " " + inAmPm.value,
+    out: outTime.value + " " + outAmPm.value,
+    rem: remarks.value
   };
 
   workData.push(rec);
   localStorage.setItem("workData",JSON.stringify(workData));
-  msg.innerText="✅ Saved Successfully!";
+
+  msg.innerText="✅ Saved Successfully";
   render();
 }
 
-/* SHOW TABLE */
 function render(){
   dataBody.innerHTML="";
   workData.forEach((x,i)=>{
@@ -218,7 +186,6 @@ function render(){
   });
 }
 
-/* EXPORT CSV (ADMIN ONLY) */
 function exportExcel(){
   let csv="SlNo,Date,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n";
   workData.forEach((x,i)=>{
@@ -229,29 +196,6 @@ function exportExcel(){
   a.href=URL.createObjectURL(blob);
   a.download="workmaster.csv";
   a.click();
-}
-
-/* CHANGE PASSWORD */
-function openChange(){
-  mainBox.classList.add("hidden");
-  changeBox.classList.remove("hidden");
-}
-
-function updatePassword(){
-  if(oldPass.value!==currentUser.Password){
-    passMsg.innerText="Wrong Old Password"; return;
-  }
-  if(newPass.value!==confirmPass.value){
-    passMsg.innerText="Password Mismatch"; return;
-  }
-  currentUser.Password=newPass.value;
-  passMsg.style.color="green";
-  passMsg.innerText="Password Updated (session only)";
-}
-
-function back(){
-  changeBox.classList.add("hidden");
-  mainBox.classList.remove("hidden");
 }
 </script>
 
