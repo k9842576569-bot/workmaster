@@ -1,234 +1,439 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Global Edge Work Master</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Work Master — Validated</title>
 <style>
-body{font-family:Arial;background:#f2f2f2;padding:10px;}
-.box{max-width:1000px;margin:auto;background:#fff;padding:15px;border-radius:8px;}
-input,button,textarea,select{padding:8px;font-size:16px;margin:4px 0;width:100%;}
-button{background:#007bff;color:white;border:none;border-radius:5px;}
-.hidden{display:none;}
-table{width:100%;border-collapse:collapse;margin-top:15px;font-size:14px;}
-td,th{border:1px solid #ccc;padding:6px;text-align:left;}
-th{background:#eee;}
-.search-row,.time-row{display:flex;gap:6px;}
-.search-row input,.time-row input{flex:1;}
-.search-row button{width:120px;background:#28a745;}
-.editBtn{background:orange;}
-.delBtn{background:red;}
+  :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
+  body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;padding:12px}
+  .card{max-width:1000px;margin:12px auto;background:#fff;border-radius:8px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  h2{margin:6px 0 12px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  input,select,textarea,button{font-size:15px;padding:8px;border:1px solid #d0d7de;border-radius:6px}
+  input[type="time"]{padding:6px}
+  input[type="date"]{padding:6px}
+  label{font-weight:600;margin-top:6px;display:block}
+  .flex-1{flex:1 1 220px}
+  .btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
+  .btn-secondary{background:#6c757d}
+  .btn-danger{background:var(--err)}
+  .btn-green{background:var(--ok)}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+  th,td{border:1px solid #e2e8f0;padding:8px;text-align:left;vertical-align:top}
+  th{background:#f1f5f9}
+  .small{font-size:13px;color:#666}
+  .hidden{display:none}
+  .validation-report{margin-top:12px;padding:10px;border-radius:6px;background:#fafafa;border:1px dashed #e6eef8}
+  .vr-line{display:flex;gap:8px;align-items:center;margin:4px 0}
+  .vr-dot{width:10px;height:10px;border-radius:50%}
+  .ok{color:var(--ok)}
+  .err{color:var(--err)}
+  .actions button{margin-right:6px}
+  @media(max-width:640px){
+    .row{flex-direction:column}
+    .search-row{flex-direction:row}
+    .search-row button{width:110px}
+  }
 </style>
 </head>
-
 <body>
 
-<!-- LOGIN -->
-<div class="box" id="loginBox">
-<h3>Staff Login</h3>
-<input id="loginMobile" placeholder="Mobile Number">
-<input id="loginPassword" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
-<p id="loginError" style="color:red;"></p>
+<div class="card" id="loginCard">
+  <h2>Staff Login</h2>
+  <div class="row">
+    <div class="flex-1"><input id="loginMobile" placeholder="Mobile number (login id)"></div>
+    <div class="flex-1"><input id="loginPassword" type="password" placeholder="Password"></div>
+  </div>
+  <div style="margin-top:10px">
+    <button class="btn" onclick="login()">Login</button>
+    <span class="small" style="margin-left:8px;color:#666">Use staff_master.json mobile & password</span>
+  </div>
+  <p id="loginMsg" class="small" style="color:var(--err)"></p>
 </div>
 
-<!-- MAIN -->
-<div class="box hidden" id="mainBox">
-<h3 id="welcome"></h3>
-<p id="role" style="color:green;"></p>
+<div class="card hidden" id="appCard">
+  <h2>Work Master Data Entry</h2>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+    <div>
+      <div id="userInfo" class="small"></div>
+      <div id="roleInfo" class="small" style="font-weight:700;color:var(--ok);"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn" id="exportBtn" onclick="exportExcel()">Export CSV</button>
+      <button class="btn btn-secondary" onclick="openChange()">Change Password</button>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </div>
 
-<label>Work Date</label>
-<input type="date" id="workDate">
+  <hr style="margin:12px 0">
 
-<div class="search-row">
-  <input id="branchCode" placeholder="Branch Code">
-  <button onclick="searchBranch()">SEARCH</button>
+  <!-- entry form -->
+  <div>
+    <label>Work Date</label>
+    <input type="date" id="workDate" class="flex-1">
+
+    <label style="margin-top:8px">Branch code</label>
+    <div class="row search-row" style="align-items:center">
+      <div class="flex-1"><input id="branchCode" placeholder="Enter branch code"></div>
+      <div><button class="btn btn-green" onclick="searchBranch()" type="button">SEARCH</button></div>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <div class="flex-1"><input id="branchName" placeholder="Branch name (auto-filled)" readonly></div>
+      <div class="flex-1 small" style="align-self:center;color:#555">District and Pincode are hidden in entry but shown in list</div>
+    </div>
+
+    <!-- hidden fields -->
+    <input id="district" type="hidden">
+    <input id="pincode" type="hidden">
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+      <div style="flex:1 1 180px">
+        <label>In time (HH:MM)</label>
+        <input id="inTime" type="time">
+      </div>
+      <div style="flex:1 1 180px">
+        <label>Out time (HH:MM)</label>
+        <input id="outTime" type="time">
+      </div>
+    </div>
+
+    <label style="margin-top:8px">Remarks</label>
+    <textarea id="remarks" rows="4" placeholder="Enter remarks (long text allowed)"></textarea>
+
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn" id="saveBtn" onclick="onSave()">Save / Update</button>
+      <button class="btn btn-secondary" onclick="clearForm()" type="button">Clear</button>
+    </div>
+
+    <!-- validation report -->
+    <div id="validationReport" class="validation-report hidden" aria-live="polite">
+      <strong>Validation Report</strong>
+      <div id="vrList"></div>
+      <div id="vrFinal" style="margin-top:8px;font-weight:700"></div>
+    </div>
+  </div>
+
+  <hr style="margin:12px 0">
+
+  <!-- list with edit/delete -->
+  <h3>Saved Entries</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Branch Code</th>
+        <th>Branch Name</th>
+        <th>District</th>
+        <th>Pincode</th>
+        <th>In</th>
+        <th>Out</th>
+        <th>Remarks</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
+
+  <p id="saveMsg" class="small" style="color:var(--ok)"></p>
 </div>
 
-<input id="branchName" placeholder="Branch Name" readonly>
-<input type="hidden" id="district">
-<input type="hidden" id="pincode">
-
-<label>In Time</label>
-<div class="time-row">
-  ✅ <input type="time" id="inTime">
-  <select id="inAmPm"><option>AM</option><option>PM</option></select>
-</div>
-
-<label>Out Time</label>
-<div class="time-row">
-  ✅ <input type="time" id="outTime">
-  <select id="outAmPm"><option>AM</option><option>PM</option></select>
-</div>
-
-<textarea id="remarks" placeholder="Remarks (long text allowed)"></textarea>
-
-<button onclick="addEntry()" id="saveBtn">SAVE ENTRY</button>
-<button id="exportBtn" onclick="exportExcel()">EXPORT EXCEL</button>
-<button onclick="logout()" style="background:red;">LOGOUT</button>
-
-<table>
-<thead>
-<tr>
-<th>Sl</th><th>Date</th><th>Code</th><th>Branch</th>
-<th>District</th><th>Pincode</th>
-<th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
-</tr>
-</thead>
-<tbody id="dataBody"></tbody>
-</table>
-
+<!-- change password card -->
+<div class="card hidden" id="changeCard">
+  <h3>Change Password</h3>
+  <div class="row">
+    <div class="flex-1"><input id="oldPass" placeholder="Old password" type="password"></div>
+    <div class="flex-1"><input id="newPass" placeholder="New password" type="password"></div>
+  </div>
+  <div style="margin-top:8px;display:flex;gap:8px">
+    <button class="btn" onclick="changePassword()">Update</button>
+    <button class="btn btn-secondary" onclick="closeChange()">Back</button>
+  </div>
+  <p id="changeMsg" class="small" style="color:var(--err)"></p>
 </div>
 
 <script>
-let staffData={}, branchData={}, currentUser=null;
-let workData = JSON.parse(localStorage.getItem("workData")) || [];
+/* ---------- Data holders ---------- */
+let staffData = {};
+let branchData = {};
+let currentUser = null;
+let workData = JSON.parse(localStorage.getItem('workData')||'[]');
 let editIndex = -1;
 
-fetch("staff_master.json").then(r=>r.json()).then(d=>staffData=d);
-fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
+/* ---------- load JSONs ---------- */
+fetch('staff_master.json').then(r => r.json()).then(d => staffData = d).catch(e => console.warn('staff_master.json not loaded'));
+fetch('branch_master.json').then(r => r.json()).then(d => branchData = d).catch(e => console.warn('branch_master.json not loaded'));
 
+/* ---------- helpers ---------- */
+function formatTime12(hhmm){
+  if(!hhmm) return '';
+  const [hh, mm] = hhmm.split(':');
+  let h = parseInt(hh,10);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12; if(h===0) h = 12;
+  return `${h}:${mm} ${ampm}`;
+}
+function showElement(el){ el.classList.remove('hidden'); }
+function hideElement(el){ el.classList.add('hidden'); }
+
+/* ---------- login ---------- */
 function login(){
-  for(let k in staffData){
-    if(staffData[k].Mobile===loginMobile.value && staffData[k].Password===loginPassword.value){
-      currentUser = staffData[k];
-      loginBox.classList.add("hidden");
-      mainBox.classList.remove("hidden");
-      welcome.innerText = "Welcome: " + currentUser.Name;
-      role.innerText = "Role: " + currentUser.Role;
-      exportBtn.style.display = currentUser.Role==="ADMIN" ? "block" : "none";
-      render();
+  const mobile = document.getElementById('loginMobile').value.trim();
+  const pass = document.getElementById('loginPassword').value;
+  const msg = document.getElementById('loginMsg'); msg.textContent='';
+
+  if(!mobile || !pass){ msg.textContent = 'Enter mobile and password'; return; }
+
+  // find by mobile
+  for(const key in staffData){
+    const u = staffData[key];
+    if(u.Mobile === mobile && u.Password === pass){
+      currentUser = Object.assign({}, u); // copy so session changes don't change file
+      document.getElementById('loginCard').classList.add('hidden');
+      document.getElementById('appCard').classList.remove('hidden');
+      document.getElementById('userInfo').textContent = `Name: ${currentUser.Name}  •  Mobile: ${currentUser.Mobile}`;
+      document.getElementById('roleInfo').textContent = `Role: ${currentUser.Role}`;
+      // export allowed only for ADMIN
+      document.getElementById('exportBtn').style.display = currentUser.Role === 'ADMIN' ? 'inline-block' : 'none';
+      renderTable();
       return;
     }
   }
-  loginError.innerText="Invalid Login!";
+  msg.textContent = 'Invalid login credentials';
 }
 
-function logout(){ location.reload(); }
+/* ---------- logout ---------- */
+function logout(){
+  // clear session
+  currentUser = null;
+  editIndex = -1;
+  document.getElementById('appCard').classList.add('hidden');
+  document.getElementById('loginCard').classList.remove('hidden');
+  document.getElementById('loginMobile').value=''; document.getElementById('loginPassword').value='';
+  document.getElementById('saveMsg').textContent='';
+}
 
+/* ---------- search branch (button) ---------- */
 function searchBranch(){
-  let code = branchCode.value.trim();
-  if(branchData[code]){
-    branchName.value = branchData[code].BANCH_NAME;
-    district.value = branchData[code].DISTRICT;
-    pincode.value = branchData[code].PINCODE;
-  } else {
-    alert("Branch Not Found!");
-    branchName.value="";
-  }
+  const code = document.getElementById('branchCode').value.trim();
+  if(!code){ alert('Enter branch code then press SEARCH'); return; }
+  const b = branchData[code];
+  if(!b){ alert('Branch code not found'); document.getElementById('branchName').value=''; document.getElementById('district').value=''; document.getElementById('pincode').value=''; return; }
+  document.getElementById('branchName').value = b.BANCH_NAME || '';
+  document.getElementById('district').value = b.DISTRICT || '';
+  document.getElementById('pincode').value = b.PINCODE || '';
 }
 
-function addEntry(){
-  let date=workDate.value.trim(), code=branchCode.value.trim();
-  let inT = inTime.value, outT = outTime.value;
+/* ---------- validations (returns array of {field,ok,msg}) ---------- */
+function validateFields(){
+  const list = [];
+  const date = (document.getElementById('workDate').value || '').trim();
+  const code = (document.getElementById('branchCode').value || '').trim();
+  const name = (document.getElementById('branchName').value || '').trim();
+  const inT = (document.getElementById('inTime').value || '').trim();
+  const outT = (document.getElementById('outTime').value || '').trim();
+  const remarks = (document.getElementById('remarks').value || '').trim();
 
-  if(!date||!code||!branchName.value||!inT||!outT){
-    alert("❌ Date, Branch, In & Out Time Required"); 
-    return;
+  // date
+  if(!date) list.push({field:'Date', ok:false, msg:'Date is required'});
+  else list.push({field:'Date', ok:true, msg:`${date}`});
+
+  // branch code
+  if(!code) list.push({field:'Branch Code', ok:false, msg:'Branch code required'});
+  else list.push({field:'Branch Code', ok:true, msg:code});
+
+  // branch name must match loaded branchMaster (auto-filled)
+  if(!name) list.push({field:'Branch Name', ok:false, msg:'Not filled - press SEARCH'});
+  else list.push({field:'Branch Name', ok:true, msg:name});
+
+  // time fields: type="time" ensures HH:MM format, still validate regex
+  const timeRegex = /^\d{2}:\d{2}$/;
+  if(!inT) list.push({field:'In Time', ok:false, msg:'Required'});
+  else if(!timeRegex.test(inT)) list.push({field:'In Time', ok:false, msg:'Invalid format'});
+  else list.push({field:'In Time', ok:true, msg:formatTime12(inT)});
+
+  if(!outT) list.push({field:'Out Time', ok:false, msg:'Required'});
+  else if(!timeRegex.test(outT)) list.push({field:'Out Time', ok:false, msg:'Invalid format'});
+  else list.push({field:'Out Time', ok:true, msg:formatTime12(outT)});
+
+  // ensure in < out logically (compare minutes)
+  if(inT && outT && timeRegex.test(inT) && timeRegex.test(outT)){
+    const [ih,im] = inT.split(':').map(Number);
+    const [oh,om] = outT.split(':').map(Number);
+    const inMinutes = ih*60 + im;
+    const outMinutes = oh*60 + om;
+    if(outMinutes <= inMinutes) list.push({field:'Time Order', ok:false, msg:'Out must be after In'});
+    else list.push({field:'Time Order', ok:true, msg:'OK'});
   }
 
-  if(editIndex===-1){
-    let duplicate = workData.some(x => x.date===date && x.code===code);
-    if(duplicate){ alert("❌ Duplicate Blocked!"); return; }
-  }
+  // remarks length check (optional)
+  if(remarks.length > 2000) list.push({field:'Remarks', ok:false, msg:'Remarks too long (max 2000 chars)'});
+  else list.push({field:'Remarks', ok:true, msg:`${remarks.length} chars`});
 
-  let rec={
-    date, code,
-    name:branchName.value,
-    dist:district.value,
-    pin:pincode.value,
-    in:inT+" "+inAmPm.value,
-    out:outT+" "+outAmPm.value,
-    rem:remarks.value
+  // duplicate check (only when adding new)
+  const duplicate = workData.some((r, idx) => {
+    if(editIndex>=0 && idx===editIndex) return false; // ignore the row being edited
+    return String(r.date).trim() === date && String(r.code).trim() === code;
+  });
+  if(duplicate) list.push({field:'Duplicate Check', ok:false, msg:'Entry exists for this date + branch'});
+  else list.push({field:'Duplicate Check', ok:true, msg:'No duplicate'});
+
+  return list;
+}
+
+/* ---------- show validation report ---------- */
+function showValidationReport(list){
+  const vr = document.getElementById('validationReport'), vrList = document.getElementById('vrList'), vrFinal = document.getElementById('vrFinal');
+  vrList.innerHTML=''; vrFinal.textContent='';
+
+  list.forEach(item=>{
+    const div = document.createElement('div'); div.className='vr-line';
+    const dot = document.createElement('span'); dot.className='vr-dot'; dot.style.background = item.ok ? 'var(--ok)' : 'var(--err)';
+    const t = document.createElement('div'); t.innerHTML = `<strong>${item.field}</strong>: <span style="margin-left:6px">${item.msg}</span>`;
+    div.appendChild(dot); div.appendChild(t);
+    vrList.appendChild(div);
+  });
+
+  const allOk = list.every(i => i.ok);
+  vrFinal.style.color = allOk ? 'var(--ok)' : 'var(--err)';
+  vrFinal.textContent = allOk ? 'Validation passed — ready to save.' : 'Validation failed — fix errors above.';
+  if(allOk) vrFinal.style.fontWeight='700';
+  showElement(vr);
+}
+
+/* ---------- save flow ---------- */
+function onSave(){
+  document.getElementById('saveMsg').textContent='';
+  const v = validateFields();
+  showValidationReport(v);
+  const ok = v.every(i=>i.ok);
+  if(!ok){ return; }
+
+  // all good -> build record and save (create or update)
+  const date = document.getElementById('workDate').value.trim();
+  const code = document.getElementById('branchCode').value.trim();
+  const rec = {
+    date,
+    code,
+    name: document.getElementById('branchName').value,
+    dist: document.getElementById('district').value,
+    pin: document.getElementById('pincode').value,
+    in: document.getElementById('inTime').value,
+    out: document.getElementById('outTime').value,
+    rem: document.getElementById('remarks').value
   };
 
-  if(editIndex>=0){
-    workData[editIndex]=rec;
-    editIndex=-1;
-    saveBtn.innerText="SAVE ENTRY";
+  if(editIndex >= 0){
+    workData[editIndex] = rec;
+    editIndex = -1;
+    document.getElementById('saveBtn').textContent = 'Save / Update';
   } else {
+    // final duplicate guard (defense in depth)
+    const dup = workData.some(r => String(r.date).trim()===date && String(r.code).trim()===code);
+    if(dup){ alert('Duplicate detected - blocked.'); return; }
     workData.push(rec);
   }
 
-  localStorage.setItem("workData",JSON.stringify(workData));
+  localStorage.setItem('workData', JSON.stringify(workData));
+  renderTable();
   clearForm();
-  render();
+  document.getElementById('saveMsg').textContent = 'Saved successfully';
 }
 
-function render(){
-  dataBody.innerHTML="";
-  workData.forEach((x,i)=>{
-    dataBody.innerHTML+=`
-    <tr>
+/* ---------- render table ---------- */
+function renderTable(){
+  const tbody = document.getElementById('dataBody');
+  tbody.innerHTML = '';
+  workData.forEach((r,i)=>{
+    const tr = document.createElement('tr');
+    const inDisplay = formatTime12(r.in);
+    const outDisplay = formatTime12(r.out);
+    tr.innerHTML = `
       <td>${i+1}</td>
-      <td>${x.date}</td>
-      <td>${x.code}</td>
-      <td>${x.name}</td>
-      <td>${x.dist}</td>
-      <td>${x.pin}</td>
-      <td>${x.in}</td>
-      <td>${x.out}</td>
-      <td>${x.rem}</td>
-      <td>
-        <button class="editBtn" onclick="editRow(${i})">Edit</button>
-        <button class="delBtn" onclick="deleteRow(${i})">Delete</button>
+      <td>${r.date}</td>
+      <td>${r.code}</td>
+      <td>${r.name}</td>
+      <td>${r.dist||''}</td>
+      <td>${r.pin||''}</td>
+      <td>${inDisplay}</td>
+      <td>${outDisplay}</td>
+      <td style="max-width:220px;white-space:pre-wrap">${r.rem||''}</td>
+      <td class="actions">
+        <button onclick="onEdit(${i})" class="editBtn" style="margin-bottom:4px;padding:6px">Edit</button>
+        <button onclick="onDelete(${i})" class="delBtn" style="padding:6px">Delete</button>
       </td>
-    </tr>`;
+    `;
+    tbody.appendChild(tr);
   });
 }
 
-function editRow(i){
-  let x=workData[i];
-  workDate.value=x.date;
-  branchCode.value=x.code;
-  branchName.value=x.name;
-  district.value=x.dist;
-  pincode.value=x.pin;
-
-  let inSplit=x.in.split(" "); 
-  inTime.value=inSplit[0]; 
-  inAmPm.value=inSplit[1];
-
-  let outSplit=x.out.split(" "); 
-  outTime.value=outSplit[0]; 
-  outAmPm.value=outSplit[1];
-
-  remarks.value=x.rem;
-  editIndex=i;
-  saveBtn.innerText="UPDATE";
+/* ---------- edit / delete ---------- */
+function onEdit(i){
+  const r = workData[i];
+  editIndex = i;
+  document.getElementById('workDate').value = r.date;
+  document.getElementById('branchCode').value = r.code;
+  document.getElementById('branchName').value = r.name;
+  document.getElementById('district').value = r.dist;
+  document.getElementById('pincode').value = r.pin;
+  document.getElementById('inTime').value = r.in;
+  document.getElementById('outTime').value = r.out;
+  document.getElementById('remarks').value = r.rem;
+  document.getElementById('saveBtn').textContent = 'Update';
+  document.getElementById('validationReport').classList.add('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function deleteRow(i){
-  if(confirm("Delete this record?")){
-    workData.splice(i,1);
-    localStorage.setItem("workData",JSON.stringify(workData));
-    render();
-  }
+function onDelete(i){
+  if(!confirm('Delete this record?')) return;
+  workData.splice(i,1);
+  localStorage.setItem('workData', JSON.stringify(workData));
+  renderTable();
 }
 
+/* ---------- clear form ---------- */
 function clearForm(){
-  workDate.value="";
-  branchCode.value="";
-  branchName.value="";
-  district.value="";
-  pincode.value="";
-  inTime.value="";
-  outTime.value="";
-  remarks.value="";
+  editIndex = -1;
+  document.getElementById('workDate').value = '';
+  document.getElementById('branchCode').value = '';
+  document.getElementById('branchName').value = '';
+  document.getElementById('district').value = '';
+  document.getElementById('pincode').value = '';
+  document.getElementById('inTime').value = '';
+  document.getElementById('outTime').value = '';
+  document.getElementById('remarks').value = '';
+  document.getElementById('validationReport').classList.add('hidden');
+  document.getElementById('saveBtn').textContent = 'Save / Update';
+  document.getElementById('saveMsg').textContent = '';
 }
 
+/* ---------- export CSV (admin only) ---------- */
 function exportExcel(){
-  let csv="SlNo,Date,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n";
-  workData.forEach((x,i)=>{
-    csv+=`${i+1},${x.date},${x.code},${x.name},${x.dist},${x.pin},${x.in},${x.out},"${x.rem}"\n`;
+  if(!currentUser || currentUser.Role !== 'ADMIN'){ alert('Export allowed for ADMIN only'); return; }
+  let csv = 'SlNo,Date,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n';
+  workData.forEach((r,i) => {
+    const inv = r.in; const outv = r.out;
+    csv += `${i+1},${r.date},${r.code},"${r.name}",${r.dist||''},${r.pin||''},${inv},${outv},"${(r.rem||'').replace(/"/g,'""')}"\n`;
   });
-  let blob=new Blob([csv],{type:"text/csv"});
-  let a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="workmaster.csv";
-  a.click();
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'workmaster.csv'; a.click();
 }
-</script>
 
+/* ---------- change password (session-only) ---------- */
+function openChange(){ document.getElementById('appCard').classList.add('hidden'); document.getElementById('changeCard').classList.remove('hidden'); document.getElementById('changeMsg').textContent=''; }
+function closeChange(){ document.getElementById('changeCard').classList.add('hidden'); document.getElementById('appCard').classList.remove('hidden'); }
+function changePassword(){
+  const oldP = document.getElementById('oldPass').value;
+  const newP = document.getElementById('newPass').value;
+  if(!oldP || !newP){ document.getElementById('changeMsg').textContent='Enter both fields'; return; }
+  if(!currentUser){ document.getElementById('changeMsg').textContent='No user'; return; }
+  if(oldP !== currentUser.Password){ document.getElementById('changeMsg').textContent='Old password incorrect'; return; }
+  currentUser.Password = newP; document.getElementById('changeMsg').textContent='Password updated for session'; setTimeout(closeChange,900);
+}
+
+/* ---------- init ---------- */
+renderTable();
+</script>
 </body>
 </html>
