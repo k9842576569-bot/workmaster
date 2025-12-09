@@ -3,12 +3,14 @@
     "Name": "SURESHKUMAR",
     "Email": "k9842576569@gmail.com",
     "Mobile": "9842576569",
-    "Role": "ADMIN"
+    "Role": "ADMIN",
+    "Password": "SUS@1234"
   },
   "STF002": {
     "Name": "AJITHKUMAR",
     "Email": "AJITHKUMAR@GMAIL.COM",
     "Mobile": "9629281379",
-    "Role": "STAFF"
+    "Role": "STAFF",
+    "Password": "SUS@1234"
   }
 }
