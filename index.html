@@ -4,108 +4,123 @@
 <meta charset="UTF-8">
 <title>Global Edge Work Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-body{font-family:Arial;background:#f4f4f4;padding:20px;}
-.box{max-width:460px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px #999;}
-input,button,textarea{width:100%;padding:10px;margin-top:10px;font-size:16px;}
+body{font-family:Arial;background:#f2f2f2;padding:15px;}
+.box{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px #aaa;}
+input,button,textarea,select{width:100%;padding:8px;margin:5px 0;font-size:16px;}
 button{background:#007bff;color:white;border:none;border-radius:5px;}
 .hidden{display:none;}
-.error{color:red;}
-.success{color:green;}
-h2{text-align:center;}
-.role{text-align:center;font-weight:bold;color:green;}
+table{width:100%;border-collapse:collapse;margin-top:15px;}
+td,th{border:1px solid #ccc;padding:6px;text-align:left;}
+th{background:#eee;}
+.role{color:green;font-weight:bold;}
 textarea{height:120px;}
 </style>
 </head>
-
 <body>
 
-<!-- ========== LOGIN SCREEN ========== -->
+<!-- LOGIN -->
 <div class="box" id="loginBox">
 <h2>Staff Login</h2>
-<input type="tel" id="mobileInput" placeholder="Mobile Number">
-<input type="password" id="passwordInput" placeholder="Password">
+<input id="loginMobile" placeholder="Mobile Number">
+<input id="loginPassword" type="password" placeholder="Password">
 <button onclick="login()">Login</button>
-<p id="loginError" class="error"></p>
+<p id="loginError" style="color:red;"></p>
 </div>
 
-<!-- ========== WORK MASTER SCREEN ========== -->
-<div class="box hidden" id="workMasterBox">
-<h2>Work Master Entry</h2>
-<p id="staffName"></p>
-<p id="staffRole" class="role"></p>
+<!-- MAIN SCREEN -->
+<div class="box hidden" id="mainBox">
+<h2>Work Master</h2>
+<p id="welcome"></p>
+<p id="role" class="role"></p>
 
-<!-- Branch Search -->
+<!-- DATA ENTRY -->
+<h3>New Entry</h3>
+
 <input id="branchCode" placeholder="Enter Branch Code" onblur="searchBranch()">
 <input id="branchName" placeholder="Branch Name" readonly>
 
-<!-- Hidden Fields -->
-<input id="district" type="hidden">
-<input id="pincode" type="hidden">
+<input type="hidden" id="district">
+<input type="hidden" id="pincode">
 
-<!-- Time -->
 <label>In Time</label>
-<input type="time" id="inTime">
+<input id="inTime" type="time">
 
 <label>Out Time</label>
-<input type="time" id="outTime">
+<input id="outTime" type="time">
 
-<!-- Remarks -->
-<textarea id="remarks" placeholder="Enter Remarks (Long Text Allowed)"></textarea>
+<textarea id="remarks" placeholder="Remarks (Long text allowed)"></textarea>
 
-<button onclick="saveEntry()">Save Entry</button>
-<button id="excelBtn" onclick="exportExcel()">Export Excel</button>
-<button onclick="openChangePassword()">Change Password</button>
+<button onclick="addEntry()">Save Entry</button>
+
+<button id="exportBtn" onclick="exportExcel()">Export Excel</button>
+<button onclick="openChange()">Change Password</button>
 <button onclick="logout()" style="background:red;">Logout</button>
 
-<p id="msg"></p>
+<!-- DATA LIST -->
+<table>
+<thead>
+<tr>
+<th>SlNo</th>
+<th>Branch Code</th>
+<th>Branch Name</th>
+<th>District</th>
+<th>Pincode</th>
+<th>In</th>
+<th>Out</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody id="dataBody"></tbody>
+</table>
+
+<p id="msg" style="color:green;"></p>
 </div>
 
-<!-- ========== CHANGE PASSWORD ========== -->
-<div class="box hidden" id="changePassBox">
+<!-- CHANGE PASSWORD -->
+<div class="box hidden" id="changeBox">
 <h2>Change Password</h2>
 <input type="password" id="oldPass" placeholder="Old Password">
 <input type="password" id="newPass" placeholder="New Password">
-<input type="password" id="confirmPass" placeholder="Confirm New Password">
-<button onclick="changePassword()">Update</button>
+<input type="password" id="confirmPass" placeholder="Confirm Password">
+<button onclick="updatePassword()">Update</button>
 <button onclick="back()">Back</button>
-<p id="passMsg" class="error"></p>
+<p id="passMsg" style="color:red;"></p>
 </div>
 
 <script>
-let staffData = {};
-let branchData = {};
-let currentUser = null;
+let staffData={}, branchData={}, currentUser=null;
+let workData = JSON.parse(localStorage.getItem("workData")) || [];
 
-/* LOAD STAFF */
+/* LOAD FILES */
 fetch("staff_master.json").then(r=>r.json()).then(d=>staffData=d);
-
-/* LOAD BRANCH */
 fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
 
 /* LOGIN */
 function login(){
-  let mob = mobileInput.value.trim();
-  let pass = passwordInput.value.trim();
-  loginError.innerText = "";
-
+  let mob = loginMobile.value.trim();
+  let pass = loginPassword.value.trim();
   for(let k in staffData){
-    let u = staffData[k];
-    if(u.Mobile === mob && u.Password === pass){
-      currentUser = u;
+    if(staffData[k].Mobile===mob && staffData[k].Password===pass){
+      currentUser = staffData[k];
       loginBox.classList.add("hidden");
-      workMasterBox.classList.remove("hidden");
-      staffName.innerText = "Name: " + u.Name;
-      staffRole.innerText = "Role: " + u.Role;
-      excelBtn.style.display = (u.Role==="ADMIN") ? "block":"none";
+      mainBox.classList.remove("hidden");
+      welcome.innerText = "Welcome: " + currentUser.Name;
+      role.innerText = "Role: " + currentUser.Role;
+      exportBtn.style.display = currentUser.Role==="ADMIN"?"block":"none";
+      render();
       return;
     }
   }
-  loginError.innerText = "Invalid Login";
+  loginError.innerText="Invalid Login!";
 }
 
-/* BRANCH SEARCH */
+/* LOGOUT */
+function logout(){
+  location.reload();
+}
+
+/* BRANCH AUTO PICK */
 function searchBranch(){
   let code = branchCode.value.trim();
   if(branchData[code]){
@@ -119,54 +134,77 @@ function searchBranch(){
 }
 
 /* SAVE ENTRY */
-function saveEntry(){
-  msg.innerText = "Entry Saved Successfully!";
-  msg.className="success";
+function addEntry(){
+  let rec={
+    code:branchCode.value,
+    name:branchName.value,
+    dist:district.value,
+    pin:pincode.value,
+    in:inTime.value,
+    out:outTime.value,
+    rem:remarks.value
+  };
+  workData.push(rec);
+  localStorage.setItem("workData",JSON.stringify(workData));
+  msg.innerText="Saved Successfully!";
+  render();
 }
 
-/* EXCEL (ADMIN ONLY) */
+/* SHOW TABLE */
+function render(){
+  dataBody.innerHTML="";
+  workData.forEach((x,i)=>{
+    dataBody.innerHTML+=`
+    <tr>
+    <td>${i+1}</td>
+    <td>${x.code}</td>
+    <td>${x.name}</td>
+    <td>${x.dist}</td>
+    <td>${x.pin}</td>
+    <td>${x.in}</td>
+    <td>${x.out}</td>
+    <td>${x.rem}</td>
+    </tr>`;
+  });
+}
+
+/* EXPORT */
 function exportExcel(){
-  alert("Excel Export Allowed");
+  let csv="SlNo,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n";
+  workData.forEach((x,i)=>{
+    csv+=`${i+1},${x.code},${x.name},${x.dist},${x.pin},${x.in},${x.out},"${x.rem}"\n`;
+  });
+  let blob=new Blob([csv],{type:"text/csv"});
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="workmaster.csv";
+  a.click();
 }
 
 /* CHANGE PASSWORD */
-function openChangePassword(){
-  workMasterBox.classList.add("hidden");
-  changePassBox.classList.remove("hidden");
+function openChange(){
+  mainBox.classList.add("hidden");
+  changeBox.classList.remove("hidden");
 }
 
-/* UPDATE PASSWORD */
-function changePassword(){
-  let oldP = oldPass.value;
-  let newP = newPass.value;
-  let confP = confirmPass.value;
-
-  if(currentUser.Password !== oldP){
-    passMsg.innerText="Old Password Wrong";
+function updatePassword(){
+  if(oldPass.value!==currentUser.Password){
+    passMsg.innerText="Wrong Old Password";
     return;
   }
-
-  if(newP !== confP){
-    passMsg.innerText="Passwords Not Match";
+  if(newPass.value!==confirmPass.value){
+    passMsg.innerText="Password Mismatch";
     return;
   }
-
-  currentUser.Password = newP;
-  passMsg.className="success";
-  passMsg.innerText="Password Updated (Session)";
+  currentUser.Password=newPass.value;
+  passMsg.style.color="green";
+  passMsg.innerText="Password Updated (session only)";
 }
 
-/* BACK */
 function back(){
-  changePassBox.classList.add("hidden");
-  workMasterBox.classList.remove("hidden");
-}
-
-/* LOGOUT */
-function logout(){
-  location.reload();
+  changeBox.classList.add("hidden");
+  mainBox.classList.remove("hidden");
 }
 </script>
-
 </body>
 </html>
