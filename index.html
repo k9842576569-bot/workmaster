@@ -1,189 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<title>Secure Staff Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Global Edge Work Master</title>
 
 <style>
-body { font-family: Arial; padding:12px; background:#f4f4f4; }
-.box { max-width:1000px; margin:auto; padding:16px; background:#fff; border-radius:8px; }
-input, select, textarea, button { width:100%; padding:6px; margin:4px 0; }
-table { width:100%; border-collapse:collapse; margin-top:12px; }
-th, td { border:1px solid #ccc; padding:6px; text-align:left; vertical-align:top; }
-th { background:#eee; }
-.btn-edit { background:orange; color:#fff; }
-.btn-delete { background:red; color:#fff; }
-.btn-export { background:green; color:#fff; margin-top:10px; }
-.row { display:flex; gap:8px; flex-wrap:wrap; }
-.col { flex:1; }
-.time-row { display:flex; gap:4px; align-items:center; }
-td { white-space:pre-wrap; word-break:break-word; }
+body{
+  font-family: Arial;
+  background:#f4f4f4;
+  padding:20px;
+}
+.box{
+  max-width:420px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px #999;
+}
+input, button{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  font-size:16px;
+}
+button{
+  background:#007bff;
+  color:white;
+  border:none;
+  border-radius:5px;
+}
+button:disabled{
+  background:gray;
+}
+.hidden{display:none;}
+h2{text-align:center;}
+.role{font-weight:bold;color:green;text-align:center;}
+.error{color:red;text-align:center;}
+.success{color:green;text-align:center;}
 </style>
 </head>
 
 <body>
-<div class="box">
-<h2>Global Edge Work Master</h2>
 
-<!-- Branch -->
-<div class="row">
-  <div class="col"><input id="branchCode" placeholder="Branch Code"></div>
-  <div class="col"><button onclick="fillBranch()">Search</button></div>
-  <div class="col"><input id="branchName" placeholder="Branch Name" readonly></div>
+<!-- ================= LOGIN SCREEN ================= -->
+<div class="box" id="loginBox">
+  <h2>Staff Login</h2>
+  <input type="tel" id="mobileInput" placeholder="Mobile Number">
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p id="loginError" class="error"></p>
 </div>
 
-<!-- Hidden District & Pincode -->
-<input id="district" style="display:none">
-<input id="pincode" style="display:none">
+<!-- ================= DASHBOARD ================= -->
+<div class="box hidden" id="dashboard">
+  <h2>Welcome</h2>
+  <p id="staffName" style="text-align:center;"></p>
+  <p id="staffRole" class="role"></p>
 
-<!-- ✅✅✅ TIME 1–12 + AM PM (NO JS) -->
-<div class="row">
-
-<div class="col time-row">
-<b>In:</b>
-<select id="inHour">
-<option>1</option><option>2</option><option>3</option><option>4</option>
-<option>5</option><option>6</option><option>7</option><option>8</option>
-<option>9</option><option>10</option><option>11</option><option>12</option>
-</select> :
-
-<select id="inMinute">
-<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option>
-<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-<option>10</option><option>15</option><option>20</option><option>25</option><option>30</option>
-<option>35</option><option>40</option><option>45</option><option>50</option><option>55</option>
-</select>
-
-<select id="inAMPM">
-<option>AM</option><option>PM</option>
-</select>
+  <button id="excelBtn" onclick="exportExcel()">Export Excel</button>
+  <button onclick="openChangePassword()">Change Password</button>
+  <button onclick="logout()" style="background:red;">Logout</button>
 </div>
 
-<div class="col time-row">
-<b>Out:</b>
-<select id="outHour">
-<option>1</option><option>2</option><option>3</option><option>4</option>
-<option>5</option><option>6</option><option>7</option><option>8</option>
-<option>9</option><option>10</option><option>11</option><option>12</option>
-</select> :
-
-<select id="outMinute">
-<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option>
-<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-<option>10</option><option>15</option><option>20</option><option>25</option><option>30</option>
-<option>35</option><option>40</option><option>45</option><option>50</option><option>55</option>
-</select>
-
-<select id="outAMPM">
-<option>AM</option><option>PM</option>
-</select>
-</div>
-
-</div>
-
-<textarea id="remarks" rows="4" placeholder="Remarks (Long text supported)"></textarea>
-
-<button onclick="addData()">Add / Update</button>
-<button class="btn-export" onclick="exportExcel()">Export to Excel</button>
-
-<table id="table">
-<thead>
-<tr>
-<th>ID</th><th>Branch Code</th><th>Branch Name</th>
-<th>District</th><th>Pincode</th>
-<th>In</th><th>Out</th>
-<th>Remarks</th><th>Action</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
+<!-- ================= CHANGE PASSWORD ================= -->
+<div class="box hidden" id="changePassBox">
+  <h2>Change Password</h2>
+  <input type="password" id="oldPass" placeholder="Old Password">
+  <input type="password" id="newPass" placeholder="New Password">
+  <input type="password" id="confirmPass" placeholder="Confirm New Password">
+  <button onclick="changePassword()">Update Password</button>
+  <button onclick="backToDashboard()" style="background:gray;">Back</button>
+  <p id="passMsg" class="error"></p>
 </div>
 
 <script>
-let branchMaster = {};
-fetch("branch_master.json").then(r=>r.json()).then(d=>branchMaster=d);
+let staffData = {};
+let currentUserKey = null;
 
-function fillBranch(){
-  let b = branchMaster[branchCode.value.trim()];
-  if(!b){ alert("Branch Code Not Found!"); return; }
-  branchName.value = b.BANCH_NAME;
-  district.value = b.DISTRICT;
-  pincode.value = b.PINCODE;
-}
+/* ✅ Load Staff JSON */
+fetch("staff_master.json")
+  .then(res => res.json())
+  .then(data => staffData = data)
+  .catch(err => alert("staff_master.json not found!"));
 
-let data = JSON.parse(localStorage.getItem("work")) || [];
-let edit=-1;
+/* ✅ Login Function */
+function login(){
+  const mobile = document.getElementById("mobileInput").value.trim();
+  const pass = document.getElementById("passwordInput").value.trim();
+  const error = document.getElementById("loginError");
 
-function addData(){
-  if(!branchCode.value||!branchName.value){ alert("Enter Branch"); return; }
+  error.innerText = "";
 
-  let inTime = inHour.value+":"+inMinute.value+" "+inAMPM.value;
-  let outTime = outHour.value+":"+outMinute.value+" "+outAMPM.value;
-  let id = edit>=0 ? data[edit].id : data.length+1;
+  if(mobile === "" || pass === ""){
+    error.innerText = "All fields required!";
+    return;
+  }
 
-  let rec = {
-    id, branchCode:branchCode.value, branchName:branchName.value,
-    district:district.value, pincode:pincode.value,
-    inTime, outTime, remarks:remarks.value
-  };
+  let foundKey = null;
 
-  if(edit>=0){ data[edit]=rec; edit=-1; }
-  else data.push(rec);
+  for(let key in staffData){
+    if(staffData[key].Mobile === mobile && staffData[key].Password === pass){
+      foundKey = key;
+      break;
+    }
+  }
 
-  localStorage.setItem("work",JSON.stringify(data));
-  render(); clear();
-}
+  if(!foundKey){
+    error.innerText = "Invalid Login Details!";
+    return;
+  }
 
-function render(){
-  let tb=document.querySelector("#table tbody");
-  tb.innerHTML="";
-  data.forEach((r,i)=>{
-    tb.innerHTML+=`<tr>
-<td>${r.id}</td><td>${r.branchCode}</td><td>${r.branchName}</td>
-<td>${r.district}</td><td>${r.pincode}</td>
-<td>${r.inTime}</td><td>${r.outTime}</td>
-<td>${r.remarks}</td>
-<td>
-<button class="btn-edit" onclick="editRow(${i})">Edit</button>
-<button class="btn-delete" onclick="delRow(${i})">Del</button>
-</td></tr>`;
-  });
-}
+  currentUserKey = foundKey;
+  const user = staffData[foundKey];
 
-function editRow(i){
-  let r=data[i];
-  branchCode.value=r.branchCode; fillBranch();
-  let a=r.inTime.split(/[: ]/);
-  inHour.value=a[0]; inMinute.value=a[1]; inAMPM.value=a[2];
-  let b=r.outTime.split(/[: ]/);
-  outHour.value=b[0]; outMinute.value=b[1]; outAMPM.value=b[2];
-  remarks.value=r.remarks; edit=i;
-}
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
 
-function delRow(i){
-  if(confirm("Delete?")){
-    data.splice(i,1);
-    localStorage.setItem("work",JSON.stringify(data));
-    render();
+  document.getElementById("staffName").innerText = "Name: " + user.Name;
+  document.getElementById("staffRole").innerText = "Role: " + user.Role;
+
+  if(user.Role === "ADMIN"){
+    document.getElementById("excelBtn").disabled = false;
+  }else{
+    document.getElementById("excelBtn").disabled = true;
   }
 }
 
-function clear(){
-  branchCode.value=""; branchName.value=""; remarks.value="";
-}
-
+/* ✅ Excel Dummy */
 function exportExcel(){
-  let csv=["ID,BranchCode,BranchName,District,Pincode,In,Out,Remarks"];
-  data.forEach(r=>{
-    csv.push(`${r.id},${r.branchCode},${r.branchName},${r.district},${r.pincode},${r.inTime},${r.outTime},"${r.remarks}"`);
-  });
-  let blob=new Blob([csv.join("\n")],{type:"text/csv"});
-  let a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="workmaster.csv"; a.click();
+  alert("Excel Export Allowed (ADMIN Only)");
 }
 
-render();
+/* ✅ Open Change Password */
+function openChangePassword(){
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("changePassBox").classList.remove("hidden");
+  document.getElementById("passMsg").innerText = "";
+}
+
+/* ✅ Update Password */
+function changePassword(){
+  const oldP = document.getElementById("oldPass").value.trim();
+  const newP = document.getElementById("newPass").value.trim();
+  const confP = document.getElementById("confirmPass").value.trim();
+  const msg = document.getElementById("passMsg");
+
+  msg.innerText = "";
+
+  if(oldP === "" || newP === "" || confP === ""){
+    msg.innerText = "All fields required!";
+    return;
+  }
+
+  if(staffData[currentUserKey].Password !== oldP){
+    msg.innerText = "Old password incorrect!";
+    return;
+  }
+
+  if(newP !== confP){
+    msg.innerText = "New passwords not match!";
+    return;
+  }
+
+  staffData[currentUserKey].Password = newP;
+  msg.className = "success";
+  msg.innerText = "Password Updated Successfully (Session Only)";
+
+  document.getElementById("oldPass").value = "";
+  document.getElementById("newPass").value = "";
+  document.getElementById("confirmPass").value = "";
+}
+
+/* ✅ Back to Dashboard */
+function backToDashboard(){
+  document.getElementById("changePassBox").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+}
+
+/* ✅ Logout */
+function logout(){
+  currentUserKey = null;
+  document.getElementById("mobileInput").value = "";
+  document.getElementById("passwordInput").value = "";
+  document.getElementById("loginError").innerText = "";
+
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("changePassBox").classList.add("hidden");
+  document.getElementById("loginBox").classList.remove("hidden");
+}
 </script>
+
 </body>
 </html>
