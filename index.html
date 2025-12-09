@@ -51,13 +51,13 @@ th{background:#eee;}
 
 <label>In Time</label>
 <div class="time-row">
-  <input id="inTime" placeholder="HH:MM">
+  ✅ <input type="time" id="inTime">
   <select id="inAmPm"><option>AM</option><option>PM</option></select>
 </div>
 
 <label>Out Time</label>
 <div class="time-row">
-  <input id="outTime" placeholder="HH:MM">
+  ✅ <input type="time" id="outTime">
   <select id="outAmPm"><option>AM</option><option>PM</option></select>
 </div>
 
@@ -120,7 +120,12 @@ function searchBranch(){
 
 function addEntry(){
   let date=workDate.value.trim(), code=branchCode.value.trim();
-  if(!date||!code||!branchName.value){ alert("Date & Branch Required"); return; }
+  let inT = inTime.value, outT = outTime.value;
+
+  if(!date||!code||!branchName.value||!inT||!outT){
+    alert("❌ Date, Branch, In & Out Time Required"); 
+    return;
+  }
 
   if(editIndex===-1){
     let duplicate = workData.some(x => x.date===date && x.code===code);
@@ -132,8 +137,8 @@ function addEntry(){
     name:branchName.value,
     dist:district.value,
     pin:pincode.value,
-    in:inTime.value+" "+inAmPm.value,
-    out:outTime.value+" "+outAmPm.value,
+    in:inT+" "+inAmPm.value,
+    out:outT+" "+outAmPm.value,
     rem:remarks.value
   };
 
@@ -179,8 +184,15 @@ function editRow(i){
   branchName.value=x.name;
   district.value=x.dist;
   pincode.value=x.pin;
-  let inSplit=x.in.split(" "); inTime.value=inSplit[0]; inAmPm.value=inSplit[1];
-  let outSplit=x.out.split(" "); outTime.value=outSplit[0]; outAmPm.value=outSplit[1];
+
+  let inSplit=x.in.split(" "); 
+  inTime.value=inSplit[0]; 
+  inAmPm.value=inSplit[1];
+
+  let outSplit=x.out.split(" "); 
+  outTime.value=outSplit[0]; 
+  outAmPm.value=outSplit[1];
+
   remarks.value=x.rem;
   editIndex=i;
   saveBtn.innerText="UPDATE";
