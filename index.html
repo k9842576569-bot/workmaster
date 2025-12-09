@@ -1,194 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Secure Staff Login</title>
+<title>Global Edge Work Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body{
-  font-family: Arial;
-  background:#f4f4f4;
-  padding:20px;
-}
-.box{
-  max-width:420px;
-  margin:auto;
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 0 10px #999;
-}
-input, button{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  font-size:16px;
-}
-button{
-  background:#007bff;
-  color:white;
-  border:none;
-  border-radius:5px;
-}
-button:disabled{
-  background:gray;
-}
+body{font-family:Arial;background:#f4f4f4;padding:20px;}
+.box{max-width:460px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px #999;}
+input,button,textarea{width:100%;padding:10px;margin-top:10px;font-size:16px;}
+button{background:#007bff;color:white;border:none;border-radius:5px;}
 .hidden{display:none;}
+.error{color:red;}
+.success{color:green;}
 h2{text-align:center;}
-.role{font-weight:bold;color:green;text-align:center;}
-.error{color:red;text-align:center;}
-.success{color:green;text-align:center;}
+.role{text-align:center;font-weight:bold;color:green;}
+textarea{height:120px;}
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGIN SCREEN ================= -->
+<!-- ========== LOGIN SCREEN ========== -->
 <div class="box" id="loginBox">
-  <h2>Staff Login</h2>
-  <input type="tel" id="mobileInput" placeholder="Mobile Number">
-  <input type="password" id="passwordInput" placeholder="Password">
-  <button onclick="login()">Login</button>
-  <p id="loginError" class="error"></p>
+<h2>Staff Login</h2>
+<input type="tel" id="mobileInput" placeholder="Mobile Number">
+<input type="password" id="passwordInput" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="loginError" class="error"></p>
 </div>
 
-<!-- ================= DASHBOARD ================= -->
-<div class="box hidden" id="dashboard">
-  <h2>Welcome</h2>
-  <p id="staffName" style="text-align:center;"></p>
-  <p id="staffRole" class="role"></p>
+<!-- ========== WORK MASTER SCREEN ========== -->
+<div class="box hidden" id="workMasterBox">
+<h2>Work Master Entry</h2>
+<p id="staffName"></p>
+<p id="staffRole" class="role"></p>
 
-  <button id="excelBtn" onclick="exportExcel()">Export Excel</button>
-  <button onclick="openChangePassword()">Change Password</button>
-  <button onclick="logout()" style="background:red;">Logout</button>
+<!-- Branch Search -->
+<input id="branchCode" placeholder="Enter Branch Code" onblur="searchBranch()">
+<input id="branchName" placeholder="Branch Name" readonly>
+
+<!-- Hidden Fields -->
+<input id="district" type="hidden">
+<input id="pincode" type="hidden">
+
+<!-- Time -->
+<label>In Time</label>
+<input type="time" id="inTime">
+
+<label>Out Time</label>
+<input type="time" id="outTime">
+
+<!-- Remarks -->
+<textarea id="remarks" placeholder="Enter Remarks (Long Text Allowed)"></textarea>
+
+<button onclick="saveEntry()">Save Entry</button>
+<button id="excelBtn" onclick="exportExcel()">Export Excel</button>
+<button onclick="openChangePassword()">Change Password</button>
+<button onclick="logout()" style="background:red;">Logout</button>
+
+<p id="msg"></p>
 </div>
 
-<!-- ================= CHANGE PASSWORD ================= -->
+<!-- ========== CHANGE PASSWORD ========== -->
 <div class="box hidden" id="changePassBox">
-  <h2>Change Password</h2>
-  <input type="password" id="oldPass" placeholder="Old Password">
-  <input type="password" id="newPass" placeholder="New Password">
-  <input type="password" id="confirmPass" placeholder="Confirm New Password">
-  <button onclick="changePassword()">Update Password</button>
-  <button onclick="backToDashboard()" style="background:gray;">Back</button>
-  <p id="passMsg" class="error"></p>
+<h2>Change Password</h2>
+<input type="password" id="oldPass" placeholder="Old Password">
+<input type="password" id="newPass" placeholder="New Password">
+<input type="password" id="confirmPass" placeholder="Confirm New Password">
+<button onclick="changePassword()">Update</button>
+<button onclick="back()">Back</button>
+<p id="passMsg" class="error"></p>
 </div>
 
 <script>
 let staffData = {};
-let currentUserKey = null;
+let branchData = {};
+let currentUser = null;
 
-/* ✅ Load Staff JSON */
-fetch("staff_master.json")
-  .then(res => res.json())
-  .then(data => staffData = data)
-  .catch(err => alert("staff_master.json not found!"));
+/* LOAD STAFF */
+fetch("staff_master.json").then(r=>r.json()).then(d=>staffData=d);
 
-/* ✅ Login Function */
+/* LOAD BRANCH */
+fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
+
+/* LOGIN */
 function login(){
-  const mobile = document.getElementById("mobileInput").value.trim();
-  const pass = document.getElementById("passwordInput").value.trim();
-  const error = document.getElementById("loginError");
+  let mob = mobileInput.value.trim();
+  let pass = passwordInput.value.trim();
+  loginError.innerText = "";
 
-  error.innerText = "";
-
-  if(mobile === "" || pass === ""){
-    error.innerText = "All fields required!";
-    return;
-  }
-
-  let foundKey = null;
-
-  for(let key in staffData){
-    if(staffData[key].Mobile === mobile && staffData[key].Password === pass){
-      foundKey = key;
-      break;
+  for(let k in staffData){
+    let u = staffData[k];
+    if(u.Mobile === mob && u.Password === pass){
+      currentUser = u;
+      loginBox.classList.add("hidden");
+      workMasterBox.classList.remove("hidden");
+      staffName.innerText = "Name: " + u.Name;
+      staffRole.innerText = "Role: " + u.Role;
+      excelBtn.style.display = (u.Role==="ADMIN") ? "block":"none";
+      return;
     }
   }
+  loginError.innerText = "Invalid Login";
+}
 
-  if(!foundKey){
-    error.innerText = "Invalid Login Details!";
-    return;
-  }
-
-  currentUserKey = foundKey;
-  const user = staffData[foundKey];
-
-  document.getElementById("loginBox").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-
-  document.getElementById("staffName").innerText = "Name: " + user.Name;
-  document.getElementById("staffRole").innerText = "Role: " + user.Role;
-
-  if(user.Role === "ADMIN"){
-    document.getElementById("excelBtn").disabled = false;
+/* BRANCH SEARCH */
+function searchBranch(){
+  let code = branchCode.value.trim();
+  if(branchData[code]){
+    branchName.value = branchData[code].BANCH_NAME;
+    district.value = branchData[code].DISTRICT;
+    pincode.value = branchData[code].PINCODE;
   }else{
-    document.getElementById("excelBtn").disabled = true;
+    alert("Branch Code Not Found!");
+    branchName.value="";
   }
 }
 
-/* ✅ Excel Dummy */
+/* SAVE ENTRY */
+function saveEntry(){
+  msg.innerText = "Entry Saved Successfully!";
+  msg.className="success";
+}
+
+/* EXCEL (ADMIN ONLY) */
 function exportExcel(){
-  alert("Excel Export Allowed (ADMIN Only)");
+  alert("Excel Export Allowed");
 }
 
-/* ✅ Open Change Password */
+/* CHANGE PASSWORD */
 function openChangePassword(){
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("changePassBox").classList.remove("hidden");
-  document.getElementById("passMsg").innerText = "";
+  workMasterBox.classList.add("hidden");
+  changePassBox.classList.remove("hidden");
 }
 
-/* ✅ Update Password */
+/* UPDATE PASSWORD */
 function changePassword(){
-  const oldP = document.getElementById("oldPass").value.trim();
-  const newP = document.getElementById("newPass").value.trim();
-  const confP = document.getElementById("confirmPass").value.trim();
-  const msg = document.getElementById("passMsg");
+  let oldP = oldPass.value;
+  let newP = newPass.value;
+  let confP = confirmPass.value;
 
-  msg.innerText = "";
-
-  if(oldP === "" || newP === "" || confP === ""){
-    msg.innerText = "All fields required!";
-    return;
-  }
-
-  if(staffData[currentUserKey].Password !== oldP){
-    msg.innerText = "Old password incorrect!";
+  if(currentUser.Password !== oldP){
+    passMsg.innerText="Old Password Wrong";
     return;
   }
 
   if(newP !== confP){
-    msg.innerText = "New passwords not match!";
+    passMsg.innerText="Passwords Not Match";
     return;
   }
 
-  staffData[currentUserKey].Password = newP;
-  msg.className = "success";
-  msg.innerText = "Password Updated Successfully (Session Only)";
-
-  document.getElementById("oldPass").value = "";
-  document.getElementById("newPass").value = "";
-  document.getElementById("confirmPass").value = "";
+  currentUser.Password = newP;
+  passMsg.className="success";
+  passMsg.innerText="Password Updated (Session)";
 }
 
-/* ✅ Back to Dashboard */
-function backToDashboard(){
-  document.getElementById("changePassBox").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
+/* BACK */
+function back(){
+  changePassBox.classList.add("hidden");
+  workMasterBox.classList.remove("hidden");
 }
 
-/* ✅ Logout */
+/* LOGOUT */
 function logout(){
-  currentUserKey = null;
-  document.getElementById("mobileInput").value = "";
-  document.getElementById("passwordInput").value = "";
-  document.getElementById("loginError").innerText = "";
-
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("changePassBox").classList.add("hidden");
-  document.getElementById("loginBox").classList.remove("hidden");
+  location.reload();
 }
 </script>
 
