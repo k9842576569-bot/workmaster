@@ -4,49 +4,44 @@
 <meta charset="UTF-8">
 <title>Global Edge Work Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
 body{font-family:Arial;background:#f2f2f2;padding:10px;}
-.box{max-width:900px;margin:auto;background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 10px #aaa;}
-input,button,textarea,select{padding:10px;font-size:16px;margin:5px 0;width:100%;}
+.box{max-width:1000px;margin:auto;background:#fff;padding:15px;border-radius:8px;}
+input,button,textarea,select{padding:8px;font-size:16px;margin:4px 0;width:100%;}
 button{background:#007bff;color:white;border:none;border-radius:5px;}
 .hidden{display:none;}
-table{width:100%;border-collapse:collapse;margin-top:15px;}
-td,th{border:1px solid #ccc;padding:6px;}
+table{width:100%;border-collapse:collapse;margin-top:15px;font-size:14px;}
+td,th{border:1px solid #ccc;padding:6px;text-align:left;}
 th{background:#eee;}
-.role{color:green;font-weight:bold;}
-textarea{height:120px;}
-
-.search-row{display:flex;gap:6px;}
-.search-row input{flex:1;}
+.search-row,.time-row{display:flex;gap:6px;}
+.search-row input,.time-row input{flex:1;}
 .search-row button{width:120px;background:#28a745;}
-
-.time-row{display:flex;gap:6px;}
-.time-row input{flex:1;}
-.time-row select{width:90px;}
+.editBtn{background:orange;}
+.delBtn{background:red;}
 </style>
 </head>
 
 <body>
 
+<!-- LOGIN -->
 <div class="box" id="loginBox">
-<h2>Staff Login</h2>
+<h3>Staff Login</h3>
 <input id="loginMobile" placeholder="Mobile Number">
 <input id="loginPassword" type="password" placeholder="Password">
 <button onclick="login()">Login</button>
 <p id="loginError" style="color:red;"></p>
 </div>
 
+<!-- MAIN -->
 <div class="box hidden" id="mainBox">
-<h2>Work Master</h2>
-<p id="welcome"></p>
-<p id="role" class="role"></p>
+<h3 id="welcome"></h3>
+<p id="role" style="color:green;"></p>
 
 <label>Work Date</label>
 <input type="date" id="workDate">
 
 <div class="search-row">
-  <input id="branchCode" placeholder="Enter Branch Code">
+  <input id="branchCode" placeholder="Branch Code">
   <button onclick="searchBranch()">SEARCH</button>
 </div>
 
@@ -56,45 +51,39 @@ textarea{height:120px;}
 
 <label>In Time</label>
 <div class="time-row">
-  <input id="inTime">
+  <input id="inTime" placeholder="HH:MM">
   <select id="inAmPm"><option>AM</option><option>PM</option></select>
 </div>
 
 <label>Out Time</label>
 <div class="time-row">
-  <input id="outTime">
+  <input id="outTime" placeholder="HH:MM">
   <select id="outAmPm"><option>AM</option><option>PM</option></select>
 </div>
 
-<textarea id="remarks" placeholder="Remarks"></textarea>
+<textarea id="remarks" placeholder="Remarks (long text allowed)"></textarea>
 
-<button onclick="addEntry()">SAVE ENTRY</button>
+<button onclick="addEntry()" id="saveBtn">SAVE ENTRY</button>
 <button id="exportBtn" onclick="exportExcel()">EXPORT EXCEL</button>
 <button onclick="logout()" style="background:red;">LOGOUT</button>
 
 <table>
 <thead>
 <tr>
-<th>SlNo</th>
-<th>Date</th>
-<th>Branch Code</th>
-<th>Branch Name</th>
-<th>District</th>
-<th>Pincode</th>
-<th>In</th>
-<th>Out</th>
-<th>Remarks</th>
+<th>Sl</th><th>Date</th><th>Code</th><th>Branch</th>
+<th>District</th><th>Pincode</th>
+<th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
 </tr>
 </thead>
 <tbody id="dataBody"></tbody>
 </table>
 
-<p id="msg" style="color:green;"></p>
 </div>
 
 <script>
 let staffData={}, branchData={}, currentUser=null;
 let workData = JSON.parse(localStorage.getItem("workData")) || [];
+let editIndex = -1;
 
 fetch("staff_master.json").then(r=>r.json()).then(d=>staffData=d);
 fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
@@ -123,48 +112,41 @@ function searchBranch(){
     branchName.value = branchData[code].BANCH_NAME;
     district.value = branchData[code].DISTRICT;
     pincode.value = branchData[code].PINCODE;
-  }else{
-    alert("Branch Code Not Found!");
+  } else {
+    alert("Branch Not Found!");
     branchName.value="";
   }
 }
 
-/* ✅ ✅ ✅ FINAL DUPLICATE BLOCK LOGIC ✅ ✅ ✅ */
 function addEntry(){
+  let date=workDate.value.trim(), code=branchCode.value.trim();
+  if(!date||!code||!branchName.value){ alert("Date & Branch Required"); return; }
 
-  let date = workDate.value.trim();
-  let code = String(branchCode.value.trim());
-
-  if(!date || !code || !branchName.value){
-    alert("Date & Branch are required");
-    return;
+  if(editIndex===-1){
+    let duplicate = workData.some(x => x.date===date && x.code===code);
+    if(duplicate){ alert("❌ Duplicate Blocked!"); return; }
   }
 
-  let isDuplicate = workData.some(x => 
-      String(x.date).trim() === date && 
-      String(x.code).trim() === code
-  );
-
-  if(isDuplicate){
-    alert("❌ DUPLICATE BLOCKED!\nThis Branch is already entered for the same date.");
-    return; // ✅ HARD STOP
-  }
-
-  let rec = {
-    date: date,
-    code: code,
-    name: branchName.value,
-    dist: district.value,
-    pin: pincode.value,
-    in: inTime.value + " " + inAmPm.value,
-    out: outTime.value + " " + outAmPm.value,
-    rem: remarks.value
+  let rec={
+    date, code,
+    name:branchName.value,
+    dist:district.value,
+    pin:pincode.value,
+    in:inTime.value+" "+inAmPm.value,
+    out:outTime.value+" "+outAmPm.value,
+    rem:remarks.value
   };
 
-  workData.push(rec);
-  localStorage.setItem("workData",JSON.stringify(workData));
+  if(editIndex>=0){
+    workData[editIndex]=rec;
+    editIndex=-1;
+    saveBtn.innerText="SAVE ENTRY";
+  } else {
+    workData.push(rec);
+  }
 
-  msg.innerText="✅ Saved Successfully";
+  localStorage.setItem("workData",JSON.stringify(workData));
+  clearForm();
   render();
 }
 
@@ -173,17 +155,54 @@ function render(){
   workData.forEach((x,i)=>{
     dataBody.innerHTML+=`
     <tr>
-    <td>${i+1}</td>
-    <td>${x.date}</td>
-    <td>${x.code}</td>
-    <td>${x.name}</td>
-    <td>${x.dist}</td>
-    <td>${x.pin}</td>
-    <td>${x.in}</td>
-    <td>${x.out}</td>
-    <td>${x.rem}</td>
+      <td>${i+1}</td>
+      <td>${x.date}</td>
+      <td>${x.code}</td>
+      <td>${x.name}</td>
+      <td>${x.dist}</td>
+      <td>${x.pin}</td>
+      <td>${x.in}</td>
+      <td>${x.out}</td>
+      <td>${x.rem}</td>
+      <td>
+        <button class="editBtn" onclick="editRow(${i})">Edit</button>
+        <button class="delBtn" onclick="deleteRow(${i})">Delete</button>
+      </td>
     </tr>`;
   });
+}
+
+function editRow(i){
+  let x=workData[i];
+  workDate.value=x.date;
+  branchCode.value=x.code;
+  branchName.value=x.name;
+  district.value=x.dist;
+  pincode.value=x.pin;
+  let inSplit=x.in.split(" "); inTime.value=inSplit[0]; inAmPm.value=inSplit[1];
+  let outSplit=x.out.split(" "); outTime.value=outSplit[0]; outAmPm.value=outSplit[1];
+  remarks.value=x.rem;
+  editIndex=i;
+  saveBtn.innerText="UPDATE";
+}
+
+function deleteRow(i){
+  if(confirm("Delete this record?")){
+    workData.splice(i,1);
+    localStorage.setItem("workData",JSON.stringify(workData));
+    render();
+  }
+}
+
+function clearForm(){
+  workDate.value="";
+  branchCode.value="";
+  branchName.value="";
+  district.value="";
+  pincode.value="";
+  inTime.value="";
+  outTime.value="";
+  remarks.value="";
 }
 
 function exportExcel(){
