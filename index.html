@@ -7,16 +7,18 @@
 <style>
 body{font-family:Arial;background:#f2f2f2;padding:15px;}
 .box{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px #aaa;}
-input,button,textarea,select{width:100%;padding:8px;margin:5px 0;font-size:16px;}
+input,button,textarea{width:100%;padding:8px;margin:6px 0;font-size:16px;}
 button{background:#007bff;color:white;border:none;border-radius:5px;}
 .hidden{display:none;}
 table{width:100%;border-collapse:collapse;margin-top:15px;}
-td,th{border:1px solid #ccc;padding:6px;text-align:left;}
+td,th{border:1px solid #ccc;padding:6px;}
 th{background:#eee;}
 .role{color:green;font-weight:bold;}
 textarea{height:120px;}
+.grid{display:grid;grid-template-columns:1fr auto;gap:6px;}
 </style>
 </head>
+
 <body>
 
 <!-- LOGIN -->
@@ -34,12 +36,17 @@ textarea{height:120px;}
 <p id="welcome"></p>
 <p id="role" class="role"></p>
 
-<!-- DATA ENTRY -->
 <h3>New Entry</h3>
 
-<input id="branchCode" placeholder="Enter Branch Code" onblur="searchBranch()">
+<!-- ✅ BRANCH SEARCH WITH BUTTON -->
+<div class="grid">
+  <input id="branchCode" placeholder="Enter Branch Code">
+  <button onclick="searchBranch()">Search</button>
+</div>
+
 <input id="branchName" placeholder="Branch Name" readonly>
 
+<!-- Hidden but stored -->
 <input type="hidden" id="district">
 <input type="hidden" id="pincode">
 
@@ -57,7 +64,6 @@ textarea{height:120px;}
 <button onclick="openChange()">Change Password</button>
 <button onclick="logout()" style="background:red;">Logout</button>
 
-<!-- DATA LIST -->
 <table>
 <thead>
 <tr>
@@ -98,16 +104,14 @@ fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
 
 /* LOGIN */
 function login(){
-  let mob = loginMobile.value.trim();
-  let pass = loginPassword.value.trim();
   for(let k in staffData){
-    if(staffData[k].Mobile===mob && staffData[k].Password===pass){
+    if(staffData[k].Mobile===loginMobile.value && staffData[k].Password===loginPassword.value){
       currentUser = staffData[k];
       loginBox.classList.add("hidden");
       mainBox.classList.remove("hidden");
       welcome.innerText = "Welcome: " + currentUser.Name;
       role.innerText = "Role: " + currentUser.Role;
-      exportBtn.style.display = currentUser.Role==="ADMIN"?"block":"none";
+      exportBtn.style.display = currentUser.Role==="ADMIN" ? "block" : "none";
       render();
       return;
     }
@@ -116,11 +120,9 @@ function login(){
 }
 
 /* LOGOUT */
-function logout(){
-  location.reload();
-}
+function logout(){ location.reload(); }
 
-/* BRANCH AUTO PICK */
+/* ✅ BRANCH SEARCH BUTTON FUNCTION */
 function searchBranch(){
   let code = branchCode.value.trim();
   if(branchData[code]){
@@ -168,7 +170,7 @@ function render(){
   });
 }
 
-/* EXPORT */
+/* EXPORT CSV */
 function exportExcel(){
   let csv="SlNo,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n";
   workData.forEach((x,i)=>{
@@ -189,12 +191,10 @@ function openChange(){
 
 function updatePassword(){
   if(oldPass.value!==currentUser.Password){
-    passMsg.innerText="Wrong Old Password";
-    return;
+    passMsg.innerText="Wrong Old Password"; return;
   }
   if(newPass.value!==confirmPass.value){
-    passMsg.innerText="Password Mismatch";
-    return;
+    passMsg.innerText="Password Mismatch"; return;
   }
   currentUser.Password=newPass.value;
   passMsg.style.color="green";
@@ -206,5 +206,6 @@ function back(){
   mainBox.classList.remove("hidden");
 }
 </script>
+
 </body>
 </html>
