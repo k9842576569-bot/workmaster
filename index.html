@@ -2,108 +2,126 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>In / Out Time – 12 Hour Format</title>
+<title>Attendance Entry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-  body{
-    font-family: Arial, sans-serif;
-    background:#f4f4f4;
-    padding:20px;
-  }
-  .box{
-    max-width:400px;
-    margin:auto;
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-  }
-  label{
-    font-weight:bold;
-    display:block;
-    margin-top:15px;
-  }
-  input{
-    width:100%;
-    padding:10px;
-    font-size:16px;
-    margin-top:5px;
-  }
-  button{
-    margin-top:20px;
-    width:100%;
-    padding:12px;
-    font-size:16px;
-    background:#007bff;
-    color:#fff;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-  }
-  button:hover{
-    background:#0056b3;
-  }
-  .result{
-    margin-top:15px;
-    font-weight:bold;
-    color:green;
-  }
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f4f4;
+  padding:20px;
+}
+.box{
+  max-width:420px;
+  margin:auto;
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+label{
+  font-weight:bold;
+  display:block;
+  margin-top:12px;
+}
+input, select{
+  width:100%;
+  padding:10px;
+  font-size:16px;
+  margin-top:5px;
+}
+.time-row{
+  display:flex;
+  gap:10px;
+}
+.time-row input{
+  flex:2;
+}
+.time-row select{
+  flex:1;
+}
+button{
+  margin-top:20px;
+  width:100%;
+  padding:12px;
+  font-size:16px;
+  background:#007bff;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.result{
+  margin-top:15px;
+  font-weight:bold;
+  color:green;
+}
 </style>
 </head>
 
 <body>
 
 <div class="box">
-  <h2>IN / OUT Time (12 Hour)</h2>
+<h2>Attendance Entry</h2>
 
-  <label>IN Time (eg: 9:30 AM)</label>
-  <input type="text" id="inTime" placeholder="9:30 AM">
+<label>Date</label>
+<input type="date" id="workDate">
 
-  <label>OUT Time (eg: 6:00 PM)</label>
-  <input type="text" id="outTime" placeholder="6:00 PM">
+<label>IN Time</label>
+<div class="time-row">
+  <input type="text" id="inTime" placeholder="01:30">
+  <select id="inAmPm">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
+</div>
 
-  <button onclick="calculate()">Submit</button>
+<label>OUT Time</label>
+<div class="time-row">
+  <input type="text" id="outTime" placeholder="06:00">
+  <select id="outAmPm">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
+</div>
 
-  <div class="result" id="result"></div>
+<button onclick="calculate()">Submit</button>
+
+<div class="result" id="result"></div>
 </div>
 
 <script>
-function normalizeTime(el){
-  el.value = el.value.replace(/\s+/g,' ').toUpperCase();
-}
-
-document.getElementById("inTime").addEventListener("input", function(){
-  normalizeTime(this);
-});
-document.getElementById("outTime").addEventListener("input", function(){
-  normalizeTime(this);
-});
-
-function parse12Hour(timeStr){
-  const regex = /^(0?[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$/;
+function parseTime(timeStr, ampm){
+  const regex = /^(0[1-9]|1[0-2]):[0-5][0-9]$/;
   if(!regex.test(timeStr)) return null;
 
-  let parts = timeStr.match(/(\d+):(\d+)\s?(AM|PM)/);
-  let hour = parseInt(parts[1]);
-  let minute = parseInt(parts[2]);
-  let ampm = parts[3];
+  let parts = timeStr.split(":");
+  let hour = parseInt(parts[0]);
+  let min = parseInt(parts[1]);
 
   if(hour === 12) hour = 0;
   if(ampm === "PM") hour += 12;
 
-  return hour * 60 + minute;
+  return hour * 60 + min;
 }
 
 function calculate(){
+  let date = document.getElementById("workDate").value;
   let inTime = document.getElementById("inTime").value.trim();
   let outTime = document.getElementById("outTime").value.trim();
+  let inAmPm = document.getElementById("inAmPm").value;
+  let outAmPm = document.getElementById("outAmPm").value;
 
-  let inMin = parse12Hour(inTime);
-  let outMin = parse12Hour(outTime);
+  if(!date){
+    alert("Please select date");
+    return;
+  }
+
+  let inMin = parseTime(inTime, inAmPm);
+  let outMin = parseTime(outTime, outAmPm);
 
   if(inMin === null || outMin === null){
-    alert("❌ Enter time ONLY in 12-hour format (eg: 9:30 AM)");
+    alert("Enter time as HH:MM only (01:30)");
     return;
   }
 
@@ -112,11 +130,12 @@ function calculate(){
   }
 
   let diff = outMin - inMin;
-  let hours = Math.floor(diff / 60);
-  let minutes = diff % 60;
+  let hrs = Math.floor(diff / 60);
+  let mins = diff % 60;
 
   document.getElementById("result").innerHTML =
-    "✅ Total Time: " + hours + " hrs " + minutes + " mins";
+    "Date: " + date +
+    "<br>Total Time: " + hrs + " hrs " + mins + " mins";
 }
 </script>
 
