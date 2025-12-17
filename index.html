@@ -1,204 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Work Master — 12 Hour Time</title>
+<meta charset="UTF-8">
+<title>In / Out Time – 12 Hour Format</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-  :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
-  body{font-family:Arial;background:#f4f6f8;padding:12px}
-  .card{max-width:1000px;margin:auto;background:#fff;border-radius:8px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-  h2,h3{margin:6px 0 12px}
-  .row{display:flex;gap:8px;flex-wrap:wrap}
-  input,textarea,button{padding:8px;font-size:15px;border:1px solid #ccc;border-radius:6px}
-  label{font-weight:600;margin-top:6px;display:block}
-  .btn{background:var(--accent);color:#fff;border:none;cursor:pointer}
-  .btn-secondary{background:#6c757d}
-  .btn-danger{background:var(--err)}
-  .btn-green{background:var(--ok)}
-  table{width:100%;border-collapse:collapse;margin-top:10px}
-  th,td{border:1px solid #ddd;padding:8px;font-size:14px}
-  th{background:#f1f5f9}
-  .hidden{display:none}
-  .small{font-size:13px;color:#666}
+  body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+  }
+  .box{
+    max-width:400px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+  }
+  label{
+    font-weight:bold;
+    display:block;
+    margin-top:15px;
+  }
+  input{
+    width:100%;
+    padding:10px;
+    font-size:16px;
+    margin-top:5px;
+  }
+  button{
+    margin-top:20px;
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    background:#007bff;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+  }
+  button:hover{
+    background:#0056b3;
+  }
+  .result{
+    margin-top:15px;
+    font-weight:bold;
+    color:green;
+  }
 </style>
 </head>
 
 <body>
 
-<div class="card" id="loginCard">
-  <h2>Staff Login</h2>
-  <div class="row">
-    <input id="loginMobile" placeholder="Mobile">
-    <input id="loginPassword" type="password" placeholder="Password">
-  </div>
-  <button class="btn" onclick="login()">Login</button>
-  <p id="loginMsg" class="small" style="color:red"></p>
-</div>
+<div class="box">
+  <h2>IN / OUT Time (12 Hour)</h2>
 
-<div class="card hidden" id="appCard">
-  <h2>Work Entry (12-Hour Time)</h2>
+  <label>IN Time (eg: 9:30 AM)</label>
+  <input type="text" id="inTime" placeholder="9:30 AM">
 
-  <label>Date</label>
-  <input type="date" id="workDate">
+  <label>OUT Time (eg: 6:00 PM)</label>
+  <input type="text" id="outTime" placeholder="6:00 PM">
 
-  <label>Branch Code</label>
-  <div class="row">
-    <input id="branchCode" placeholder="Branch Code">
-    <button class="btn btn-green" onclick="searchBranch()">Search</button>
-  </div>
+  <button onclick="calculate()">Submit</button>
 
-  <input id="branchName" placeholder="Branch Name" readonly>
-  <input id="district" type="hidden">
-  <input id="pincode" type="hidden">
-
-  <div class="row">
-    <div>
-      <label>In Time (hh:mm AM/PM)</label>
-      <input id="inTime" placeholder="9:30 AM">
-    </div>
-    <div>
-      <label>Out Time (hh:mm AM/PM)</label>
-      <input id="outTime" placeholder="6:00 PM">
-    </div>
-  </div>
-
-  <label>Remarks</label>
-  <textarea id="remarks" rows="3"></textarea>
-
-  <div style="margin-top:8px">
-    <button class="btn" onclick="onSave()">Save</button>
-    <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
-    <button class="btn btn-danger" onclick="logout()">Logout</button>
-  </div>
-
-  <p id="saveMsg" class="small" style="color:green"></p>
-
-  <h3>Saved Records</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th><th>Date</th><th>Code</th><th>Name</th>
-        <th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="dataBody"></tbody>
-  </table>
+  <div class="result" id="result"></div>
 </div>
 
 <script>
-/* ---------- DATA ---------- */
-let staffData={}, branchData={}, currentUser=null;
-let workData=JSON.parse(localStorage.getItem("workData")||"[]");
-let editIndex=-1;
-
-fetch("staff_master.json").then(r=>r.json()).then(d=>staffData=d);
-fetch("branch_master.json").then(r=>r.json()).then(d=>branchData=d);
-
-/* ---------- 12 HOUR PARSER ---------- */
-function parse12Hour(t){
-  const r=/^(0?[1-9]|1[0-2]):([0-5][0-9])\s?(AM|PM)$/i;
-  const m=t.match(r);
-  if(!m) return null;
-  let h=parseInt(m[1]), min=parseInt(m[2]);
-  if(m[3].toUpperCase()==="PM" && h!==12) h+=12;
-  if(m[3].toUpperCase()==="AM" && h===12) h=0;
-  return h*60+min;
+function normalizeTime(el){
+  el.value = el.value.replace(/\s+/g,' ').toUpperCase();
 }
 
-/* ---------- LOGIN ---------- */
-function login(){
-  const m=loginMobile.value.trim(), p=loginPassword.value;
-  for(const k in staffData){
-    const u=staffData[k];
-    if(u.Mobile===m && u.Password===p){
-      currentUser=u;
-      loginCard.classList.add("hidden");
-      appCard.classList.remove("hidden");
-      render();
-      return;
-    }
+document.getElementById("inTime").addEventListener("input", function(){
+  normalizeTime(this);
+});
+document.getElementById("outTime").addEventListener("input", function(){
+  normalizeTime(this);
+});
+
+function parse12Hour(timeStr){
+  const regex = /^(0?[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$/;
+  if(!regex.test(timeStr)) return null;
+
+  let parts = timeStr.match(/(\d+):(\d+)\s?(AM|PM)/);
+  let hour = parseInt(parts[1]);
+  let minute = parseInt(parts[2]);
+  let ampm = parts[3];
+
+  if(hour === 12) hour = 0;
+  if(ampm === "PM") hour += 12;
+
+  return hour * 60 + minute;
+}
+
+function calculate(){
+  let inTime = document.getElementById("inTime").value.trim();
+  let outTime = document.getElementById("outTime").value.trim();
+
+  let inMin = parse12Hour(inTime);
+  let outMin = parse12Hour(outTime);
+
+  if(inMin === null || outMin === null){
+    alert("❌ Enter time ONLY in 12-hour format (eg: 9:30 AM)");
+    return;
   }
-  loginMsg.textContent="Invalid Login";
-}
 
-/* ---------- LOGOUT ---------- */
-function logout(){
-  currentUser=null;
-  loginCard.classList.remove("hidden");
-  appCard.classList.add("hidden");
-}
-
-/* ---------- BRANCH SEARCH ---------- */
-function searchBranch(){
-  const b=branchData[branchCode.value.trim()];
-  if(!b){ alert("Branch not found"); return; }
-  branchName.value=b.BRANCH_NAME;
-  district.value=b.DISTRICT;
-  pincode.value=b.PINCODE;
-}
-
-/* ---------- SAVE ---------- */
-function onSave(){
-  const date=workDate.value, code=branchCode.value.trim();
-  const inT=inTime.value.trim(), outT=outTime.value.trim();
-
-  if(!date||!code||!branchName.value){alert("Fill required");return;}
-
-  const inM=parse12Hour(inT), outM=parse12Hour(outT);
-  if(inM===null||outM===null){alert("Invalid time format");return;}
-  if(outM<=inM){alert("Out time must be after In time");return;}
-
-  const rec={date,code,name:branchName.value,in:inT,out:outT,rem:remarks.value};
-
-  if(editIndex>=0){workData[editIndex]=rec;editIndex=-1;}
-  else workData.push(rec);
-
-  localStorage.setItem("workData",JSON.stringify(workData));
-  saveMsg.textContent="Saved Successfully";
-  clearForm(); render();
-}
-
-/* ---------- TABLE ---------- */
-function render(){
-  dataBody.innerHTML="";
-  workData.forEach((r,i)=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`
-      <td>${i+1}</td><td>${r.date}</td><td>${r.code}</td>
-      <td>${r.name}</td><td>${r.in}</td><td>${r.out}</td>
-      <td>${r.rem||""}</td>
-      <td>
-        <button onclick="edit(${i})">Edit</button>
-        <button onclick="del(${i})">Delete</button>
-      </td>`;
-    dataBody.appendChild(tr);
-  });
-}
-
-/* ---------- EDIT / DELETE ---------- */
-function edit(i){
-  const r=workData[i];
-  editIndex=i;
-  workDate.value=r.date; branchCode.value=r.code;
-  branchName.value=r.name; inTime.value=r.in;
-  outTime.value=r.out; remarks.value=r.rem;
-}
-function del(i){
-  if(confirm("Delete?")){
-    workData.splice(i,1);
-    localStorage.setItem("workData",JSON.stringify(workData));
-    render();
+  if(outMin < inMin){
+    outMin += 24 * 60; // next day support
   }
-}
 
-/* ---------- CLEAR ---------- */
-function clearForm(){
-  workDate.value=branchCode.value=branchName.value="";
-  inTime.value=outTime.value=remarks.value="";
-  editIndex=-1;
+  let diff = outMin - inMin;
+  let hours = Math.floor(diff / 60);
+  let minutes = diff % 60;
+
+  document.getElementById("result").innerHTML =
+    "✅ Total Time: " + hours + " hrs " + minutes + " mins";
 }
 </script>
+
 </body>
 </html>
