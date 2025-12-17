@@ -7,12 +7,13 @@
 
 <style>
 body{font-family:Arial;background:#f2f2f2;padding:20px}
-.card{max-width:400px;margin:auto;background:#fff;padding:20px;border-radius:8px}
+.card{max-width:420px;margin:auto;background:#fff;padding:20px;border-radius:8px;margin-bottom:20px}
 input,select,button{width:100%;padding:10px;margin:6px 0}
 button{background:#007bff;color:#fff;border:none}
 .hidden{display:none}
 .error{color:red;text-align:center}
 .success{color:green;text-align:center}
+.box{background:#eef;padding:10px;border-radius:6px;margin-top:10px}
 </style>
 </head>
 
@@ -34,7 +35,6 @@ button{background:#007bff;color:#fff;border:none}
 
   <label>In Time</label>
   <input type="time" id="inTime">
-
   <select id="inMeridiem">
     <option>AM</option>
     <option>PM</option>
@@ -42,82 +42,115 @@ button{background:#007bff;color:#fff;border:none}
 
   <label>Out Time</label>
   <input type="time" id="outTime">
-
   <select id="outMeridiem">
     <option>AM</option>
     <option>PM</option>
   </select>
 
-  <button onclick="save()">Save</button>
+  <button onclick="saveAttendance()">Save Attendance</button>
   <div id="saveMsg" class="success"></div>
+</div>
+
+<!-- BRANCH SEARCH -->
+<div class="card hidden" id="branchCard">
+  <h3>Branch Search</h3>
+
+  <input id="branchSearch" placeholder="Enter Branch Code or Name">
+  <button onclick="searchBranch()">Search</button>
+
+  <div id="branchResult" class="box hidden"></div>
 </div>
 
 <script>
 let staffData = {};
+let branchData = {};
 let currentUser = null;
 
-/* LOAD JSON */
+/* LOAD STAFF */
 fetch("./staff_master.json")
 .then(r => r.json())
-.then(d => {
-  staffData = d;
-  console.log("Loaded staff:", staffData);
-})
-.catch(e => {
-  alert("staff_master.json not loaded");
-});
+.then(d => staffData = d);
+
+/* LOAD BRANCH */
+fetch("./branch_master.json")
+.then(r => r.json())
+.then(d => branchData = d);
 
 /* LOGIN */
 function login(){
-  const mobile = document.getElementById("loginMobile").value.trim();
-  const pwd = document.getElementById("loginPassword").value.trim();
-  const msg = document.getElementById("loginMsg");
-  msg.textContent = "";
-
-  let ok = false;
+  const mobile = loginMobile.value.trim();
+  const pwd = loginPassword.value.trim();
+  loginMsg.textContent = "";
 
   for(let k in staffData){
     let u = staffData[k];
-
     if(u.Mobile === mobile && u.Password === pwd){
-      ok = true;
       currentUser = u;
 
-      document.getElementById("loginCard").classList.add("hidden");
-      document.getElementById("appCard").classList.remove("hidden");
-      document.getElementById("welcome").innerHTML =
-        "Welcome <b>" + u.Name + "</b>";
+      loginCard.classList.add("hidden");
+      appCard.classList.remove("hidden");
+      branchCard.classList.remove("hidden");
 
-      break;
+      welcome.innerHTML = "Welcome <b>" + u.Name + "</b>";
+      return;
     }
   }
-
-  if(!ok){
-    msg.textContent = "Invalid Login";
-  }
+  loginMsg.textContent = "Invalid Login";
 }
 
-/* SAVE */
-function save(){
-  const inT = document.getElementById("inTime").value;
-  const inM = document.getElementById("inMeridiem").value;
-  const outT = document.getElementById("outTime").value;
-  const outM = document.getElementById("outMeridiem").value;
-
-  if(!inT || !outT){
+/* SAVE ATTENDANCE */
+function saveAttendance(){
+  if(!inTime.value || !outTime.value){
     alert("Select time");
     return;
   }
 
   const record = {
     user: currentUser.Name,
-    inTime: inT + " " + inM,
-    outTime: outT + " " + outM,
+    inTime: inTime.value + " " + inMeridiem.value,
+    outTime: outTime.value + " " + outMeridiem.value,
     date: new Date().toLocaleDateString()
   };
 
   localStorage.setItem("attendance", JSON.stringify(record));
-  document.getElementById("saveMsg").textContent = "Saved Successfully";
+  saveMsg.textContent = "Attendance Saved";
+}
+
+/* BRANCH SEARCH */
+function searchBranch(){
+  const q = branchSearch.value.trim().toUpperCase();
+  const box = branchResult;
+  box.classList.add("hidden");
+
+  if(!q) return;
+
+  /* Search by CODE */
+  if(branchData[q]){
+    showBranch(q, branchData[q]);
+    return;
+  }
+
+  /* Search by NAME */
+  for(let code in branchData){
+    let b = branchData[code];
+    if(b.BANCH_NAME.includes(q)){
+      showBranch(code, b);
+      return;
+    }
+  }
+
+  box.innerHTML = "No branch found";
+  box.classList.remove("hidden");
+}
+
+function showBranch(code, b){
+  branchResult.innerHTML =
+    "<b>Branch Code:</b> " + code + "<br>" +
+    "<b>Branch Name:</b> " + b.BANCH_NAME + "<br>" +
+    "<b>District:</b> " + b.DISTRICT + "<br>" +
+    "<b>Pincode:</b> " + b.PINCODE;
+
+  branchResult.classList.remove("hidden");
 }
 </script>
 
