@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+<title>Work Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work Master – 12 Hour</title>
 
 <style>
-body{font-family:Arial;background:#f4f6f8;padding:12px}
-.card{max-width:1000px;margin:auto;background:#fff;padding:15px;border-radius:8px}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-input,select,textarea,button{padding:8px;font-size:15px}
-label{font-weight:bold;margin-top:8px;display:block}
-button{cursor:pointer}
+body{font-family:Arial;background:#f2f2f2;padding:20px}
+.card{max-width:400px;margin:auto;background:#fff;padding:20px;border-radius:8px}
+input,select,button{width:100%;padding:10px;margin:6px 0}
+button{background:#007bff;color:#fff;border:none}
 .hidden{display:none}
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{border:1px solid #ccc;padding:6px;font-size:14px}
-th{background:#eee}
+.error{color:red;text-align:center}
+.success{color:green;text-align:center}
 </style>
 </head>
 
@@ -23,191 +20,104 @@ th{background:#eee}
 
 <!-- LOGIN -->
 <div class="card" id="loginCard">
-  <h2>Staff Login</h2>
-
-  <label>Mobile</label>
-  <input id="loginMobile">
-
-  <label>Password</label>
-  <input id="loginPassword" type="password">
-
-  <br><br>
+  <h3>Login</h3>
+  <input id="loginMobile" placeholder="Mobile Number">
+  <input id="loginPassword" type="password" placeholder="Password">
   <button onclick="login()">Login</button>
-  <p id="loginMsg" style="color:red"></p>
+  <div id="loginMsg" class="error"></div>
 </div>
 
 <!-- APP -->
 <div class="card hidden" id="appCard">
-  <h2>Work Entry</h2>
-  <p id="userInfo"></p>
+  <h3>Attendance</h3>
+  <div id="welcome"></div>
 
-  <label>Date</label>
-  <input type="date" id="workDate">
+  <label>In Time</label>
+  <input type="time" id="inTime">
 
-  <label>Branch Code</label>
-  <div class="row">
-    <input id="branchCode">
-    <button onclick="searchBranch()">Search</button>
-  </div>
+  <select id="inMeridiem">
+    <option>AM</option>
+    <option>PM</option>
+  </select>
 
-  <label>Branch Name</label>
-  <input id="branchName" readonly>
+  <label>Out Time</label>
+  <input type="time" id="outTime">
 
-  <div class="row">
-    <div>
-      <label>In Time</label>
-      <input id="inTime" placeholder="01:30">
-      <select id="inAmPm">
-        <option>AM</option>
-        <option>PM</option>
-      </select>
-    </div>
+  <select id="outMeridiem">
+    <option>AM</option>
+    <option>PM</option>
+  </select>
 
-    <div>
-      <label>Out Time</label>
-      <input id="outTime" placeholder="06:00">
-      <select id="outAmPm">
-        <option>AM</option>
-        <option>PM</option>
-      </select>
-    </div>
-  </div>
-
-  <label>Remarks</label>
-  <textarea id="remarks"></textarea>
-
-  <br>
-  <button onclick="saveData()">Save</button>
-  <button onclick="logout()">Logout</button>
-
-  <h3>Saved Records</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th><th>Date</th><th>Code</th><th>Name</th>
-        <th>In</th><th>Out</th><th>Remarks</th>
-      </tr>
-    </thead>
-    <tbody id="dataBody"></tbody>
-  </table>
+  <button onclick="save()">Save</button>
+  <div id="saveMsg" class="success"></div>
 </div>
 
 <script>
 let staffData = {};
-let branchData = {};
 let currentUser = null;
-let workData = JSON.parse(localStorage.getItem("workData")||"[]");
 
-/* LOAD STAFF */
+/* LOAD JSON */
 fetch("./staff_master.json")
-.then(r=>r.json())
-.then(d=>staffData=d)
-.catch(()=>alert("staff_master.json not loaded"));
-
-/* LOAD BRANCH */
-fetch("./branch_master.json")
-.then(r=>r.json())
-.then(d=>branchData=d)
-.catch(()=>alert("branch_master.json not loaded"));
+.then(r => r.json())
+.then(d => {
+  staffData = d;
+  console.log("Loaded staff:", staffData);
+})
+.catch(e => {
+  alert("staff_master.json not loaded");
+});
 
 /* LOGIN */
 function login(){
-  const m = loginMobile.value.trim();
-  const p = loginPassword.value.trim();
-  loginMsg.textContent="";
+  const mobile = document.getElementById("loginMobile").value.trim();
+  const pwd = document.getElementById("loginPassword").value.trim();
+  const msg = document.getElementById("loginMsg");
+  msg.textContent = "";
 
-  for(const k in staffData){
-    const u = staffData[k];
-    if(u.Mobile===m && u.Password===p){
-      currentUser=u;
-      loginCard.classList.add("hidden");
-      appCard.classList.remove("hidden");
-      userInfo.textContent="Logged in as: "+u.Name+" ("+u.Role+")";
-      render();
-      return;
+  let ok = false;
+
+  for(let k in staffData){
+    let u = staffData[k];
+
+    if(u.Mobile === mobile && u.Password === pwd){
+      ok = true;
+      currentUser = u;
+
+      document.getElementById("loginCard").classList.add("hidden");
+      document.getElementById("appCard").classList.remove("hidden");
+      document.getElementById("welcome").innerHTML =
+        "Welcome <b>" + u.Name + "</b>";
+
+      break;
     }
   }
-  loginMsg.textContent="Invalid User ID or Password";
-}
 
-/* LOGOUT */
-function logout(){
-  currentUser=null;
-  loginCard.classList.remove("hidden");
-  appCard.classList.add("hidden");
-}
-
-/* BRANCH SEARCH */
-function searchBranch(){
-  const b = branchData[branchCode.value.trim()];
-  if(!b){ alert("Branch not found"); return; }
-  branchName.value = b.BRANCH_NAME || "";
-}
-
-/* TIME PARSE (12 HOUR) */
-function parseTime(t, ap){
-  const r=/^(0[1-9]|1[0-2]):[0-5][0-9]$/;
-  if(!r.test(t)) return null;
-  let [h,m]=t.split(":").map(Number);
-  if(h===12) h=0;
-  if(ap==="PM") h+=12;
-  return h*60+m;
+  if(!ok){
+    msg.textContent = "Invalid Login";
+  }
 }
 
 /* SAVE */
-function saveData(){
-  const inM=parseTime(inTime.value,inAmPm.value);
-  const outM=parseTime(outTime.value,outAmPm.value);
+function save(){
+  const inT = document.getElementById("inTime").value;
+  const inM = document.getElementById("inMeridiem").value;
+  const outT = document.getElementById("outTime").value;
+  const outM = document.getElementById("outMeridiem").value;
 
-  if(!workDate.value||!branchCode.value||!branchName.value){
-    alert("Fill all required fields");
+  if(!inT || !outT){
+    alert("Select time");
     return;
   }
-  if(inM===null||outM===null||outM<=inM){
-    alert("Invalid time");
-    return;
-  }
 
-  workData.push({
-    date:workDate.value,
-    code:branchCode.value,
-    name:branchName.value,
-    in:inTime.value+" "+inAmPm.value,
-    out:outTime.value+" "+outAmPm.value,
-    rem:remarks.value,
-    staff:currentUser.Name
-  });
+  const record = {
+    user: currentUser.Name,
+    inTime: inT + " " + inM,
+    outTime: outT + " " + outM,
+    date: new Date().toLocaleDateString()
+  };
 
-  localStorage.setItem("workData",JSON.stringify(workData));
-  clearForm();
-  render();
-}
-
-/* TABLE */
-function render(){
-  dataBody.innerHTML="";
-  workData.forEach((r,i)=>{
-    dataBody.innerHTML+=`
-    <tr>
-      <td>${i+1}</td>
-      <td>${r.date}</td>
-      <td>${r.code}</td>
-      <td>${r.name}</td>
-      <td>${r.in}</td>
-      <td>${r.out}</td>
-      <td>${r.rem||""}</td>
-    </tr>`;
-  });
-}
-
-/* CLEAR */
-function clearForm(){
-  workDate.value="";
-  branchCode.value="";
-  branchName.value="";
-  inTime.value="";
-  outTime.value="";
-  remarks.value="";
+  localStorage.setItem("attendance", JSON.stringify(record));
+  document.getElementById("saveMsg").textContent = "Saved Successfully";
 }
 </script>
 
