@@ -16,7 +16,6 @@ button{cursor:pointer}
 table{width:100%;border-collapse:collapse;margin-top:10px}
 th,td{border:1px solid #ccc;padding:6px;font-size:14px}
 th{background:#eee}
-.small{font-size:13px;color:green}
 </style>
 </head>
 
@@ -25,8 +24,13 @@ th{background:#eee}
 <!-- LOGIN -->
 <div class="card" id="loginCard">
   <h2>Staff Login</h2>
-  <input id="loginMobile" placeholder="Mobile">
-  <input id="loginPassword" type="password" placeholder="Password">
+
+  <label>Mobile</label>
+  <input id="loginMobile">
+
+  <label>Password</label>
+  <input id="loginPassword" type="password">
+
   <br><br>
   <button onclick="login()">Login</button>
   <p id="loginMsg" style="color:red"></p>
@@ -35,19 +39,20 @@ th{background:#eee}
 <!-- APP -->
 <div class="card hidden" id="appCard">
   <h2>Work Entry</h2>
+  <p id="userInfo"></p>
 
   <label>Date</label>
   <input type="date" id="workDate">
 
   <label>Branch Code</label>
   <div class="row">
-    <input id="branchCode" placeholder="Branch Code">
+    <input id="branchCode">
     <button onclick="searchBranch()">Search</button>
   </div>
 
-  <input id="branchName" placeholder="Branch Name" readonly>
+  <label>Branch Name</label>
+  <input id="branchName" readonly>
 
-  <!-- TIME -->
   <div class="row">
     <div>
       <label>In Time</label>
@@ -73,17 +78,14 @@ th{background:#eee}
 
   <br>
   <button onclick="saveData()">Save</button>
-  <button onclick="clearForm()">Clear</button>
   <button onclick="logout()">Logout</button>
-
-  <p id="saveMsg" class="small"></p>
 
   <h3>Saved Records</h3>
   <table>
     <thead>
       <tr>
         <th>#</th><th>Date</th><th>Code</th><th>Name</th>
-        <th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
+        <th>In</th><th>Out</th><th>Remarks</th>
       </tr>
     </thead>
     <tbody id="dataBody"></tbody>
@@ -91,43 +93,58 @@ th{background:#eee}
 </div>
 
 <script>
-/* -------- SAMPLE DATA (NO FETCH ISSUE) -------- */
-const staffData = {
-  "1": {Mobile:"9999999999", Password:"1234", Name:"Staff"}
-};
-
-const branchData = {
-  "101": {BRANCH_NAME:"Main Branch"},
-  "102": {BRANCH_NAME:"City Branch"}
-};
-
+let staffData = {};
+let branchData = {};
+let currentUser = null;
 let workData = JSON.parse(localStorage.getItem("workData")||"[]");
-let editIndex = -1;
 
-/* -------- LOGIN -------- */
+/* LOAD STAFF */
+fetch("./staff_master.json")
+.then(r=>r.json())
+.then(d=>staffData=d)
+.catch(()=>alert("staff_master.json not loaded"));
+
+/* LOAD BRANCH */
+fetch("./branch_master.json")
+.then(r=>r.json())
+.then(d=>branchData=d)
+.catch(()=>alert("branch_master.json not loaded"));
+
+/* LOGIN */
 function login(){
-  if(loginMobile.value==="9999999999" && loginPassword.value==="1234"){
-    loginCard.classList.add("hidden");
-    appCard.classList.remove("hidden");
-    render();
-  }else{
-    loginMsg.textContent="Invalid Login";
+  const m = loginMobile.value.trim();
+  const p = loginPassword.value.trim();
+  loginMsg.textContent="";
+
+  for(const k in staffData){
+    const u = staffData[k];
+    if(u.Mobile===m && u.Password===p){
+      currentUser=u;
+      loginCard.classList.add("hidden");
+      appCard.classList.remove("hidden");
+      userInfo.textContent="Logged in as: "+u.Name+" ("+u.Role+")";
+      render();
+      return;
+    }
   }
+  loginMsg.textContent="Invalid User ID or Password";
 }
 
+/* LOGOUT */
 function logout(){
-  appCard.classList.add("hidden");
+  currentUser=null;
   loginCard.classList.remove("hidden");
+  appCard.classList.add("hidden");
 }
 
-/* -------- BRANCH SEARCH -------- */
+/* BRANCH SEARCH */
 function searchBranch(){
   const b = branchData[branchCode.value.trim()];
   if(!b){ alert("Branch not found"); return; }
-  branchName.value = b.BRANCH_NAME;
+  branchName.value = b.BRANCH_NAME || "";
 }
 
-/* -------- TIME PARSER (12 HOUR) -------- */
+/* TIME PARSE (12 HOUR) */
 function parseTime(t, ap){
   const r=/^(0[1-9]|1[0-2]):[0-5][0-9]$/;
   if(!r.test(t)) return null;
@@ -137,82 +154,60 @@ function parseTime(t, ap){
   return h*60+m;
 }
 
-/* -------- SAVE -------- */
+/* SAVE */
 function saveData(){
-  const date = workDate.value;
-  const code = branchCode.value;
-  const name = branchName.value;
-  const inT = inTime.value;
-  const outT = outTime.value;
+  const inM=parseTime(inTime.value,inAmPm.value);
+  const outM=parseTime(outTime.value,outAmPm.value);
 
-  if(!date || !code || !name){ alert("Fill required fields"); return; }
+  if(!workDate.value||!branchCode.value||!branchName.value){
+    alert("Fill all required fields");
+    return;
+  }
+  if(inM===null||outM===null||outM<=inM){
+    alert("Invalid time");
+    return;
+  }
 
-  const inMin = parseTime(inT, inAmPm.value);
-  const outMin = parseTime(outT, outAmPm.value);
-  if(inMin===null || outMin===null){ alert("Time format HH:MM only"); return; }
+  workData.push({
+    date:workDate.value,
+    code:branchCode.value,
+    name:branchName.value,
+    in:inTime.value+" "+inAmPm.value,
+    out:outTime.value+" "+outAmPm.value,
+    rem:remarks.value,
+    staff:currentUser.Name
+  });
 
-  let o = outMin;
-  if(o <= inMin) o += 1440;
-
-  const rec = {
-    date, code, name,
-    in: inT+" "+inAmPm.value,
-    out: outT+" "+outAmPm.value,
-    rem: remarks.value
-  };
-
-  if(editIndex>=0){ workData[editIndex]=rec; editIndex=-1; }
-  else workData.push(rec);
-
-  localStorage.setItem("workData", JSON.stringify(workData));
-  saveMsg.textContent="Saved Successfully";
-  clearForm(); render();
+  localStorage.setItem("workData",JSON.stringify(workData));
+  clearForm();
+  render();
 }
 
-/* -------- TABLE -------- */
+/* TABLE */
 function render(){
   dataBody.innerHTML="";
   workData.forEach((r,i)=>{
-    dataBody.innerHTML += `
-      <tr>
-        <td>${i+1}</td>
-        <td>${r.date}</td>
-        <td>${r.code}</td>
-        <td>${r.name}</td>
-        <td>${r.in}</td>
-        <td>${r.out}</td>
-        <td>${r.rem||""}</td>
-        <td>
-          <button onclick="edit(${i})">Edit</button>
-          <button onclick="del(${i})">Del</button>
-        </td>
-      </tr>`;
+    dataBody.innerHTML+=`
+    <tr>
+      <td>${i+1}</td>
+      <td>${r.date}</td>
+      <td>${r.code}</td>
+      <td>${r.name}</td>
+      <td>${r.in}</td>
+      <td>${r.out}</td>
+      <td>${r.rem||""}</td>
+    </tr>`;
   });
 }
 
-function edit(i){
-  const r=workData[i];
-  editIndex=i;
-  workDate.value=r.date;
-  branchCode.value=r.code;
-  branchName.value=r.name;
-  [inTime.value,inAmPm.value]=r.in.split(" ");
-  [outTime.value,outAmPm.value]=r.out.split(" ");
-  remarks.value=r.rem;
-}
-
-function del(i){
-  if(confirm("Delete?")){
-    workData.splice(i,1);
-    localStorage.setItem("workData",JSON.stringify(workData));
-    render();
-  }
-}
-
+/* CLEAR */
 function clearForm(){
-  workDate.value=branchCode.value=branchName.value="";
-  inTime.value=outTime.value=remarks.value="";
-  editIndex=-1;
+  workDate.value="";
+  branchCode.value="";
+  branchName.value="";
+  inTime.value="";
+  outTime.value="";
+  remarks.value="";
 }
 </script>
 
