@@ -1,141 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Attendance Entry</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work Master – 12 Hour</title>
 
 <style>
-body{
-  font-family: Arial, sans-serif;
-  background:#f4f4f4;
-  padding:20px;
-}
-.box{
-  max-width:420px;
-  margin:auto;
-  background:#fff;
-  padding:20px;
-  border-radius:8px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-label{
-  font-weight:bold;
-  display:block;
-  margin-top:12px;
-}
-input, select{
-  width:100%;
-  padding:10px;
-  font-size:16px;
-  margin-top:5px;
-}
-.time-row{
-  display:flex;
-  gap:10px;
-}
-.time-row input{
-  flex:2;
-}
-.time-row select{
-  flex:1;
-}
-button{
-  margin-top:20px;
-  width:100%;
-  padding:12px;
-  font-size:16px;
-  background:#007bff;
-  color:#fff;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-}
-.result{
-  margin-top:15px;
-  font-weight:bold;
-  color:green;
-}
+body{font-family:Arial;background:#f4f6f8;padding:12px}
+.card{max-width:1000px;margin:auto;background:#fff;padding:15px;border-radius:8px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input,select,textarea,button{padding:8px;font-size:15px}
+label{font-weight:bold;margin-top:8px;display:block}
+button{cursor:pointer}
+.hidden{display:none}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #ccc;padding:6px;font-size:14px}
+th{background:#eee}
+.small{font-size:13px;color:green}
 </style>
 </head>
 
 <body>
 
-<div class="box">
-<h2>Attendance Entry</h2>
-
-<label>Date</label>
-<input type="date" id="workDate">
-
-<label>IN Time</label>
-<div class="time-row">
-  <input type="text" id="inTime" placeholder="01:30">
-  <select id="inAmPm">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-  </select>
+<!-- LOGIN -->
+<div class="card" id="loginCard">
+  <h2>Staff Login</h2>
+  <input id="loginMobile" placeholder="Mobile">
+  <input id="loginPassword" type="password" placeholder="Password">
+  <br><br>
+  <button onclick="login()">Login</button>
+  <p id="loginMsg" style="color:red"></p>
 </div>
 
-<label>OUT Time</label>
-<div class="time-row">
-  <input type="text" id="outTime" placeholder="06:00">
-  <select id="outAmPm">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-  </select>
-</div>
+<!-- APP -->
+<div class="card hidden" id="appCard">
+  <h2>Work Entry</h2>
 
-<button onclick="calculate()">Submit</button>
+  <label>Date</label>
+  <input type="date" id="workDate">
 
-<div class="result" id="result"></div>
+  <label>Branch Code</label>
+  <div class="row">
+    <input id="branchCode" placeholder="Branch Code">
+    <button onclick="searchBranch()">Search</button>
+  </div>
+
+  <input id="branchName" placeholder="Branch Name" readonly>
+
+  <!-- TIME -->
+  <div class="row">
+    <div>
+      <label>In Time</label>
+      <input id="inTime" placeholder="01:30">
+      <select id="inAmPm">
+        <option>AM</option>
+        <option>PM</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Out Time</label>
+      <input id="outTime" placeholder="06:00">
+      <select id="outAmPm">
+        <option>AM</option>
+        <option>PM</option>
+      </select>
+    </div>
+  </div>
+
+  <label>Remarks</label>
+  <textarea id="remarks"></textarea>
+
+  <br>
+  <button onclick="saveData()">Save</button>
+  <button onclick="clearForm()">Clear</button>
+  <button onclick="logout()">Logout</button>
+
+  <p id="saveMsg" class="small"></p>
+
+  <h3>Saved Records</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Date</th><th>Code</th><th>Name</th>
+        <th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
 </div>
 
 <script>
-function parseTime(timeStr, ampm){
-  const regex = /^(0[1-9]|1[0-2]):[0-5][0-9]$/;
-  if(!regex.test(timeStr)) return null;
+/* -------- SAMPLE DATA (NO FETCH ISSUE) -------- */
+const staffData = {
+  "1": {Mobile:"9999999999", Password:"1234", Name:"Staff"}
+};
 
-  let parts = timeStr.split(":");
-  let hour = parseInt(parts[0]);
-  let min = parseInt(parts[1]);
+const branchData = {
+  "101": {BRANCH_NAME:"Main Branch"},
+  "102": {BRANCH_NAME:"City Branch"}
+};
 
-  if(hour === 12) hour = 0;
-  if(ampm === "PM") hour += 12;
+let workData = JSON.parse(localStorage.getItem("workData")||"[]");
+let editIndex = -1;
 
-  return hour * 60 + min;
+/* -------- LOGIN -------- */
+function login(){
+  if(loginMobile.value==="9999999999" && loginPassword.value==="1234"){
+    loginCard.classList.add("hidden");
+    appCard.classList.remove("hidden");
+    render();
+  }else{
+    loginMsg.textContent="Invalid Login";
+  }
 }
 
-function calculate(){
-  let date = document.getElementById("workDate").value;
-  let inTime = document.getElementById("inTime").value.trim();
-  let outTime = document.getElementById("outTime").value.trim();
-  let inAmPm = document.getElementById("inAmPm").value;
-  let outAmPm = document.getElementById("outAmPm").value;
+function logout(){
+  appCard.classList.add("hidden");
+  loginCard.classList.remove("hidden");
+}
 
-  if(!date){
-    alert("Please select date");
-    return;
+/* -------- BRANCH SEARCH -------- */
+function searchBranch(){
+  const b = branchData[branchCode.value.trim()];
+  if(!b){ alert("Branch not found"); return; }
+  branchName.value = b.BRANCH_NAME;
+}
+
+/* -------- TIME PARSER (12 HOUR) -------- */
+function parseTime(t, ap){
+  const r=/^(0[1-9]|1[0-2]):[0-5][0-9]$/;
+  if(!r.test(t)) return null;
+  let [h,m]=t.split(":").map(Number);
+  if(h===12) h=0;
+  if(ap==="PM") h+=12;
+  return h*60+m;
+}
+
+/* -------- SAVE -------- */
+function saveData(){
+  const date = workDate.value;
+  const code = branchCode.value;
+  const name = branchName.value;
+  const inT = inTime.value;
+  const outT = outTime.value;
+
+  if(!date || !code || !name){ alert("Fill required fields"); return; }
+
+  const inMin = parseTime(inT, inAmPm.value);
+  const outMin = parseTime(outT, outAmPm.value);
+  if(inMin===null || outMin===null){ alert("Time format HH:MM only"); return; }
+
+  let o = outMin;
+  if(o <= inMin) o += 1440;
+
+  const rec = {
+    date, code, name,
+    in: inT+" "+inAmPm.value,
+    out: outT+" "+outAmPm.value,
+    rem: remarks.value
+  };
+
+  if(editIndex>=0){ workData[editIndex]=rec; editIndex=-1; }
+  else workData.push(rec);
+
+  localStorage.setItem("workData", JSON.stringify(workData));
+  saveMsg.textContent="Saved Successfully";
+  clearForm(); render();
+}
+
+/* -------- TABLE -------- */
+function render(){
+  dataBody.innerHTML="";
+  workData.forEach((r,i)=>{
+    dataBody.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td>${r.date}</td>
+        <td>${r.code}</td>
+        <td>${r.name}</td>
+        <td>${r.in}</td>
+        <td>${r.out}</td>
+        <td>${r.rem||""}</td>
+        <td>
+          <button onclick="edit(${i})">Edit</button>
+          <button onclick="del(${i})">Del</button>
+        </td>
+      </tr>`;
+  });
+}
+
+function edit(i){
+  const r=workData[i];
+  editIndex=i;
+  workDate.value=r.date;
+  branchCode.value=r.code;
+  branchName.value=r.name;
+  [inTime.value,inAmPm.value]=r.in.split(" ");
+  [outTime.value,outAmPm.value]=r.out.split(" ");
+  remarks.value=r.rem;
+}
+
+function del(i){
+  if(confirm("Delete?")){
+    workData.splice(i,1);
+    localStorage.setItem("workData",JSON.stringify(workData));
+    render();
   }
+}
 
-  let inMin = parseTime(inTime, inAmPm);
-  let outMin = parseTime(outTime, outAmPm);
-
-  if(inMin === null || outMin === null){
-    alert("Enter time as HH:MM only (01:30)");
-    return;
-  }
-
-  if(outMin < inMin){
-    outMin += 24 * 60; // next day support
-  }
-
-  let diff = outMin - inMin;
-  let hrs = Math.floor(diff / 60);
-  let mins = diff % 60;
-
-  document.getElementById("result").innerHTML =
-    "Date: " + date +
-    "<br>Total Time: " + hrs + " hrs " + mins + " mins";
+function clearForm(){
+  workDate.value=branchCode.value=branchName.value="";
+  inTime.value=outTime.value=remarks.value="";
+  editIndex=-1;
 }
 </script>
 
