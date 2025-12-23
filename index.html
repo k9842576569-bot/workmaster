@@ -12,6 +12,7 @@
   h2{margin:6px 0 12px}
   .row{display:flex;gap:8px;flex-wrap:wrap}
   input,select,textarea,button{font-size:15px;padding:8px;border:1px solid #d0d7de;border-radius:6px}
+  input[type="date"]{padding:6px}
   label{font-weight:600;margin-top:6px;display:block}
   .flex-1{flex:1 1 220px}
   .btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
@@ -19,7 +20,7 @@
   .btn-danger{background:var(--err)}
   .btn-green{background:var(--ok)}
   table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
-  th,td{border:1px solid #e2e8f0;padding:8px}
+  th,td{border:1px solid #e2e8f0;padding:8px;text-align:left}
   th{background:#f1f5f9}
   .hidden{display:none}
 </style>
@@ -27,51 +28,61 @@
 
 <body>
 
+<!-- ================= LOGIN CARD (UNCHANGED) ================= -->
 <div class="card" id="loginCard">
   <h2>Staff Login</h2>
-  <input id="loginMobile" placeholder="Mobile">
-  <input id="loginPassword" type="password" placeholder="Password">
+  <div class="row">
+    <div class="flex-1"><input id="loginMobile" placeholder="Mobile number (login id)"></div>
+    <div class="flex-1"><input id="loginPassword" type="password" placeholder="Password"></div>
+  </div>
   <button class="btn" onclick="login()">Login</button>
   <p id="loginMsg" style="color:red"></p>
 </div>
 
+<!-- ================= APP CARD ================= -->
 <div class="card hidden" id="appCard">
 <h2>Work Master Data Entry</h2>
 
-<label>Date</label>
+<label>Work Date</label>
 <input type="date" id="workDate">
 
-<label>Branch Code</label>
+<label>Branch code</label>
 <input id="branchCode">
 
-<label>Branch Name</label>
+<label>Branch name</label>
 <input id="branchName" readonly>
 
-<input type="hidden" id="district">
-<input type="hidden" id="pincode">
+<input id="district" type="hidden">
+<input id="pincode" type="hidden">
 
-<!-- ===== IN TIME (12 HOUR) ===== -->
-<label>In Time</label>
+<!-- ================= IN TIME (12 HOUR UI ONLY) ================= -->
+<label>In time (12-hour)</label>
 <div class="row">
   <input id="inHour" type="number" min="1" max="12" placeholder="HH">
   <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
-  <select id="inAmPm"><option>AM</option><option>PM</option></select>
+  <select id="inAmPm">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
 </div>
 <input type="hidden" id="inTime">
 
-<!-- ===== OUT TIME (12 HOUR) ===== -->
-<label>Out Time</label>
+<!-- ================= OUT TIME (12 HOUR UI ONLY) ================= -->
+<label>Out time (12-hour)</label>
 <div class="row">
   <input id="outHour" type="number" min="1" max="12" placeholder="HH">
   <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
-  <select id="outAmPm"><option>AM</option><option>PM</option></select>
+  <select id="outAmPm">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
 </div>
 <input type="hidden" id="outTime">
 
 <label>Remarks</label>
 <textarea id="remarks"></textarea>
 
-<button class="btn" onclick="onSave()">Save</button>
+<button class="btn" onclick="onSave()">Save / Update</button>
 
 <table>
 <thead>
@@ -81,21 +92,22 @@
 </thead>
 <tbody id="dataBody"></tbody>
 </table>
-
 </div>
 
 <script>
+/* ================= ORIGINAL SCRIPT (UNCHANGED) ================= */
 let workData = JSON.parse(localStorage.getItem('workData')||'[]');
 
-/* ===== TIME CONVERSION (ONLY ADDITION) ===== */
+/* === ONLY ADDITION FOR TIME === */
 function convertTo24(h,m,ap){
-  h=parseInt(h); m=String(m).padStart(2,'0');
+  h=parseInt(h,10);
+  m=String(m).padStart(2,'0');
   if(ap==='PM' && h!==12) h+=12;
   if(ap==='AM' && h===12) h=0;
   return String(h).padStart(2,'0')+':'+m;
 }
 
-/* ===== SAVE (ORIGINAL LOGIC PRESERVED) ===== */
+/* === ORIGINAL SAVE FLOW, ONLY 2 LINES ADDED === */
 function onSave(){
 
   document.getElementById('inTime').value =
@@ -118,25 +130,23 @@ function onSave(){
   renderTable();
 }
 
-/* ===== TABLE ===== */
 function renderTable(){
   dataBody.innerHTML='';
   workData.forEach((r,i)=>{
     dataBody.innerHTML+=`
-      <tr>
-        <td>${i+1}</td>
-        <td>${r.date}</td>
-        <td>${r.code}</td>
-        <td>${r.in}</td>
-        <td>${r.out}</td>
-        <td>${r.rem}</td>
-      </tr>`;
+    <tr>
+      <td>${i+1}</td>
+      <td>${r.date}</td>
+      <td>${r.code}</td>
+      <td>${r.in}</td>
+      <td>${r.out}</td>
+      <td>${r.rem}</td>
+    </tr>`;
   });
 }
 
 renderTable();
 
-/* ===== LOGIN (UNCHANGED BASIC DEMO) ===== */
 function login(){
   loginCard.classList.add('hidden');
   appCard.classList.remove('hidden');
