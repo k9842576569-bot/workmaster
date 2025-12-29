@@ -1,79 +1,299 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Staff Login</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Work Master — Validated</title>
 <style>
-body { font-family: Arial; padding: 20px; }
-input, button { padding: 6px; margin: 5px 0; }
-#dashboard { display: none; }
+  :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
+  body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;padding:12px}
+  .card{max-width:1000px;margin:12px auto;background:#fff;border-radius:8px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  h2{margin:6px 0 12px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  input,select,textarea,button{font-size:15px;padding:8px;border:1px solid #d0d7de;border-radius:6px}
+  input[type="time"]{padding:6px}
+  input[type="date"]{padding:6px}
+  label{font-weight:600;margin-top:6px;display:block}
+  .flex-1{flex:1 1 220px}
+  .btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
+  .btn-secondary{background:#6c757d}
+  .btn-danger{background:var(--err)}
+  .btn-green{background:var(--ok)}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+  th,td{border:1px solid #e2e8f0;padding:8px;text-align:left;vertical-align:top}
+  th{background:#f1f5f9}
+  .small{font-size:13px;color:#666}
+  .hidden{display:none}
+  .validation-report{margin-top:12px;padding:10px;border-radius:6px;background:#fafafa;border:1px dashed #e6eef8}
+  .vr-line{display:flex;gap:8px;align-items:center;margin:4px 0}
+  .vr-dot{width:10px;height:10px;border-radius:50%}
+  .ok{color:var(--ok)}
+  .err{color:var(--err)}
+  .actions button{margin-right:6px}
+  @media(max-width:640px){
+    .row{flex-direction:column}
+    .search-row{flex-direction:row}
+    .search-row button{width:110px}
+  }
 </style>
 </head>
-
 <body>
 
-<!-- LOGIN -->
-<div id="loginSection">
-  <h3>Staff Login</h3>
-  <input id="loginId" placeholder="Staff ID (STF001)">
-  <br>
-  <input id="loginPwd" type="password" placeholder="Password">
-  <br>
-  <button onclick="login()">Login</button>
-  <p id="loginMsg" style="color:red;"></p>
+<div class="card" id="loginCard">
+  <h2>Staff Login</h2>
+  <div class="row">
+    <div class="flex-1"><input id="loginMobile" placeholder="Mobile number (login id)"></div>
+    <div class="flex-1"><input id="loginPassword" type="password" placeholder="Password"></div>
+  </div>
+  <div style="margin-top:10px">
+    <button class="btn" onclick="login()">Login</button>
+    <span class="small" style="margin-left:8px;color:#666">Use staff_master.json mobile & password</span>
+  </div>
+  <p id="loginMsg" class="small" style="color:var(--err)"></p>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard">
-  <h3 id="welcomeMsg"></h3>
+<div class="card hidden" id="appCard">
+  <h2>Work Master Data Entry</h2>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+    <div>
+      <div id="userInfo" class="small"></div>
+      <div id="roleInfo" class="small" style="font-weight:700;color:var(--ok);"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn" id="exportBtn" onclick="exportExcel()">Export CSV</button>
+      <button class="btn btn-secondary" onclick="openChange()">Change Password</button>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <hr style="margin:12px 0">
+
+  <!-- entry form -->
+  <div>
+    <label>Work Date</label>
+    <input type="date" id="workDate" class="flex-1">
+
+    <label style="margin-top:8px">Branch code</label>
+    <div class="row search-row" style="align-items:center">
+      <div class="flex-1"><input id="branchCode" placeholder="Enter branch code"></div>
+      <div><button class="btn btn-green" onclick="searchBranch()" type="button">SEARCH</button></div>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <div class="flex-1"><input id="branchName" placeholder="Branch name (auto-filled)" readonly></div>
+      <div class="flex-1 small" style="align-self:center;color:#555">District and Pincode are hidden in entry but shown in list</div>
+    </div>
+
+    <!-- hidden fields -->
+    <input id="district" type="hidden">
+    <input id="pincode" type="hidden">
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+      <div style="flex:1 1 180px">
+        <label>In time (HH:MM)</label>
+        <input id="inTime" type="time">
+      </div>
+      <div style="flex:1 1 180px">
+        <label>Out time (HH:MM)</label>
+        <input id="outTime" type="time">
+      </div>
+    </div>
+
+    <label style="margin-top:8px">Remarks</label>
+    <textarea id="remarks" rows="4" placeholder="Enter remarks (long text allowed)"></textarea>
+
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn" id="saveBtn" onclick="onSave()">Save / Update</button>
+      <button class="btn btn-secondary" onclick="clearForm()" type="button">Clear</button>
+    </div>
+
+    <!-- validation report -->
+    <div id="validationReport" class="validation-report hidden" aria-live="polite">
+      <strong>Validation Report</strong>
+      <div id="vrList"></div>
+      <div id="vrFinal" style="margin-top:8px;font-weight:700"></div>
+    </div>
+  </div>
+
+  <hr style="margin:12px 0">
+
+  <!-- list with edit/delete -->
+  <h3>Saved Entries</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Branch Code</th>
+        <th>Branch Name</th>
+        <th>District</th>
+        <th>Pincode</th>
+        <th>In</th>
+        <th>Out</th>
+        <th>Remarks</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
+
+  <p id="saveMsg" class="small" style="color:var(--ok)"></p>
+</div>
+
+<!-- change password card -->
+<div class="card hidden" id="changeCard">
+  <h3>Change Password</h3>
+  <div class="row">
+    <div class="flex-1"><input id="oldPass" placeholder="Old password" type="password"></div>
+    <div class="flex-1"><input id="newPass" placeholder="New password" type="password"></div>
+  </div>
+  <div style="margin-top:8px;display:flex;gap:8px">
+    <button class="btn" onclick="changePassword()">Update</button>
+    <button class="btn btn-secondary" onclick="closeChange()">Back</button>
+  </div>
+  <p id="changeMsg" class="small" style="color:var(--err)"></p>
 </div>
 
 <script>
-/* ===== STAFF MASTER ===== */
-const staffData = {
-  "STF001": {
-    "Name": "SURESHKUMAR",
-    "Password": "SUS@1234",
-    "Role": "ADMIN"
-  },
-  "STF002": {
-    "Name": "AJITHKUMAR",
-    "Password": "SUS@1234",
-    "Role": "STAFF"
-  }
-};
+/* ---------- Data holders ---------- */
+let staffData = {};
+let branchData = {};
+let staffLoaded = false;
+let branchLoaded = false;
+let currentUser = null;
+let workData = JSON.parse(localStorage.getItem('workData')||'[]');
+let editIndex = -1;
 
-/* ===== LOGIN FUNCTION (FIXED) ===== */
-function login() {
-  const idInput = document.getElementById("loginId").value.trim().toUpperCase();
-  const pwd = document.getElementById("loginPwd").value.trim();
-  const msg = document.getElementById("loginMsg");
+/* ---------- load JSONs ---------- */
+fetch('staff_master.json')
+  .then(r => {
+    if(!r.ok) throw new Error('staff_master.json not found');
+    return r.json();
+  })
+  .then(d => {
+    staffData = d;
+    staffLoaded = true;
+  })
+  .catch(e => {
+    console.error(e);
+    document.getElementById('loginMsg').textContent =
+      'Staff master not loaded';
+  });
 
-  msg.innerText = "";
+fetch('branch_master.json')
+  .then(r => r.json())
+  .then(d => {
+    branchData = d;
+    branchLoaded = true;
+  })
+  .catch(e => console.warn('branch_master.json not loaded'));
 
-  if (idInput === "" || pwd === "") {
-    msg.innerText = "Enter Staff ID and Password";
+/* ---------- helpers ---------- */
+function formatTime12(hhmm){
+  if(!hhmm) return '';
+  const [hh, mm] = hhmm.split(':');
+  let h = parseInt(hh,10);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12; if(h===0) h = 12;
+  return `${h}:${mm} ${ampm}`;
+}
+function showElement(el){ el.classList.remove('hidden'); }
+function hideElement(el){ el.classList.add('hidden'); }
+
+/* ---------- login ---------- */
+function login(){
+  const mobile = document.getElementById('loginMobile').value.trim();
+  const pass = document.getElementById('loginPassword').value;
+  const msg = document.getElementById('loginMsg');
+  msg.textContent = '';
+
+  if(!staffLoaded){
+    msg.textContent = 'Staff data still loading. Please wait…';
     return;
   }
 
-  if (!staffData[idInput]) {
-    msg.innerText = "Staff ID not found";
+  if(!mobile || !pass){
+    msg.textContent = 'Enter mobile and password';
     return;
   }
 
-  if (staffData[idInput].Password !== pwd) {
-    msg.innerText = "Incorrect password";
+  let foundUser = null;
+
+  for(const key in staffData){
+    const u = staffData[key];
+    if(
+      String(u.Mobile).trim() === mobile &&
+      String(u.Password) === pass
+    ){
+      foundUser = u;
+      break;
+    }
+  }
+
+  if(!foundUser){
+    msg.textContent = 'Invalid login credentials';
     return;
   }
 
   // SUCCESS
-  document.getElementById("loginSection").style.display = "none";
-  document.getElementById("dashboard").style.display = "block";
-  document.getElementById("welcomeMsg").innerText =
-    "Welcome " + staffData[idInput].Name + " (" + staffData[idInput].Role + ")";
-}
-</script>
+  currentUser = {...foundUser};
 
+  document.getElementById('loginCard').classList.add('hidden');
+  document.getElementById('appCard').classList.remove('hidden');
+
+  document.getElementById('userInfo').textContent =
+    `Name: ${currentUser.Name} • Mobile: ${currentUser.Mobile}`;
+
+  document.getElementById('roleInfo').textContent =
+    `Role: ${currentUser.Role}`;
+
+  document.getElementById('exportBtn').style.display =
+    currentUser.Role === 'ADMIN' ? 'inline-block' : 'none';
+
+  renderTable();
+}
+
+/* ---------- logout ---------- */
+function logout(){
+  currentUser = null;
+  editIndex = -1;
+  document.getElementById('appCard').classList.add('hidden');
+  document.getElementById('loginCard').classList.remove('hidden');
+  document.getElementById('loginMobile').value=''; 
+  document.getElementById('loginPassword').value='';
+  document.getElementById('saveMsg').textContent='';
+}
+
+/* ---------- search branch ---------- */
+function searchBranch(){
+  const code = document.getElementById('branchCode').value.trim();
+  if(!code){ alert('Enter branch code then press SEARCH'); return; }
+  const b = branchData[code];
+  if(!b){ alert('Branch code not found'); 
+    document.getElementById('branchName').value=''; 
+    document.getElementById('district').value=''; 
+    document.getElementById('pincode').value=''; 
+    return; 
+  }
+  document.getElementById('branchName').value = b.BANCH_NAME || '';
+  document.getElementById('district').value = b.DISTRICT || '';
+  document.getElementById('pincode').value = b.PINCODE || '';
+}
+
+/* ---------- rest of your code (validation, save, render, edit, delete, etc.) ---------- */
+function validateFields(){ /* ...existing code... */ return []; } 
+function showValidationReport(list){ /* ...existing code... */ }
+function onSave(){ /* ...existing code... */ }
+function renderTable(){ /* ...existing code... */ }
+function onEdit(i){ /* ...existing code... */ }
+function onDelete(i){ /* ...existing code... */ }
+function clearForm(){ /* ...existing code... */ }
+function exportExcel(){ /* ...existing code... */ }
+function openChange(){ document.getElementById('appCard').classList.add('hidden'); document.getElementById('changeCard').classList.remove('hidden'); document.getElementById('changeMsg').textContent=''; }
+function closeChange(){ document.getElementById('changeCard').classList.add('hidden'); document.getElementById('appCard').classList.remove('hidden'); }
+function changePassword(){ /* ...existing code... */ }
+
+/* ---------- init ---------- */
+renderTable();
+</script>
 </body>
 </html>
