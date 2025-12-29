@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Work Master — 12-hour Time</title>
+<title>Work Master — 12-hour Time (Fixed)</title>
 <style>
   :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
   body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;padding:12px}
@@ -87,14 +87,14 @@
     <input id="district" type="hidden">
     <input id="pincode" type="hidden">
 
-    <!-- 12-hour time inputs -->
+    <!-- 12-hour time inputs (FIXED) -->
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
       <div style="flex:1 1 180px">
         <label>In time (12-hour)</label>
         <div class="row">
-          <input id="inHour" type="number" min="1" max="12" placeholder="HH">
-          <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
-          <select id="inAmPm">
+          <input id="inHour" type="number" min="1" max="12" placeholder="HH" oninput="updateHiddenTime('in')">
+          <input id="inMinute" type="number" min="0" max="59" placeholder="MM" oninput="updateHiddenTime('in')">
+          <select id="inAmPm" onchange="updateHiddenTime('in')">
             <option value="AM">AM</option>
             <option value="PM">PM</option>
           </select>
@@ -104,9 +104,9 @@
       <div style="flex:1 1 180px">
         <label>Out time (12-hour)</label>
         <div class="row">
-          <input id="outHour" type="number" min="1" max="12" placeholder="HH">
-          <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
-          <select id="outAmPm">
+          <input id="outHour" type="number" min="1" max="12" placeholder="HH" oninput="updateHiddenTime('out')">
+          <input id="outMinute" type="number" min="0" max="59" placeholder="MM" oninput="updateHiddenTime('out')">
+          <select id="outAmPm" onchange="updateHiddenTime('out')">
             <option value="AM">AM</option>
             <option value="PM">PM</option>
           </select>
@@ -138,21 +138,12 @@
   <table>
     <thead>
       <tr>
-        <th>#</th>
-        <th>Date</th>
-        <th>Branch Code</th>
-        <th>Branch Name</th>
-        <th>District</th>
-        <th>Pincode</th>
-        <th>In</th>
-        <th>Out</th>
-        <th>Remarks</th>
-        <th>Action</th>
+        <th>#</th><th>Date</th><th>Branch Code</th><th>Branch Name</th><th>District</th>
+        <th>Pincode</th><th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
       </tr>
     </thead>
     <tbody id="dataBody"></tbody>
   </table>
-
   <p id="saveMsg" class="small" style="color:var(--ok)"></p>
 </div>
 
@@ -192,7 +183,7 @@ function formatTime12(hhmm){
   return `${h}:${mm} ${ampm}`;
 }
 
-// 12-hour ↔ 24-hour conversions
+// 12-hour ↔ 24-hour conversions (FIXED)
 function to24Hour(hh, mm, ampm){
   hh = parseInt(hh,10); mm = parseInt(mm,10);
   if(ampm==='PM' && hh!==12) hh+=12;
@@ -216,7 +207,9 @@ function updateHiddenTime(prefix){
   const hh = document.getElementById(prefix+'Hour').value;
   const mm = document.getElementById(prefix+'Minute').value;
   const ampm = document.getElementById(prefix+'AmPm').value;
-  document.getElementById(prefix+'Time').value = to24Hour(hh, mm, ampm);
+  if(hh && mm && ampm) {
+    document.getElementById(prefix+'Time').value = to24Hour(hh, mm, ampm);
+  }
 }
 
 function showElement(el){ el.classList.remove('hidden'); }
@@ -251,7 +244,8 @@ function logout(){
   currentUser=null; editIndex=-1;
   document.getElementById('appCard').classList.add('hidden');
   document.getElementById('loginCard').classList.remove('hidden');
-  document.getElementById('loginMobile').value=''; document.getElementById('loginPassword').value='';
+  document.getElementById('loginMobile').value=''; 
+  document.getElementById('loginPassword').value='';
   document.getElementById('saveMsg').textContent='';
 }
 
@@ -260,8 +254,14 @@ function searchBranch(){
   const code = document.getElementById('branchCode').value.trim();
   if(!code){ alert('Enter branch code then press SEARCH'); return; }
   const b = branchData[code];
-  if(!b){ alert('Branch code not found'); document.getElementById('branchName').value=''; document.getElementById('district').value=''; document.getElementById('pincode').value=''; return; }
-  document.getElementById('branchName').value = b.BANCH_NAME||'';
+  if(!b){ 
+    alert('Branch code not found'); 
+    document.getElementById('branchName').value=''; 
+    document.getElementById('district').value=''; 
+    document.getElementById('pincode').value=''; 
+    return; 
+  }
+  document.getElementById('branchName').value = b.BANCH_NAME||b.BANCHNAME||'';
   document.getElementById('district').value = b.DISTRICT||'';
   document.getElementById('pincode').value = b.PINCODE||'';
 }
@@ -277,23 +277,38 @@ function validateFields(){
   const outT = document.getElementById('outTime').value.trim();
   const remarks = document.getElementById('remarks').value.trim();
 
-  if(!date) list.push({field:'Date', ok:false, msg:'Date is required'}); else list.push({field:'Date', ok:true,msg:date});
-  if(!code) list.push({field:'Branch Code', ok:false,msg:'Branch code required'}); else list.push({field:'Branch Code', ok:true,msg:code});
-  if(!name) list.push({field:'Branch Name', ok:false,msg:'Not filled - press SEARCH'}); else list.push({field:'Branch Name', ok:true,msg:name});
+  if(!date) list.push({field:'Date', ok:false, msg:'Date is required'}); 
+  else list.push({field:'Date', ok:true, msg:date});
+  if(!code) list.push({field:'Branch Code', ok:false, msg:'Branch code required'}); 
+  else list.push({field:'Branch Code', ok:true, msg:code});
+  if(!name) list.push({field:'Branch Name', ok:false, msg:'Not filled - press SEARCH'}); 
+  else list.push({field:'Branch Name', ok:true, msg:name});
+  
   const timeRegex=/^\d{2}:\d{2}$/;
-  if(!inT) list.push({field:'In Time', ok:false,msg:'Required'}); else if(!timeRegex.test(inT)) list.push({field:'In Time', ok:false,msg:'Invalid format'}); else list.push({field:'In Time', ok:true,msg:formatTime12(inT)});
-  if(!outT) list.push({field:'Out Time', ok:false,msg:'Required'}); else if(!timeRegex.test(outT)) list.push({field:'Out Time', ok:false,msg:'Invalid format'}); else list.push({field:'Out Time', ok:true,msg:formatTime12(outT)});
+  if(!inT) list.push({field:'In Time', ok:false, msg:'Required'}); 
+  else if(!timeRegex.test(inT)) list.push({field:'In Time', ok:false, msg:'Invalid format'}); 
+  else list.push({field:'In Time', ok:true, msg:formatTime12(inT)});
+  if(!outT) list.push({field:'Out Time', ok:false, msg:'Required'}); 
+  else if(!timeRegex.test(outT)) list.push({field:'Out Time', ok:false, msg:'Invalid format'}); 
+  else list.push({field:'Out Time', ok:true, msg:formatTime12(outT)});
 
   if(inT && outT && timeRegex.test(inT) && timeRegex.test(outT)){
     const [ih,im] = inT.split(':').map(Number);
     const [oh,om] = outT.split(':').map(Number);
     const inMinutes = ih*60+im; const outMinutes=oh*60+om;
-    if(outMinutes<=inMinutes) list.push({field:'Time Order', ok:false,msg:'Out must be after In'}); else list.push({field:'Time Order', ok:true,msg:'OK'});
+    if(outMinutes<=inMinutes) list.push({field:'Time Order', ok:false, msg:'Out must be after In'}); 
+    else list.push({field:'Time Order', ok:true, msg:'OK'});
   }
 
-  if(remarks.length>2000) list.push({field:'Remarks', ok:false,msg:'Remarks too long (max 2000 chars)'}); else list.push({field:'Remarks', ok:true,msg:`${remarks.length} chars`});
-  const duplicate = workData.some((r, idx)=>{ if(editIndex>=0 && idx===editIndex) return false; return String(r.date).trim()===date && String(r.code).trim()===code; });
-  if(duplicate) list.push({field:'Duplicate Check', ok:false,msg:'Entry exists for this date + branch'}); else list.push({field:'Duplicate Check', ok:true,msg:'No duplicate'});
+  if(remarks.length>2000) list.push({field:'Remarks', ok:false, msg:'Remarks too long (max 2000 chars)'}); 
+  else list.push({field:'Remarks', ok:true, msg:`${remarks.length} chars`});
+  
+  const duplicate = workData.some((r, idx)=>{
+    if(editIndex>=0 && idx===editIndex) return false;
+    return String(r.date).trim()===date && String(r.code).trim()===code;
+  });
+  if(duplicate) list.push({field:'Duplicate Check', ok:false, msg:'Entry exists for this date + branch'}); 
+  else list.push({field:'Duplicate Check', ok:true, msg:'No duplicate'});
 
   return list;
 }
@@ -316,7 +331,7 @@ function showValidationReport(list){
   showElement(vr);
 }
 
-/* ---------- save ---------- */
+/* ---------- save (COMPLETED) ---------- */
 function onSave(){
   document.getElementById('saveMsg').textContent='';
   updateHiddenTime('in'); updateHiddenTime('out');
@@ -325,4 +340,141 @@ function onSave(){
   const ok=v.every(i=>i.ok); if(!ok) return;
 
   const date=document.getElementById('workDate').value.trim();
-  const code
+  const code=document.getElementById('branchCode').value.trim();
+  const rec = {
+    date, code, 
+    name: document.getElementById('branchName').value,
+    dist: document.getElementById('district').value,
+    pin: document.getElementById('pincode').value,
+    'in': document.getElementById('inTime').value,
+    out: document.getElementById('outTime').value,
+    rem: document.getElementById('remarks').value
+  };
+
+  if(editIndex >= 0){
+    workData[editIndex] = rec;
+    editIndex = -1;
+    document.getElementById('saveBtn').textContent = 'Save / Update';
+  } else {
+    // final duplicate guard
+    const dup = workData.some(r => String(r.date).trim()===date && String(r.code).trim()===code);
+    if(dup){ alert('Duplicate detected - blocked.'); return; }
+    workData.push(rec);
+  }
+  
+  localStorage.setItem('workData', JSON.stringify(workData));
+  renderTable();
+  clearForm();
+  document.getElementById('saveMsg').textContent = 'Saved successfully!';
+}
+
+/* ---------- render table ---------- */
+function renderTable(){
+  const tbody = document.getElementById('dataBody');
+  tbody.innerHTML='';
+  workData.forEach((r,i)=>{
+    const tr = document.createElement('tr');
+    const inDisplay = formatTime12(r.in);
+    const outDisplay = formatTime12(r.out);
+    tr.innerHTML = `
+      <td>${i+1}</td>
+      <td>${r.date}</td>
+      <td>${r.code}</td>
+      <td>${r.name}</td>
+      <td>${r.dist}</td>
+      <td>${r.pin}</td>
+      <td>${inDisplay}</td>
+      <td>${outDisplay}</td>
+      <td style="max-width:220px;white-space:pre-wrap">${r.rem}</td>
+      <td class="actions">
+        <button onclick="onEdit(${i})" class="btn btn-secondary" style="margin-bottom:4px;padding:6px;font-size:12px">Edit</button>
+        <button onclick="onDelete(${i})" class="btn btn-danger" style="padding:6px;font-size:12px">Delete</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+/* ---------- edit delete ---------- */
+function onEdit(i){
+  const r = workData[i];
+  editIndex = i;
+  document.getElementById('workDate').value = r.date;
+  document.getElementById('branchCode').value = r.code;
+  document.getElementById('branchName').value = r.name;
+  document.getElementById('district').value = r.dist;
+  document.getElementById('pincode').value = r.pin;
+  fillTimeInputs('in', r.in);
+  fillTimeInputs('out', r.out);
+  document.getElementById('remarks').value = r.rem;
+  document.getElementById('saveBtn').textContent = 'Update';
+  document.getElementById('validationReport').classList.add('hidden');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function onDelete(i){
+  if(!confirm('Delete this record?')) return;
+  workData.splice(i,1);
+  localStorage.setItem('workData', JSON.stringify(workData));
+  renderTable();
+}
+
+/* ---------- clear form ---------- */
+function clearForm(){
+  editIndex = -1;
+  document.getElementById('workDate').value='';
+  document.getElementById('branchCode').value='';
+  document.getElementById('branchName').value='';
+  document.getElementById('district').value='';
+  document.getElementById('pincode').value='';
+  document.getElementById('inHour').value='';document.getElementById('inMinute').value='';document.getElementById('inAmPm').value='AM';
+  document.getElementById('outHour').value='';document.getElementById('outMinute').value='';document.getElementById('outAmPm').value='AM';
+  document.getElementById('remarks').value='';
+  document.getElementById('validationReport').classList.add('hidden');
+  document.getElementById('saveBtn').textContent = 'Save / Update';
+  document.getElementById('saveMsg').textContent='';
+}
+
+/* ---------- export CSV admin only ---------- */
+function exportExcel(){
+  if(!currentUser || currentUser.Role !== 'ADMIN'){ alert('Export allowed for ADMIN only'); return; }
+  let csv = 'SlNo,Date,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n';
+  workData.forEach((r,i)=>{
+    const inv = formatTime12(r.in), outv = formatTime12(r.out);
+    csv += `${i+1},${r.date},${r.code},"${r.name}","${r.dist}",${r.pin},"${inv}","${outv}","${r.rem.replace(/"/g,'""')}"\n`;
+  });
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'workmaster.csv';
+  a.click();
+}
+
+/* ---------- change password session-only ---------- */
+function openChange(){
+  document.getElementById('appCard').classList.add('hidden');
+  document.getElementById('changeCard').classList.remove('hidden');
+  document.getElementById('changeMsg').textContent='';
+}
+function closeChange(){
+  document.getElementById('changeCard').classList.add('hidden');
+  document.getElementById('appCard').classList.remove('hidden');
+}
+function changePassword(){
+  const oldP = document.getElementById('oldPass').value;
+  const newP = document.getElementById('newPass').value;
+  const msg = document.getElementById('changeMsg');
+  if(!oldP || !newP){ msg.textContent='Enter both fields'; return; }
+  if(!currentUser){ msg.textContent='No user'; return; }
+  if(oldP !== currentUser.Password){ msg.textContent='Old password incorrect'; return; }
+  currentUser.Password = newP;
+  msg.textContent='Password updated (session only)';
+  msg.style.color='var(--ok)';
+  setTimeout(closeChange, 900);
+}
+
+/* ---------- init ---------- */
+renderTable();
+</script>
+</body>
+</html>
