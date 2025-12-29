@@ -2,31 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Staff Login & Attendance</title>
+<title>Staff Login</title>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  input, select, button {
-    padding: 6px;
-    margin: 5px 0;
-  }
-  .row {
-    display: flex;
-    gap: 5px;
-  }
-  #dashboard {
-    display: none;
-    margin-top: 20px;
-  }
+body { font-family: Arial; padding: 20px; }
+input, button { padding: 6px; margin: 5px 0; }
+#dashboard { display: none; }
 </style>
-
 </head>
+
 <body>
 
-<!-- ================= LOGIN SECTION ================= -->
+<!-- LOGIN -->
 <div id="loginSection">
   <h3>Staff Login</h3>
   <input id="loginId" placeholder="Staff ID (STF001)">
@@ -34,140 +21,57 @@
   <input id="loginPwd" type="password" placeholder="Password">
   <br>
   <button onclick="login()">Login</button>
-  <p id="loginMsg"></p>
+  <p id="loginMsg" style="color:red;"></p>
 </div>
 
-<!-- ================= DASHBOARD ================= -->
+<!-- DASHBOARD -->
 <div id="dashboard">
-
-  <h3>Welcome</h3>
-  <p id="welcomeMsg"></p>
-
-  <!-- ================= BRANCH SEARCH ================= -->
-  <h4>Branch Search</h4>
-  <input id="branchSearch" placeholder="Search branch..." onkeyup="searchBranch()">
-
-  <ul id="branchList">
-    <li>Chennai Main</li>
-    <li>Coimbatore</li>
-    <li>Salem</li>
-    <li>Madurai</li>
-  </ul>
-
-  <hr>
-
-  <!-- ================= IN TIME ================= -->
-  <label>In time (12-hour)</label>
-  <div class="row">
-    <input id="inHour" type="number" min="1" max="12" placeholder="HH">
-    <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
-    <select id="inAmPm">
-      <option value="">AM/PM</option>
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-    </select>
-  </div>
-  <input type="hidden" id="inTime">
-
-  <!-- ================= OUT TIME ================= -->
-  <label>Out time (12-hour)</label>
-  <div class="row">
-    <input id="outHour" type="number" min="1" max="12" placeholder="HH">
-    <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
-    <select id="outAmPm">
-      <option value="">AM/PM</option>
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-    </select>
-  </div>
-  <input type="hidden" id="outTime">
-
-  <br>
-  <button onclick="saveTime()">Save Time</button>
-  <p id="timeMsg"></p>
-
+  <h3 id="welcomeMsg"></h3>
 </div>
 
 <script>
-/* ================= STAFF MASTER JSON ================= */
+/* ===== STAFF MASTER ===== */
 const staffData = {
   "STF001": {
     "Name": "SURESHKUMAR",
-    "Email": "k9842576569@gmail.com",
-    "Mobile": "9842576569",
-    "Role": "ADMIN",
-    "Password": "SUS@1234"
+    "Password": "SUS@1234",
+    "Role": "ADMIN"
   },
   "STF002": {
     "Name": "AJITHKUMAR",
-    "Email": "ajithkumar@gmail.com",
-    "Mobile": "9629281379",
-    "Role": "STAFF",
-    "Password": "SUS@1234"
+    "Password": "SUS@1234",
+    "Role": "STAFF"
   }
 };
 
-/* ================= LOGIN FUNCTION ================= */
+/* ===== LOGIN FUNCTION (FIXED) ===== */
 function login() {
-  const id = document.getElementById("loginId").value.trim();
-  const pwd = document.getElementById("loginPwd").value;
+  const idInput = document.getElementById("loginId").value.trim().toUpperCase();
+  const pwd = document.getElementById("loginPwd").value.trim();
+  const msg = document.getElementById("loginMsg");
 
-  if (!staffData[id]) {
-    document.getElementById("loginMsg").innerText = "Invalid Staff ID";
+  msg.innerText = "";
+
+  if (idInput === "" || pwd === "") {
+    msg.innerText = "Enter Staff ID and Password";
     return;
   }
 
-  if (staffData[id].Password !== pwd) {
-    document.getElementById("loginMsg").innerText = "Wrong Password";
+  if (!staffData[idInput]) {
+    msg.innerText = "Staff ID not found";
     return;
   }
 
-  // Success
+  if (staffData[idInput].Password !== pwd) {
+    msg.innerText = "Incorrect password";
+    return;
+  }
+
+  // SUCCESS
   document.getElementById("loginSection").style.display = "none";
   document.getElementById("dashboard").style.display = "block";
-
   document.getElementById("welcomeMsg").innerText =
-    "Welcome " + staffData[id].Name + " (" + staffData[id].Role + ")";
-}
-
-/* ================= BRANCH SEARCH ================= */
-function searchBranch() {
-  const filter = document.getElementById("branchSearch").value.toLowerCase();
-  const items = document.getElementById("branchList").getElementsByTagName("li");
-
-  for (let i = 0; i < items.length; i++) {
-    items[i].style.display =
-      items[i].innerText.toLowerCase().includes(filter) ? "" : "none";
-  }
-}
-
-/* ================= SAVE TIME ================= */
-function saveTime() {
-  const inTime = buildTime("inHour", "inMinute", "inAmPm");
-  const outTime = buildTime("outHour", "outMinute", "outAmPm");
-
-  if (!inTime || !outTime) {
-    document.getElementById("timeMsg").innerText =
-      "Please fill IN and OUT time correctly";
-    return;
-  }
-
-  document.getElementById("inTime").value = inTime;
-  document.getElementById("outTime").value = outTime;
-
-  document.getElementById("timeMsg").innerText =
-    "Saved | IN: " + inTime + " | OUT: " + outTime;
-}
-
-/* ================= TIME FORMAT ================= */
-function buildTime(h, m, ap) {
-  const hh = document.getElementById(h).value;
-  const mm = document.getElementById(m).value;
-  const ampm = document.getElementById(ap).value;
-
-  if (!hh || !mm || !ampm) return null;
-
-  return hh.padStart(2, "0") + ":" + mm.padStart(2, "0") + " " + ampm;
+    "Welcome " + staffData[idInput].Name + " (" + staffData[idInput].Role + ")";
 }
 </script>
 
