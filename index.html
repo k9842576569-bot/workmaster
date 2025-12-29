@@ -1,155 +1,204 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Work Master — Validated</title>
+<meta charset="utf-8">
+<title>Work Master</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style>
-  :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
-  body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;padding:12px}
-  .card{max-width:1000px;margin:12px auto;background:#fff;border-radius:8px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-  h2{margin:6px 0 12px}
-  .row{display:flex;gap:8px;flex-wrap:wrap}
-  input,select,textarea,button{font-size:15px;padding:8px;border:1px solid #d0d7de;border-radius:6px}
-  input[type="date"]{padding:6px}
-  label{font-weight:600;margin-top:6px;display:block}
-  .flex-1{flex:1 1 220px}
-  .btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
-  .btn-secondary{background:#6c757d}
-  .btn-danger{background:var(--err)}
-  .btn-green{background:var(--ok)}
-  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
-  th,td{border:1px solid #e2e8f0;padding:8px;text-align:left}
-  th{background:#f1f5f9}
-  .hidden{display:none}
+body{font-family:Arial;background:#f4f6f8;padding:12px}
+.card{max-width:1000px;margin:auto;background:#fff;padding:14px;border-radius:8px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input,select,textarea,button{padding:8px;font-size:15px}
+button{background:#007bff;color:#fff;border:none;border-radius:4px}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{border:1px solid #ccc;padding:6px}
+.hidden{display:none}
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGIN CARD (UNCHANGED) ================= -->
+<!-- ================= LOGIN ================= -->
 <div class="card" id="loginCard">
   <h2>Staff Login</h2>
-  <div class="row">
-    <div class="flex-1"><input id="loginMobile" placeholder="Mobile number (login id)"></div>
-    <div class="flex-1"><input id="loginPassword" type="password" placeholder="Password"></div>
-  </div>
-  <button class="btn" onclick="login()">Login</button>
+  <input id="loginMobile" placeholder="Mobile">
+  <input id="loginPassword" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
   <p id="loginMsg" style="color:red"></p>
 </div>
 
-<!-- ================= APP CARD ================= -->
+<!-- ================= APP ================= -->
 <div class="card hidden" id="appCard">
-<h2>Work Master Data Entry</h2>
+  <h2>Work Entry</h2>
+  <div id="userInfo"></div>
+  <button onclick="logout()">Logout</button>
 
-<label>Work Date</label>
-<input type="date" id="workDate">
+  <hr>
 
-<label>Branch code</label>
-<input id="branchCode">
+  <label>Work Date</label>
+  <input type="date" id="workDate">
 
-<label>Branch name</label>
-<input id="branchName" readonly>
+  <!-- ========== BRANCH SEARCH ========== -->
+  <label>Branch Code</label>
+  <div class="row">
+    <input id="branchCode" placeholder="Enter branch code">
+    <button onclick="searchBranch()">SEARCH</button>
+  </div>
 
-<input id="district" type="hidden">
-<input id="pincode" type="hidden">
+  <label>Branch Name</label>
+  <input id="branchName" readonly>
 
-<!-- ================= IN TIME (12 HOUR UI ONLY) ================= -->
-<label>In time (12-hour)</label>
-<div class="row">
-  <input id="inHour" type="number" min="1" max="12" placeholder="HH">
-  <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
-  <select id="inAmPm">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-  </select>
-</div>
-<input type="hidden" id="inTime">
+  <input type="hidden" id="district">
+  <input type="hidden" id="pincode">
 
-<!-- ================= OUT TIME (12 HOUR UI ONLY) ================= -->
-<label>Out time (12-hour)</label>
-<div class="row">
-  <input id="outHour" type="number" min="1" max="12" placeholder="HH">
-  <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
-  <select id="outAmPm">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-  </select>
-</div>
-<input type="hidden" id="outTime">
+  <!-- ================= IN TIME ================= -->
+  <label>In time (12-hour)</label>
+  <div class="row">
+    <input id="inHour" type="number" min="1" max="12" placeholder="HH">
+    <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
+    <select id="inAmPm">
+      <option value="">AM/PM</option>
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+    </select>
+  </div>
+  <input type="hidden" id="inTime">
 
-<label>Remarks</label>
-<textarea id="remarks"></textarea>
+  <!-- ================= OUT TIME ================= -->
+  <label>Out time (12-hour)</label>
+  <div class="row">
+    <input id="outHour" type="number" min="1" max="12" placeholder="HH">
+    <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
+    <select id="outAmPm">
+      <option value="">AM/PM</option>
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+    </select>
+  </div>
+  <input type="hidden" id="outTime">
 
-<button class="btn" onclick="onSave()">Save / Update</button>
+  <label>Remarks</label>
+  <textarea id="remarks"></textarea>
 
-<table>
-<thead>
-<tr>
-<th>#</th><th>Date</th><th>Branch</th><th>In</th><th>Out</th><th>Remarks</th>
-</tr>
-</thead>
-<tbody id="dataBody"></tbody>
-</table>
+  <button onclick="save()">Save</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Branch</th>
+        <th>In</th>
+        <th>Out</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
 </div>
 
 <script>
-/* ================= ORIGINAL SCRIPT (UNCHANGED) ================= */
-let workData = JSON.parse(localStorage.getItem('workData')||'[]');
+/* ================= SAMPLE DATA ================= */
+const staffData = {
+  "1": {Name:"Admin",Mobile:"9999",Password:"1234",Role:"ADMIN"}
+};
 
-/* === ONLY ADDITION FOR TIME === */
-function convertTo24(h,m,ap){
-  h=parseInt(h,10);
-  m=String(m).padStart(2,'0');
-  if(ap==='PM' && h!==12) h+=12;
-  if(ap==='AM' && h===12) h=0;
-  return String(h).padStart(2,'0')+':'+m;
+const branchData = {
+  "101": {BANCH_NAME:"Chennai Main",DISTRICT:"Chennai",PINCODE:"600001"},
+  "102": {BANCH_NAME:"Coimbatore",DISTRICT:"Coimbatore",PINCODE:"641001"}
+};
+
+let currentUser=null;
+let workData = JSON.parse(localStorage.getItem("workData")||"[]");
+
+/* ================= LOGIN ================= */
+function login(){
+  for(let k in staffData){
+    let u = staffData[k];
+    if(u.Mobile===loginMobile.value && u.Password===loginPassword.value){
+      currentUser=u;
+      loginCard.classList.add("hidden");
+      appCard.classList.remove("hidden");
+      userInfo.textContent=`Welcome ${u.Name} (${u.Role})`;
+      render();
+      return;
+    }
+  }
+  loginMsg.textContent="Invalid login";
 }
 
-/* === ORIGINAL SAVE FLOW, ONLY 2 LINES ADDED === */
-function onSave(){
+function logout(){
+  currentUser=null;
+  appCard.classList.add("hidden");
+  loginCard.classList.remove("hidden");
+}
 
-  document.getElementById('inTime').value =
-    convertTo24(inHour.value,inMinute.value,inAmPm.value);
+/* ================= BRANCH SEARCH ================= */
+function searchBranch(){
+  const code = branchCode.value.trim();
+  const b = branchData[code];
+  if(!b){
+    alert("Branch not found");
+    branchName.value='';
+    district.value='';
+    pincode.value='';
+    return;
+  }
+  branchName.value = b.BANCH_NAME;
+  district.value = b.DISTRICT;
+  pincode.value = b.PINCODE;
+}
 
-  document.getElementById('outTime').value =
-    convertTo24(outHour.value,outMinute.value,outAmPm.value);
+/* ================= TIME CONVERSION ================= */
+function convertTo24(h,m,ap){
+  if(!h||!m||!ap) return '';
+  h=parseInt(h); m=parseInt(m);
+  if(ap==='PM'&&h!==12)h+=12;
+  if(ap==='AM'&&h===12)h=0;
+  return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+}
 
-  const r={
+function updateIn(){
+  inTime.value = convertTo24(inHour.value,inMinute.value,inAmPm.value);
+}
+function updateOut(){
+  outTime.value = convertTo24(outHour.value,outMinute.value,outAmPm.value);
+}
+
+['inHour','inMinute','inAmPm'].forEach(id=>document.getElementById(id).addEventListener('change',updateIn));
+['outHour','outMinute','outAmPm'].forEach(id=>document.getElementById(id).addEventListener('change',updateOut));
+
+/* ================= SAVE ================= */
+function save(){
+  if(!branchName.value){ alert("Search branch first"); return; }
+  if(!inTime.value||!outTime.value){ alert("Select time with AM/PM"); return; }
+
+  workData.push({
     date:workDate.value,
-    code:branchCode.value,
-    name:branchName.value,
+    branch:branchName.value,
     in:inTime.value,
     out:outTime.value,
     rem:remarks.value
-  };
-
-  workData.push(r);
-  localStorage.setItem('workData',JSON.stringify(workData));
-  renderTable();
+  });
+  localStorage.setItem("workData",JSON.stringify(workData));
+  render();
 }
 
-function renderTable(){
+/* ================= TABLE ================= */
+function render(){
   dataBody.innerHTML='';
   workData.forEach((r,i)=>{
     dataBody.innerHTML+=`
-    <tr>
-      <td>${i+1}</td>
-      <td>${r.date}</td>
-      <td>${r.code}</td>
-      <td>${r.in}</td>
-      <td>${r.out}</td>
-      <td>${r.rem}</td>
-    </tr>`;
+      <tr>
+        <td>${i+1}</td>
+        <td>${r.date}</td>
+        <td>${r.branch}</td>
+        <td>${r.in}</td>
+        <td>${r.out}</td>
+        <td>${r.rem}</td>
+      </tr>`;
   });
-}
-
-renderTable();
-
-function login(){
-  loginCard.classList.add('hidden');
-  appCard.classList.remove('hidden');
 }
 </script>
 
