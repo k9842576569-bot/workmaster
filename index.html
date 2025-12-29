@@ -1,204 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Work Master</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
+<meta charset="UTF-8">
+<title>Staff Login & Attendance</title>
 <style>
-body{font-family:Arial;background:#f4f6f8;padding:12px}
-.card{max-width:1000px;margin:auto;background:#fff;padding:14px;border-radius:8px}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-input,select,textarea,button{padding:8px;font-size:15px}
-button{background:#007bff;color:#fff;border:none;border-radius:4px}
-table{width:100%;border-collapse:collapse;margin-top:12px}
-th,td{border:1px solid #ccc;padding:6px}
-.hidden{display:none}
+  body { font-family: Arial; padding: 20px; }
+  .row { display: flex; gap: 5px; }
+  input, select, button { padding: 6px; margin: 4px 0; }
+  #dashboard { display: none; }
 </style>
 </head>
-
 <body>
 
 <!-- ================= LOGIN ================= -->
-<div class="card" id="loginCard">
-  <h2>Staff Login</h2>
-  <input id="loginMobile" placeholder="Mobile">
-  <input id="loginPassword" type="password" placeholder="Password">
-  <button onclick="login()">Login</button>
-  <p id="loginMsg" style="color:red"></p>
+<h3>Login</h3>
+<input id="loginId" placeholder="Staff ID">
+<input id="loginPwd" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="loginMsg"></p>
+
+<!-- ================= DASHBOARD ================= -->
+<div id="dashboard">
+
+<h3>Branch Search</h3>
+<input id="branchSearch" placeholder="Search Branch" onkeyup="searchBranch()">
+<ul id="branchList">
+  <li>Chennai Main</li>
+  <li>Coimbatore</li>
+  <li>Salem</li>
+  <li>Madurai</li>
+</ul>
+
+<hr>
+
+<!-- ================= IN TIME ================= -->
+<label>In time (12-hour)</label>
+<div class="row">
+  <input id="inHour" type="number" min="1" max="12" placeholder="HH">
+  <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
+  <select id="inAmPm">
+    <option value="">AM/PM</option>
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
 </div>
+<input type="hidden" id="inTime">
 
-<!-- ================= APP ================= -->
-<div class="card hidden" id="appCard">
-  <h2>Work Entry</h2>
-  <div id="userInfo"></div>
-  <button onclick="logout()">Logout</button>
+<!-- ================= OUT TIME ================= -->
+<label>Out time (12-hour)</label>
+<div class="row">
+  <input id="outHour" type="number" min="1" max="12" placeholder="HH">
+  <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
+  <select id="outAmPm">
+    <option value="">AM/PM</option>
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
+</div>
+<input type="hidden" id="outTime">
 
-  <hr>
+<br>
+<button onclick="saveTime()">Save Time</button>
+<p id="timeMsg"></p>
 
-  <label>Work Date</label>
-  <input type="date" id="workDate">
-
-  <!-- ========== BRANCH SEARCH ========== -->
-  <label>Branch Code</label>
-  <div class="row">
-    <input id="branchCode" placeholder="Enter branch code">
-    <button onclick="searchBranch()">SEARCH</button>
-  </div>
-
-  <label>Branch Name</label>
-  <input id="branchName" readonly>
-
-  <input type="hidden" id="district">
-  <input type="hidden" id="pincode">
-
-  <!-- ================= IN TIME ================= -->
-  <label>In time (12-hour)</label>
-  <div class="row">
-    <input id="inHour" type="number" min="1" max="12" placeholder="HH">
-    <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
-    <select id="inAmPm">
-      <option value="">AM/PM</option>
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-    </select>
-  </div>
-  <input type="hidden" id="inTime">
-
-  <!-- ================= OUT TIME ================= -->
-  <label>Out time (12-hour)</label>
-  <div class="row">
-    <input id="outHour" type="number" min="1" max="12" placeholder="HH">
-    <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
-    <select id="outAmPm">
-      <option value="">AM/PM</option>
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-    </select>
-  </div>
-  <input type="hidden" id="outTime">
-
-  <label>Remarks</label>
-  <textarea id="remarks"></textarea>
-
-  <button onclick="save()">Save</button>
-
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Date</th>
-        <th>Branch</th>
-        <th>In</th>
-        <th>Out</th>
-        <th>Remarks</th>
-      </tr>
-    </thead>
-    <tbody id="dataBody"></tbody>
-  </table>
 </div>
 
 <script>
-/* ================= SAMPLE DATA ================= */
+// ================= STAFF DATA =================
 const staffData = {
-  "1": {Name:"Admin",Mobile:"9999",Password:"1234",Role:"ADMIN"}
-};
-
-const branchData = {
-  "101": {BANCH_NAME:"Chennai Main",DISTRICT:"Chennai",PINCODE:"600001"},
-  "102": {BANCH_NAME:"Coimbatore",DISTRICT:"Coimbatore",PINCODE:"641001"}
-};
-
-let currentUser=null;
-let workData = JSON.parse(localStorage.getItem("workData")||"[]");
-
-/* ================= LOGIN ================= */
-function login(){
-  for(let k in staffData){
-    let u = staffData[k];
-    if(u.Mobile===loginMobile.value && u.Password===loginPassword.value){
-      currentUser=u;
-      loginCard.classList.add("hidden");
-      appCard.classList.remove("hidden");
-      userInfo.textContent=`Welcome ${u.Name} (${u.Role})`;
-      render();
-      return;
-    }
+  "STF001": {
+    "Name": "SURESHKUMAR",
+    "Email": "k9842576569@gmail.com",
+    "Mobile": "9842576569",
+    "Role": "ADMIN",
+    "Password": "SUS@1234"
+  },
+  "STF002": {
+    "Name": "AJITHKUMAR",
+    "Email": "AJITHKUMAR@GMAIL.COM",
+    "Mobile": "9629281379",
+    "Role": "STAFF",
+    "Password": "SUS@1234"
   }
-  loginMsg.textContent="Invalid login";
+};
+
+// ================= LOGIN FUNCTION =================
+function login() {
+  const id = document.getElementById("loginId").value.trim();
+  const pwd = document.getElementById("loginPwd").value;
+
+  if (staffData[id] && staffData[id].Password === pwd) {
+    document.getElementById("loginMsg").innerText =
+      "Welcome " + staffData[id].Name;
+    document.getElementById("dashboard").style.display = "block";
+  } else {
+    document.getElementById("loginMsg").innerText =
+      "Invalid ID or Password";
+  }
 }
 
-function logout(){
-  currentUser=null;
-  appCard.classList.add("hidden");
-  loginCard.classList.remove("hidden");
+// ================= BRANCH SEARCH =================
+function searchBranch() {
+  const filter = document.getElementById("branchSearch").value.toLowerCase();
+  const list = document.getElementById("branchList").getElementsByTagName("li");
+
+  for (let i = 0; i < list.length; i++) {
+    list[i].style.display =
+      list[i].innerText.toLowerCase().includes(filter) ? "" : "none";
+  }
 }
 
-/* ================= BRANCH SEARCH ================= */
-function searchBranch(){
-  const code = branchCode.value.trim();
-  const b = branchData[code];
-  if(!b){
-    alert("Branch not found");
-    branchName.value='';
-    district.value='';
-    pincode.value='';
+// ================= TIME SAVE =================
+function saveTime() {
+  const inTime = get12HourTime("inHour", "inMinute", "inAmPm");
+  const outTime = get12HourTime("outHour", "outMinute", "outAmPm");
+
+  if (!inTime || !outTime) {
+    document.getElementById("timeMsg").innerText =
+      "Please enter valid IN and OUT time";
     return;
   }
-  branchName.value = b.BANCH_NAME;
-  district.value = b.DISTRICT;
-  pincode.value = b.PINCODE;
+
+  document.getElementById("inTime").value = inTime;
+  document.getElementById("outTime").value = outTime;
+
+  document.getElementById("timeMsg").innerText =
+    "Saved: IN " + inTime + " | OUT " + outTime;
 }
 
-/* ================= TIME CONVERSION ================= */
-function convertTo24(h,m,ap){
-  if(!h||!m||!ap) return '';
-  h=parseInt(h); m=parseInt(m);
-  if(ap==='PM'&&h!==12)h+=12;
-  if(ap==='AM'&&h===12)h=0;
-  return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
-}
+// ================= TIME FORMATTER =================
+function get12HourTime(h, m, ap) {
+  const hh = document.getElementById(h).value;
+  const mm = document.getElementById(m).value;
+  const ampm = document.getElementById(ap).value;
 
-function updateIn(){
-  inTime.value = convertTo24(inHour.value,inMinute.value,inAmPm.value);
-}
-function updateOut(){
-  outTime.value = convertTo24(outHour.value,outMinute.value,outAmPm.value);
-}
+  if (!hh || !mm || !ampm) return null;
 
-['inHour','inMinute','inAmPm'].forEach(id=>document.getElementById(id).addEventListener('change',updateIn));
-['outHour','outMinute','outAmPm'].forEach(id=>document.getElementById(id).addEventListener('change',updateOut));
-
-/* ================= SAVE ================= */
-function save(){
-  if(!branchName.value){ alert("Search branch first"); return; }
-  if(!inTime.value||!outTime.value){ alert("Select time with AM/PM"); return; }
-
-  workData.push({
-    date:workDate.value,
-    branch:branchName.value,
-    in:inTime.value,
-    out:outTime.value,
-    rem:remarks.value
-  });
-  localStorage.setItem("workData",JSON.stringify(workData));
-  render();
-}
-
-/* ================= TABLE ================= */
-function render(){
-  dataBody.innerHTML='';
-  workData.forEach((r,i)=>{
-    dataBody.innerHTML+=`
-      <tr>
-        <td>${i+1}</td>
-        <td>${r.date}</td>
-        <td>${r.branch}</td>
-        <td>${r.in}</td>
-        <td>${r.out}</td>
-        <td>${r.rem}</td>
-      </tr>`;
-  });
+  return hh.padStart(2, "0") + ":" +
+         mm.padStart(2, "0") + " " + ampm;
 }
 </script>
 
