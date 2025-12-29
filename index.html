@@ -3,70 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <title>Staff Login & Attendance</title>
+
 <style>
-  body { font-family: Arial; padding: 20px; }
-  .row { display: flex; gap: 5px; }
-  input, select, button { padding: 6px; margin: 4px 0; }
-  #dashboard { display: none; }
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  input, select, button {
+    padding: 6px;
+    margin: 5px 0;
+  }
+  .row {
+    display: flex;
+    gap: 5px;
+  }
+  #dashboard {
+    display: none;
+    margin-top: 20px;
+  }
 </style>
+
 </head>
 <body>
 
-<!-- ================= LOGIN ================= -->
-<h3>Login</h3>
-<input id="loginId" placeholder="Staff ID">
-<input id="loginPwd" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
-<p id="loginMsg"></p>
+<!-- ================= LOGIN SECTION ================= -->
+<div id="loginSection">
+  <h3>Staff Login</h3>
+  <input id="loginId" placeholder="Staff ID (STF001)">
+  <br>
+  <input id="loginPwd" type="password" placeholder="Password">
+  <br>
+  <button onclick="login()">Login</button>
+  <p id="loginMsg"></p>
+</div>
 
 <!-- ================= DASHBOARD ================= -->
 <div id="dashboard">
 
-<h3>Branch Search</h3>
-<input id="branchSearch" placeholder="Search Branch" onkeyup="searchBranch()">
-<ul id="branchList">
-  <li>Chennai Main</li>
-  <li>Coimbatore</li>
-  <li>Salem</li>
-  <li>Madurai</li>
-</ul>
+  <h3>Welcome</h3>
+  <p id="welcomeMsg"></p>
 
-<hr>
+  <!-- ================= BRANCH SEARCH ================= -->
+  <h4>Branch Search</h4>
+  <input id="branchSearch" placeholder="Search branch..." onkeyup="searchBranch()">
 
-<!-- ================= IN TIME ================= -->
-<label>In time (12-hour)</label>
-<div class="row">
-  <input id="inHour" type="number" min="1" max="12" placeholder="HH">
-  <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
-  <select id="inAmPm">
-    <option value="">AM/PM</option>
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-  </select>
-</div>
-<input type="hidden" id="inTime">
+  <ul id="branchList">
+    <li>Chennai Main</li>
+    <li>Coimbatore</li>
+    <li>Salem</li>
+    <li>Madurai</li>
+  </ul>
 
-<!-- ================= OUT TIME ================= -->
-<label>Out time (12-hour)</label>
-<div class="row">
-  <input id="outHour" type="number" min="1" max="12" placeholder="HH">
-  <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
-  <select id="outAmPm">
-    <option value="">AM/PM</option>
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-  </select>
-</div>
-<input type="hidden" id="outTime">
+  <hr>
 
-<br>
-<button onclick="saveTime()">Save Time</button>
-<p id="timeMsg"></p>
+  <!-- ================= IN TIME ================= -->
+  <label>In time (12-hour)</label>
+  <div class="row">
+    <input id="inHour" type="number" min="1" max="12" placeholder="HH">
+    <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
+    <select id="inAmPm">
+      <option value="">AM/PM</option>
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+    </select>
+  </div>
+  <input type="hidden" id="inTime">
+
+  <!-- ================= OUT TIME ================= -->
+  <label>Out time (12-hour)</label>
+  <div class="row">
+    <input id="outHour" type="number" min="1" max="12" placeholder="HH">
+    <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
+    <select id="outAmPm">
+      <option value="">AM/PM</option>
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+    </select>
+  </div>
+  <input type="hidden" id="outTime">
+
+  <br>
+  <button onclick="saveTime()">Save Time</button>
+  <p id="timeMsg"></p>
 
 </div>
 
 <script>
-// ================= STAFF DATA =================
+/* ================= STAFF MASTER JSON ================= */
 const staffData = {
   "STF001": {
     "Name": "SURESHKUMAR",
@@ -77,47 +100,55 @@ const staffData = {
   },
   "STF002": {
     "Name": "AJITHKUMAR",
-    "Email": "AJITHKUMAR@GMAIL.COM",
+    "Email": "ajithkumar@gmail.com",
     "Mobile": "9629281379",
     "Role": "STAFF",
     "Password": "SUS@1234"
   }
 };
 
-// ================= LOGIN FUNCTION =================
+/* ================= LOGIN FUNCTION ================= */
 function login() {
   const id = document.getElementById("loginId").value.trim();
   const pwd = document.getElementById("loginPwd").value;
 
-  if (staffData[id] && staffData[id].Password === pwd) {
-    document.getElementById("loginMsg").innerText =
-      "Welcome " + staffData[id].Name;
-    document.getElementById("dashboard").style.display = "block";
-  } else {
-    document.getElementById("loginMsg").innerText =
-      "Invalid ID or Password";
+  if (!staffData[id]) {
+    document.getElementById("loginMsg").innerText = "Invalid Staff ID";
+    return;
   }
+
+  if (staffData[id].Password !== pwd) {
+    document.getElementById("loginMsg").innerText = "Wrong Password";
+    return;
+  }
+
+  // Success
+  document.getElementById("loginSection").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+
+  document.getElementById("welcomeMsg").innerText =
+    "Welcome " + staffData[id].Name + " (" + staffData[id].Role + ")";
 }
 
-// ================= BRANCH SEARCH =================
+/* ================= BRANCH SEARCH ================= */
 function searchBranch() {
   const filter = document.getElementById("branchSearch").value.toLowerCase();
-  const list = document.getElementById("branchList").getElementsByTagName("li");
+  const items = document.getElementById("branchList").getElementsByTagName("li");
 
-  for (let i = 0; i < list.length; i++) {
-    list[i].style.display =
-      list[i].innerText.toLowerCase().includes(filter) ? "" : "none";
+  for (let i = 0; i < items.length; i++) {
+    items[i].style.display =
+      items[i].innerText.toLowerCase().includes(filter) ? "" : "none";
   }
 }
 
-// ================= TIME SAVE =================
+/* ================= SAVE TIME ================= */
 function saveTime() {
-  const inTime = get12HourTime("inHour", "inMinute", "inAmPm");
-  const outTime = get12HourTime("outHour", "outMinute", "outAmPm");
+  const inTime = buildTime("inHour", "inMinute", "inAmPm");
+  const outTime = buildTime("outHour", "outMinute", "outAmPm");
 
   if (!inTime || !outTime) {
     document.getElementById("timeMsg").innerText =
-      "Please enter valid IN and OUT time";
+      "Please fill IN and OUT time correctly";
     return;
   }
 
@@ -125,19 +156,18 @@ function saveTime() {
   document.getElementById("outTime").value = outTime;
 
   document.getElementById("timeMsg").innerText =
-    "Saved: IN " + inTime + " | OUT " + outTime;
+    "Saved | IN: " + inTime + " | OUT: " + outTime;
 }
 
-// ================= TIME FORMATTER =================
-function get12HourTime(h, m, ap) {
+/* ================= TIME FORMAT ================= */
+function buildTime(h, m, ap) {
   const hh = document.getElementById(h).value;
   const mm = document.getElementById(m).value;
   const ampm = document.getElementById(ap).value;
 
   if (!hh || !mm || !ampm) return null;
 
-  return hh.padStart(2, "0") + ":" +
-         mm.padStart(2, "0") + " " + ampm;
+  return hh.padStart(2, "0") + ":" + mm.padStart(2, "0") + " " + ampm;
 }
 </script>
 
