@@ -2,23 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Simple Login</title>
+<title>Work Master</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body{font-family:Arial;background:#f2f2f2;padding:40px}
-.box{max-width:350px;margin:auto;background:#fff;padding:20px;border-radius:8px}
-input,button{width:100%;padding:10px;margin-top:10px;font-size:16px}
+body{font-family:Arial;background:#f4f6f8;padding:20px}
+.card{max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:8px}
+input,button,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
 button{background:#007bff;color:#fff;border:none;border-radius:5px}
-.msg{color:red;margin-top:10px}
+.hidden{display:none}
+table{width:100%;margin-top:15px;border-collapse:collapse}
+th,td{border:1px solid #ccc;padding:8px;font-size:14px}
 </style>
 </head>
+
 <body>
 
-<div class="box" id="loginBox">
+<!-- LOGIN -->
+<div class="card" id="loginCard">
   <h3>Login</h3>
   <input id="mobile" placeholder="Mobile number">
   <input id="password" type="password" placeholder="Password">
   <button onclick="login()">Login</button>
-  <div class="msg" id="msg"></div>
+  <p style="color:red" id="loginMsg"></p>
   <p style="font-size:13px">
     Demo:<br>
     9876543210<br>
@@ -26,25 +32,85 @@ button{background:#007bff;color:#fff;border:none;border-radius:5px}
   </p>
 </div>
 
-<div class="box" id="successBox" style="display:none">
-  <h3>✅ Login Success</h3>
-  <p>Welcome Admin</p>
+<!-- APP -->
+<div class="card hidden" id="appCard">
+  <h3>Work Master Entry</h3>
+
+  <input id="date" type="date">
+  <input id="branch" placeholder="Branch Code">
+  <input id="inTime" placeholder="In Time (HH:MM)">
+  <input id="outTime" placeholder="Out Time (HH:MM)">
+  <textarea id="remarks" placeholder="Remarks"></textarea>
+
+  <button onclick="save()">Save</button>
+  <button style="background:#dc3545" onclick="logout()">Logout</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Date</th><th>Branch</th><th>In</th><th>Out</th><th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody id="data"></tbody>
+  </table>
 </div>
 
 <script>
+/* LOGIN DATA */
+const USER_MOBILE = "9876543210";
+const USER_PASS   = "admin123";
+
+let records = [];
+
+/* LOGIN */
 function login(){
-  var m = document.getElementById("mobile").value;
-  var p = document.getElementById("password").value;
-  var msg = document.getElementById("msg");
+  const m = mobile.value.trim();
+  const p = password.value.trim();
+  loginMsg.textContent = "";
 
-  msg.innerText = "";
-
-  if(m === "9876543210" && p === "admin123"){
-    document.getElementById("loginBox").style.display="none";
-    document.getElementById("successBox").style.display="block";
+  if(m === USER_MOBILE && p === USER_PASS){
+    loginCard.classList.add("hidden");
+    appCard.classList.remove("hidden");
   } else {
-    msg.innerText = "Invalid login credentials";
+    loginMsg.textContent = "Invalid login credentials";
   }
+}
+
+/* LOGOUT */
+function logout(){
+  appCard.classList.add("hidden");
+  loginCard.classList.remove("hidden");
+  mobile.value="";
+  password.value="";
+}
+
+/* SAVE */
+function save(){
+  records.push({
+    d: date.value,
+    b: branch.value,
+    i: inTime.value,
+    o: outTime.value,
+    r: remarks.value
+  });
+  render();
+  date.value="";branch.value="";inTime.value="";outTime.value="";remarks.value="";
+}
+
+/* RENDER */
+function render(){
+  data.innerHTML="";
+  records.forEach((r,i)=>{
+    data.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td>${r.d}</td>
+        <td>${r.b}</td>
+        <td>${r.i}</td>
+        <td>${r.o}</td>
+        <td>${r.r}</td>
+      </tr>`;
+  });
 }
 </script>
 
