@@ -1,118 +1,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Work Master</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Work Master — Validated</title>
 
 <style>
-body{font-family:Arial;background:#f4f6f8;padding:20px}
-.card{max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:8px}
-input,button,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
-button{background:#007bff;color:#fff;border:none;border-radius:5px}
-.hidden{display:none}
-table{width:100%;margin-top:15px;border-collapse:collapse}
-th,td{border:1px solid #ccc;padding:8px;font-size:14px}
+  :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
+  body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;padding:12px}
+  .card{max-width:1000px;margin:12px auto;background:#fff;border-radius:8px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  h2{margin:6px 0 12px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  input,select,textarea,button{font-size:15px;padding:8px;border:1px solid #d0d7de;border-radius:6px}
+  label{font-weight:600;margin-top:6px;display:block}
+  .flex-1{flex:1 1 220px}
+  .btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
+  .btn-secondary{background:#6c757d}
+  .btn-danger{background:var(--err)}
+  .btn-green{background:var(--ok)}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+  th,td{border:1px solid #e2e8f0;padding:8px;text-align:left}
+  th{background:#f1f5f9}
+  .small{font-size:13px;color:#666}
+  .hidden{display:none}
+  .validation-report{margin-top:12px;padding:10px;border-radius:6px;background:#fafafa;border:1px dashed #e6eef8}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div class="card" id="loginCard">
-  <h3>Login</h3>
-  <input id="mobile" placeholder="Mobile number">
-  <input id="password" type="password" placeholder="Password">
-  <button onclick="login()">Login</button>
-  <p style="color:red" id="loginMsg"></p>
-  <p style="font-size:13px">
-    Demo:<br>
-    9876543210<br>
-    admin123
-  </p>
-</div>
+<div class="card" id="appCard">
+  <h2>Work Master Data Entry</h2>
 
-<!-- APP -->
-<div class="card hidden" id="appCard">
-  <h3>Work Master Entry</h3>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+    <div>
+      <div class="small">Name: ADMIN</div>
+      <div class="small" style="font-weight:700;color:var(--ok)">Role: ADMIN</div>
+    </div>
+    <div>
+      <button class="btn" onclick="exportExcel()">Export CSV</button>
+    </div>
+  </div>
 
-  <input id="date" type="date">
-  <input id="branch" placeholder="Branch Code">
-  <input id="inTime" placeholder="In Time (HH:MM)">
-  <input id="outTime" placeholder="Out Time (HH:MM)">
-  <textarea id="remarks" placeholder="Remarks"></textarea>
+  <hr>
 
-  <button onclick="save()">Save</button>
-  <button style="background:#dc3545" onclick="logout()">Logout</button>
+  <label>Work Date</label>
+  <input type="date" id="workDate">
 
+  <label>Branch Code</label>
+  <div class="row">
+    <input id="branchCode" class="flex-1">
+    <button class="btn btn-green" onclick="searchBranch()">SEARCH</button>
+  </div>
+
+  <input id="branchName" placeholder="Branch name" readonly>
+  <input id="district" type="hidden">
+  <input id="pincode" type="hidden">
+
+  <div class="row">
+    <div class="flex-1">
+      <label>In Time</label>
+      <input type="time" id="inTime">
+    </div>
+    <div class="flex-1">
+      <label>Out Time</label>
+      <input type="time" id="outTime">
+    </div>
+  </div>
+
+  <label>Remarks</label>
+  <textarea id="remarks"></textarea>
+
+  <div style="margin-top:10px">
+    <button class="btn" id="saveBtn" onclick="onSave()">Save / Update</button>
+    <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
+  </div>
+
+  <div id="validationReport" class="validation-report hidden">
+    <strong>Validation Report</strong>
+    <div id="vrList"></div>
+    <div id="vrFinal"></div>
+  </div>
+
+  <hr>
+
+  <h3>Saved Entries</h3>
   <table>
     <thead>
       <tr>
-        <th>#</th><th>Date</th><th>Branch</th><th>In</th><th>Out</th><th>Remarks</th>
+        <th>#</th>
+        <th>Date</th>
+        <th>Branch</th>
+        <th>Name</th>
+        <th>District</th>
+        <th>Pincode</th>
+        <th>In</th>
+        <th>Out</th>
+        <th>Remarks</th>
+        <th>Action</th>
       </tr>
     </thead>
-    <tbody id="data"></tbody>
+    <tbody id="dataBody"></tbody>
   </table>
+
+  <p id="saveMsg" class="small" style="color:var(--ok)"></p>
 </div>
 
 <script>
-/* LOGIN DATA */
-const USER_MOBILE = "9876543210";
-const USER_PASS   = "admin123";
+let branchData = {};
+let workData = JSON.parse(localStorage.getItem('workData')||'[]');
+let editIndex = -1;
 
-let records = [];
+/* auto admin */
+let currentUser = { Name:'ADMIN', Role:'ADMIN' };
 
-/* LOGIN */
-function login(){
-  const m = mobile.value.trim();
-  const p = password.value.trim();
-  loginMsg.textContent = "";
+/* load branch */
+fetch('branch_master.json').then(r=>r.json()).then(d=>branchData=d);
 
-  if(m === USER_MOBILE && p === USER_PASS){
-    loginCard.classList.add("hidden");
-    appCard.classList.remove("hidden");
-  } else {
-    loginMsg.textContent = "Invalid login credentials";
+/* helpers */
+function formatTime12(t){
+  if(!t) return '';
+  let [h,m]=t.split(':'); h=parseInt(h);
+  let ap=h>=12?'PM':'AM'; h=h%12||12;
+  return h+':'+m+' '+ap;
+}
+
+/* branch search */
+function searchBranch(){
+  let c=branchCode.value.trim();
+  let b=branchData[c];
+  if(!b){alert('Branch not found');return;}
+  branchName.value=b.BANCH_NAME||'';
+  district.value=b.DISTRICT||'';
+  pincode.value=b.PINCODE||'';
+}
+
+/* validation */
+function validateFields(){
+  let v=[];
+  if(!workDate.value) v.push({ok:false,msg:'Date missing'});
+  if(!branchCode.value) v.push({ok:false,msg:'Branch missing'});
+  if(!branchName.value) v.push({ok:false,msg:'Press SEARCH'});
+  if(!inTime.value||!outTime.value) v.push({ok:false,msg:'Time missing'});
+  if(outTime.value<=inTime.value) v.push({ok:false,msg:'Out must be after In'});
+  return v;
+}
+
+/* save */
+function onSave(){
+  saveMsg.textContent='';
+  let v=validateFields();
+  if(v.length){alert(v.map(x=>x.msg).join('\n'));return;}
+
+  let r={
+    date:workDate.value,
+    code:branchCode.value,
+    name:branchName.value,
+    dist:district.value,
+    pin:pincode.value,
+    in:inTime.value,
+    out:outTime.value,
+    rem:remarks.value
+  };
+
+  if(editIndex>=0){workData[editIndex]=r;editIndex=-1;}
+  else workData.push(r);
+
+  localStorage.setItem('workData',JSON.stringify(workData));
+  renderTable(); clearForm();
+  saveMsg.textContent='Saved successfully';
+}
+
+/* table */
+function renderTable(){
+  dataBody.innerHTML='';
+  workData.forEach((r,i)=>{
+    dataBody.innerHTML+=`
+    <tr>
+      <td>${i+1}</td>
+      <td>${r.date}</td>
+      <td>${r.code}</td>
+      <td>${r.name}</td>
+      <td>${r.dist}</td>
+      <td>${r.pin}</td>
+      <td>${formatTime12(r.in)}</td>
+      <td>${formatTime12(r.out)}</td>
+      <td>${r.rem}</td>
+      <td>
+        <button onclick="edit(${i})">Edit</button>
+        <button onclick="del(${i})">Del</button>
+      </td>
+    </tr>`;
+  });
+}
+
+function edit(i){
+  let r=workData[i]; editIndex=i;
+  workDate.value=r.date; branchCode.value=r.code;
+  branchName.value=r.name; district.value=r.dist;
+  pincode.value=r.pin; inTime.value=r.in;
+  outTime.value=r.out; remarks.value=r.rem;
+}
+
+function del(i){
+  if(confirm('Delete?')){
+    workData.splice(i,1);
+    localStorage.setItem('workData',JSON.stringify(workData));
+    renderTable();
   }
 }
 
-/* LOGOUT */
-function logout(){
-  appCard.classList.add("hidden");
-  loginCard.classList.remove("hidden");
-  mobile.value="";
-  password.value="";
+function clearForm(){
+  editIndex=-1;
+  workDate.value=branchCode.value=branchName.value='';
+  district.value=pincode.value=inTime.value=outTime.value=remarks.value='';
 }
 
-/* SAVE */
-function save(){
-  records.push({
-    d: date.value,
-    b: branch.value,
-    i: inTime.value,
-    o: outTime.value,
-    r: remarks.value
+function exportExcel(){
+  let csv='Date,Branch,Name,In,Out,Remarks\n';
+  workData.forEach(r=>{
+    csv+=`${r.date},${r.code},"${r.name}",${r.in},${r.out},"${r.rem}"\n`;
   });
-  render();
-  date.value="";branch.value="";inTime.value="";outTime.value="";remarks.value="";
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv]));
+  a.download='workmaster.csv';
+  a.click();
 }
 
-/* RENDER */
-function render(){
-  data.innerHTML="";
-  records.forEach((r,i)=>{
-    data.innerHTML += `
-      <tr>
-        <td>${i+1}</td>
-        <td>${r.d}</td>
-        <td>${r.b}</td>
-        <td>${r.i}</td>
-        <td>${r.o}</td>
-        <td>${r.r}</td>
-      </tr>`;
-  });
-}
+renderTable();
 </script>
-
 </body>
 </html>
