@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Work Master — 12-hour Time (LOGIN FIXED)</title>
+
 <style>
   :root{--accent:#007bff;--ok:#2e8b57;--err:#d9534f}
   body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;padding:12px}
@@ -11,8 +12,6 @@
   h2{margin:6px 0 12px}
   .row{display:flex;gap:8px;flex-wrap:wrap}
   input,select,textarea,button{font-size:15px;padding:8px;border:1px solid #d0d7de;border-radius:6px}
-  input[type="time"]{padding:6px}
-  input[type="date"]{padding:6px}
   label{font-weight:600;margin-top:6px;display:block}
   .flex-1{flex:1 1 220px}
   .btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
@@ -20,491 +19,158 @@
   .btn-danger{background:var(--err)}
   .btn-green{background:var(--ok)}
   table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
-  th,td{border:1px solid #e2e8f0;padding:8px;text-align:left;vertical-align:top}
+  th,td{border:1px solid #e2e8f0;padding:8px}
   th{background:#f1f5f9}
   .small{font-size:13px;color:#666}
   .hidden{display:none}
-  .validation-report{margin-top:12px;padding:10px;border-radius:6px;background:#fafafa;border:1px dashed #e6eef8}
-  .vr-line{display:flex;gap:8px;align-items:center;margin:4px 0}
-  .vr-dot{width:10px;height:10px;border-radius:50%}
-  .ok{color:var(--ok)}
-  .err{color:var(--err)}
-  .actions button{margin-right:6px}
-  @media(max-width:640px){
-    .row{flex-direction:column}
-    .search-row{flex-direction:row}
-    .search-row button{width:110px}
-  }
 </style>
 </head>
+
 <body>
 
+<!-- LOGIN -->
 <div class="card" id="loginCard">
   <h2>Staff Login</h2>
   <div class="row">
-    <div class="flex-1"><input id="loginMobile" placeholder="Mobile number (login id)"></div>
+    <div class="flex-1"><input id="loginMobile" placeholder="Mobile number"></div>
     <div class="flex-1"><input id="loginPassword" type="password" placeholder="Password"></div>
   </div>
   <div style="margin-top:10px">
     <button class="btn" onclick="login()">Login</button>
-    <span class="small" style="margin-left:8px;color:#666">Demo: 9876543210/admin123</span>
+    <span class="small">Demo: 9876543210 / admin123</span>
   </div>
   <p id="loginMsg" class="small" style="color:var(--err)"></p>
 </div>
 
+<!-- APP -->
 <div class="card hidden" id="appCard">
-  <h2>Work Master Data Entry</h2>
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
-    <div>
-      <div id="userInfo" class="small"></div>
-      <div id="roleInfo" class="small" style="font-weight:700;color:var(--ok);"></div>
-    </div>
-    <div style="display:flex;gap:8px;align-items:center">
-      <button class="btn" id="exportBtn" onclick="exportExcel()">Export CSV</button>
-      <button class="btn btn-secondary" onclick="openChange()">Change Password</button>
-      <button class="btn btn-danger" onclick="logout()">Logout</button>
-    </div>
+  <h2>Work Master</h2>
+  <div id="userInfo" class="small"></div>
+
+  <label>Date</label>
+  <input type="date" id="workDate">
+
+  <label>Branch Code</label>
+  <div class="row">
+    <input id="branchCode" class="flex-1">
+    <button class="btn btn-green" onclick="searchBranch()">SEARCH</button>
   </div>
 
-  <hr style="margin:12px 0">
+  <input id="branchName" placeholder="Branch Name" readonly>
 
-  <!-- entry form -->
-  <div>
-    <label>Work Date</label>
-    <input type="date" id="workDate" class="flex-1">
-
-    <label style="margin-top:8px">Branch code</label>
-    <div class="row search-row" style="align-items:center">
-      <div class="flex-1"><input id="branchCode" placeholder="Enter branch code"></div>
-      <div><button class="btn btn-green" onclick="searchBranch()" type="button">SEARCH</button></div>
-    </div>
-    <div class="row" style="margin-top:6px">
-      <div class="flex-1"><input id="branchName" placeholder="Branch name (auto-filled)" readonly></div>
-      <div class="flex-1 small" style="align-self:center;color:#555">District and Pincode are hidden in entry but shown in list</div>
-    </div>
-
-    <!-- hidden fields -->
-    <input id="district" type="hidden">
-    <input id="pincode" type="hidden">
-
-    <!-- 12-hour time inputs -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-      <div style="flex:1 1 180px">
-        <label>In time (12-hour)</label>
-        <div class="row">
-          <input id="inHour" type="number" min="1" max="12" placeholder="HH" oninput="updateHiddenTime('in')">
-          <input id="inMinute" type="number" min="0" max="59" placeholder="MM" oninput="updateHiddenTime('in')">
-          <select id="inAmPm" onchange="updateHiddenTime('in')">
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-          </select>
-        </div>
-        <input type="hidden" id="inTime">
-      </div>
-      <div style="flex:1 1 180px">
-        <label>Out time (12-hour)</label>
-        <div class="row">
-          <input id="outHour" type="number" min="1" max="12" placeholder="HH" oninput="updateHiddenTime('out')">
-          <input id="outMinute" type="number" min="0" max="59" placeholder="MM" oninput="updateHiddenTime('out')">
-          <select id="outAmPm" onchange="updateHiddenTime('out')">
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-          </select>
-        </div>
-        <input type="hidden" id="outTime">
-      </div>
-    </div>
-
-    <label style="margin-top:8px">Remarks</label>
-    <textarea id="remarks" rows="4" placeholder="Enter remarks (long text allowed)"></textarea>
-
-    <div style="margin-top:10px;display:flex;gap:8px">
-      <button class="btn" id="saveBtn" onclick="onSave()">Save / Update</button>
-      <button class="btn btn-secondary" onclick="clearForm()" type="button">Clear</button>
-    </div>
-
-    <!-- validation report -->
-    <div id="validationReport" class="validation-report hidden" aria-live="polite">
-      <strong>Validation Report</strong>
-      <div id="vrList"></div>
-      <div id="vrFinal" style="margin-top:8px;font-weight:700"></div>
-    </div>
+  <!-- Time -->
+  <label>In Time</label>
+  <div class="row">
+    <input id="inHour" type="number" min="1" max="12" placeholder="HH">
+    <input id="inMinute" type="number" min="0" max="59" placeholder="MM">
+    <select id="inAmPm"><option>AM</option><option>PM</option></select>
   </div>
 
-  <hr style="margin:12px 0">
+  <label>Out Time</label>
+  <div class="row">
+    <input id="outHour" type="number" min="1" max="12" placeholder="HH">
+    <input id="outMinute" type="number" min="0" max="59" placeholder="MM">
+    <select id="outAmPm"><option>AM</option><option>PM</option></select>
+  </div>
 
-  <!-- list with edit/delete -->
-  <h3>Saved Entries</h3>
+  <label>Remarks</label>
+  <textarea id="remarks"></textarea>
+
+  <button class="btn" onclick="save()">Save</button>
+  <button class="btn btn-danger" onclick="logout()">Logout</button>
+
   <table>
     <thead>
-      <tr>
-        <th>#</th><th>Date</th><th>Branch Code</th><th>Branch Name</th><th>District</th>
-        <th>Pincode</th><th>In</th><th>Out</th><th>Remarks</th><th>Action</th>
-      </tr>
+      <tr><th>#</th><th>Date</th><th>Branch</th><th>In</th><th>Out</th><th>Remarks</th></tr>
     </thead>
     <tbody id="dataBody"></tbody>
   </table>
-  <p id="saveMsg" class="small" style="color:var(--ok)"></p>
-</div>
-
-<!-- change password card -->
-<div class="card hidden" id="changeCard">
-  <h3>Change Password</h3>
-  <div class="row">
-    <div class="flex-1"><input id="oldPass" placeholder="Old password" type="password"></div>
-    <div class="flex-1"><input id="newPass" placeholder="New password" type="password"></div>
-  </div>
-  <div style="margin-top:8px;display:flex;gap:8px">
-    <button class="btn" onclick="changePassword()">Update</button>
-    <button class="btn btn-secondary" onclick="closeChange()">Back</button>
-  </div>
-  <p id="changeMsg" class="small" style="color:var(--err)"></p>
 </div>
 
 <script>
-/* ---------- Data holders ---------- */
-let staffData = {};
-let branchData = {};
+/* ================= USERS (NO FETCH – FIXED) ================= */
+const staffData = {
+  "001": {Name:"Admin User", Mobile:"9876543210", Password:"admin123", Role:"ADMIN"},
+  "002": {Name:"Staff User", Mobile:"9876543211", Password:"staff123", Role:"STAFF"}
+};
+
+const branchData = {
+  "B001": {name:"Main Branch"},
+  "B002": {name:"North Branch"}
+};
+
 let currentUser = null;
-let workData = JSON.parse(localStorage.getItem('workData')||'[]');
-let editIndex = -1;
+let workData = [];
 
-/* ---------- load JSONs with FALLBACK (LOGIN FIXED) ---------- */
-fetch('staff_master.json').then(r => r.json()).then(d => staffData = d).catch(e => {
-  console.warn('staff_master.json not loaded - using demo users');
-  staffData = {
-    "001": {Name: "Admin User", Mobile: "9876543210", Password: "admin123", Role: "ADMIN"},
-    "002": {Name: "Staff User", Mobile: "9876543211", Password: "staff123", Role: "STAFF"}
-  };
-});
-fetch('branch_master.json').then(r => r.json()).then(d => branchData = d).catch(e => {
-  console.warn('branch_master.json not loaded');
-  branchData = {
-    "B001": {BANCH_NAME: "Main Branch", DISTRICT: "Coimbatore", PINCODE: "641001"},
-    "B002": {BANCH_NAME: "North Branch", DISTRICT: "Coimbatore", PINCODE: "641002"}
-  };
-});
-
-/* ---------- helpers ---------- */
-function formatTime12(hhmm){
-  if(!hhmm) return '';
-  const [hh, mm] = hhmm.split(':');
-  let h = parseInt(hh,10);
-  const ampm = h >= 12 ? 'PM' : 'AM';
-  h = h % 12; if(h===0) h = 12;
-  return `${h}:${mm} ${ampm}`;
-}
-
-function to24Hour(hh, mm, ampm){
-  hh = parseInt(hh,10); mm = parseInt(mm,10);
-  if(ampm==='PM' && hh!==12) hh+=12;
-  if(ampm==='AM' && hh===12) hh=0;
-  return `${hh.toString().padStart(2,'0')}:${mm.toString().padStart(2,'0')}`;
-}
-
-function to12Hour(hhmm){
-  let [hh, mm] = hhmm.split(':').map(Number);
-  const ampm = hh >= 12 ? 'PM' : 'AM';
-  hh = hh % 12; if(hh===0) hh=12;
-  return {hh, mm, ampm};
-}
-
-function fillTimeInputs(prefix, hhmm){
-  if(!hhmm) return;
-  const t = to12Hour(hhmm);
-  document.getElementById(prefix+'Hour').value = t.hh;
-  document.getElementById(prefix+'Minute').value = t.mm;
-  document.getElementById(prefix+'AmPm').value = t.ampm;
-}
-
-function updateHiddenTime(prefix){
-  const hh = document.getElementById(prefix+'Hour').value;
-  const mm = document.getElementById(prefix+'Minute').value;
-  const ampm = document.getElementById(prefix+'AmPm').value;
-  if(hh && mm && ampm) {
-    document.getElementById(prefix+'Time').value = to24Hour(hh, mm, ampm);
-  }
-}
-
-function showElement(el){ el.classList.remove('hidden'); }
-function hideElement(el){ el.classList.add('hidden'); }
-
-/* ---------- LOGIN (WORKING WITH FALLBACK) ---------- */
+/* ================= LOGIN ================= */
 function login(){
-  const mobile = document.getElementById('loginMobile').value.trim();
-  const pass = document.getElementById('loginPassword').value;
-  const msg = document.getElementById('loginMsg'); 
-  msg.textContent = ''; msg.style.color = 'var(--err)';
+  const mob = loginMobile.value.trim();
+  const pass = loginPassword.value;
+  loginMsg.textContent = "";
 
-  if(!mobile || !pass){ 
-    msg.textContent = 'Enter mobile and password'; 
-    return; 
-  }
-
-  const checkLogin = () => {
-    for(const key in staffData){
-      const u = staffData[key];
-      if(u.Mobile===mobile && u.Password===pass){
-        currentUser = Object.assign({}, u);
-        document.getElementById('loginCard').classList.add('hidden');
-        document.getElementById('appCard').classList.remove('hidden');
-        document.getElementById('userInfo').textContent = `Name: ${currentUser.Name}  •  Mobile: ${currentUser.Mobile}`;
-        document.getElementById('roleInfo').textContent = `Role: ${currentUser.Role}`;
-        document.getElementById('exportBtn').style.display = currentUser.Role==='ADMIN'?'inline-block':'none';
-        renderTable();
-        return true;
-      }
+  for(let k in staffData){
+    let u = staffData[k];
+    if(u.Mobile === mob && u.Password === pass){
+      currentUser = u;
+      loginCard.classList.add("hidden");
+      appCard.classList.remove("hidden");
+      userInfo.textContent = `Welcome ${u.Name} (${u.Role})`;
+      return;
     }
-    msg.textContent = Object.keys(staffData).length === 0 ? 
-      'Loading users...' : 'Invalid login credentials';
-    return false;
-  };
-
-  if(Object.keys(staffData).length > 0){
-    checkLogin();
-  } else {
-    msg.textContent = 'Loading users...';
-    setTimeout(checkLogin, 1000);
   }
+  loginMsg.textContent = "Invalid login credentials";
 }
 
-/* ---------- logout ---------- */
+/* ================= LOGOUT ================= */
 function logout(){
-  currentUser=null; editIndex=-1;
-  document.getElementById('appCard').classList.add('hidden');
-  document.getElementById('loginCard').classList.remove('hidden');
-  document.getElementById('loginMobile').value=''; 
-  document.getElementById('loginPassword').value='';
-  document.getElementById('saveMsg').textContent='';
+  currentUser = null;
+  appCard.classList.add("hidden");
+  loginCard.classList.remove("hidden");
 }
 
-/* ---------- search branch ---------- */
+/* ================= BRANCH ================= */
 function searchBranch(){
-  const code = document.getElementById('branchCode').value.trim();
-  if(!code){ alert('Enter branch code then press SEARCH'); return; }
-  const b = branchData[code];
-  if(!b){ 
-    alert('Branch code not found'); 
-    document.getElementById('branchName').value=''; 
-    document.getElementById('district').value=''; 
-    document.getElementById('pincode').value=''; 
-    return; 
-  }
-  document.getElementById('branchName').value = b.BANCH_NAME||b.BANCHNAME||'';
-  document.getElementById('district').value = b.DISTRICT||'';
-  document.getElementById('pincode').value = b.PINCODE||'';
+  let b = branchData[branchCode.value];
+  branchName.value = b ? b.name : "";
 }
 
-/* ---------- validations ---------- */
-function validateFields(){
-  const list=[]; 
-  updateHiddenTime('in'); updateHiddenTime('out');
-  const date = document.getElementById('workDate').value.trim();
-  const code = document.getElementById('branchCode').value.trim();
-  const name = document.getElementById('branchName').value.trim();
-  const inT = document.getElementById('inTime').value.trim();
-  const outT = document.getElementById('outTime').value.trim();
-  const remarks = document.getElementById('remarks').value.trim();
-
-  if(!date) list.push({field:'Date', ok:false, msg:'Date is required'}); 
-  else list.push({field:'Date', ok:true, msg:date});
-  if(!code) list.push({field:'Branch Code', ok:false, msg:'Branch code required'}); 
-  else list.push({field:'Branch Code', ok:true, msg:code});
-  if(!name) list.push({field:'Branch Name', ok:false, msg:'Not filled - press SEARCH'}); 
-  else list.push({field:'Branch Name', ok:true, msg:name});
-  
-  const timeRegex=/^\d{2}:\d{2}$/;
-  if(!inT) list.push({field:'In Time', ok:false, msg:'Required'}); 
-  else if(!timeRegex.test(inT)) list.push({field:'In Time', ok:false, msg:'Invalid format'}); 
-  else list.push({field:'In Time', ok:true, msg:formatTime12(inT)});
-  if(!outT) list.push({field:'Out Time', ok:false, msg:'Required'}); 
-  else if(!timeRegex.test(outT)) list.push({field:'Out Time', ok:false, msg:'Invalid format'}); 
-  else list.push({field:'Out Time', ok:true, msg:formatTime12(outT)});
-
-  if(inT && outT && timeRegex.test(inT) && timeRegex.test(outT)){
-    const [ih,im] = inT.split(':').map(Number);
-    const [oh,om] = outT.split(':').map(Number);
-    const inMinutes = ih*60+im; const outMinutes=oh*60+om;
-    if(outMinutes<=inMinutes) list.push({field:'Time Order', ok:false, msg:'Out must be after In'}); 
-    else list.push({field:'Time Order', ok:true, msg:'OK'});
-  }
-
-  if(remarks.length>2000) list.push({field:'Remarks', ok:false, msg:'Remarks too long (max 2000 chars)'}); 
-  else list.push({field:'Remarks', ok:true, msg:`${remarks.length} chars`});
-  
-  const duplicate = workData.some((r, idx)=>{
-    if(editIndex>=0 && idx===editIndex) return false;
-    return String(r.date).trim()===date && String(r.code).trim()===code;
-  });
-  if(duplicate) list.push({field:'Duplicate Check', ok:false, msg:'Entry exists for this date + branch'}); 
-  else list.push({field:'Duplicate Check', ok:true, msg:'No duplicate'});
-
-  return list;
+/* ================= TIME ================= */
+function to24(h,m,ap){
+  h=parseInt(h); m=parseInt(m);
+  if(ap==="PM" && h!==12) h+=12;
+  if(ap==="AM" && h===12) h=0;
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
 }
 
-/* ---------- show validation ---------- */
-function showValidationReport(list){
-  const vr=document.getElementById('validationReport'), vrList=document.getElementById('vrList'), vrFinal=document.getElementById('vrFinal');
-  vrList.innerHTML=''; vrFinal.textContent='';
-  list.forEach(item=>{
-    const div=document.createElement('div'); div.className='vr-line';
-    const dot=document.createElement('span'); dot.className='vr-dot'; dot.style.background=item.ok?'var(--ok)':'var(--err)';
-    const t=document.createElement('div'); t.innerHTML=`<strong>${item.field}</strong>: <span style="margin-left:6px">${item.msg}</span>`;
-    div.appendChild(dot); div.appendChild(t);
-    vrList.appendChild(div);
-  });
-  const allOk=list.every(i=>i.ok);
-  vrFinal.style.color=allOk?'var(--ok)':'var(--err)';
-  vrFinal.textContent=allOk?'Validation passed — ready to save.':'Validation failed — fix errors above.';
-  if(allOk) vrFinal.style.fontWeight='700';
-  showElement(vr);
-}
-
-/* ---------- save ---------- */
-function onSave(){
-  document.getElementById('saveMsg').textContent='';
-  updateHiddenTime('in'); updateHiddenTime('out');
-  const v=validateFields();
-  showValidationReport(v);
-  const ok=v.every(i=>i.ok); if(!ok) return;
-
-  const date=document.getElementById('workDate').value.trim();
-  const code=document.getElementById('branchCode').value.trim();
+/* ================= SAVE ================= */
+function save(){
   const rec = {
-    date, code, 
-    name: document.getElementById('branchName').value,
-    dist: document.getElementById('district').value,
-    pin: document.getElementById('pincode').value,
-    'in': document.getElementById('inTime').value,
-    out: document.getElementById('outTime').value,
-    rem: document.getElementById('remarks').value
+    date: workDate.value,
+    branch: branchCode.value,
+    in: to24(inHour.value,inMinute.value,inAmPm.value),
+    out: to24(outHour.value,outMinute.value,outAmPm.value),
+    rem: remarks.value
   };
-
-  if(editIndex >= 0){
-    workData[editIndex] = rec;
-    editIndex = -1;
-    document.getElementById('saveBtn').textContent = 'Save / Update';
-  } else {
-    const dup = workData.some(r => String(r.date).trim()===date && String(r.code).trim()===code);
-    if(dup){ alert('Duplicate detected - blocked.'); return; }
-    workData.push(rec);
-  }
-  
-  localStorage.setItem('workData', JSON.stringify(workData));
-  renderTable();
-  clearForm();
-  document.getElementById('saveMsg').textContent = 'Saved successfully!';
+  workData.push(rec);
+  render();
 }
 
-/* ---------- render table ---------- */
-function renderTable(){
-  const tbody = document.getElementById('dataBody');
-  tbody.innerHTML='';
+/* ================= RENDER ================= */
+function render(){
+  dataBody.innerHTML="";
   workData.forEach((r,i)=>{
-    const tr = document.createElement('tr');
-    const inDisplay = formatTime12(r.in);
-    const outDisplay = formatTime12(r.out);
-    tr.innerHTML = `
-      <td>${i+1}</td>
-      <td>${r.date}</td>
-      <td>${r.code}</td>
-      <td>${r.name}</td>
-      <td>${r.dist}</td>
-      <td>${r.pin}</td>
-      <td>${inDisplay}</td>
-      <td>${outDisplay}</td>
-      <td style="max-width:220px;white-space:pre-wrap">${r.rem}</td>
-      <td class="actions">
-        <button onclick="onEdit(${i})" class="btn btn-secondary" style="margin-bottom:4px;padding:6px;font-size:12px">Edit</button>
-        <button onclick="onDelete(${i})" class="btn btn-danger" style="padding:6px;font-size:12px">Delete</button>
-      </td>
-    `;
-    tbody.appendChild(tr);
+    dataBody.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td>${r.date}</td>
+        <td>${r.branch}</td>
+        <td>${r.in}</td>
+        <td>${r.out}</td>
+        <td>${r.rem}</td>
+      </tr>`;
   });
 }
-
-/* ---------- edit delete ---------- */
-function onEdit(i){
-  const r = workData[i];
-  editIndex = i;
-  document.getElementById('workDate').value = r.date;
-  document.getElementById('branchCode').value = r.code;
-  document.getElementById('branchName').value = r.name;
-  document.getElementById('district').value = r.dist;
-  document.getElementById('pincode').value = r.pin;
-  fillTimeInputs('in', r.in);
-  fillTimeInputs('out', r.out);
-  document.getElementById('remarks').value = r.rem;
-  document.getElementById('saveBtn').textContent = 'Update';
-  document.getElementById('validationReport').classList.add('hidden');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function onDelete(i){
-  if(!confirm('Delete this record?')) return;
-  workData.splice(i,1);
-  localStorage.setItem('workData', JSON.stringify(workData));
-  renderTable();
-}
-
-/* ---------- clear form ---------- */
-function clearForm(){
-  editIndex = -1;
-  document.getElementById('workDate').value='';
-  document.getElementById('branchCode').value='';
-  document.getElementById('branchName').value='';
-  document.getElementById('district').value='';
-  document.getElementById('pincode').value='';
-  document.getElementById('inHour').value='';document.getElementById('inMinute').value='';document.getElementById('inAmPm').value='AM';
-  document.getElementById('outHour').value='';document.getElementById('outMinute').value='';document.getElementById('outAmPm').value='AM';
-  document.getElementById('remarks').value='';
-  document.getElementById('validationReport').classList.add('hidden');
-  document.getElementById('saveBtn').textContent = 'Save / Update';
-  document.getElementById('saveMsg').textContent='';
-}
-
-/* ---------- export CSV admin only ---------- */
-function exportExcel(){
-  if(!currentUser || currentUser.Role !== 'ADMIN'){ alert('Export allowed for ADMIN only'); return; }
-  let csv = 'SlNo,Date,BranchCode,BranchName,District,Pincode,In,Out,Remarks\n';
-  workData.forEach((r,i)=>{
-    const inv = formatTime12(r.in), outv = formatTime12(r.out);
-    csv += `${i+1},${r.date},${r.code},"${r.name}","${r.dist}",${r.pin},"${inv}","${outv}","${r.rem.replace(/"/g,'""')}"\n`;
-  });
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'workmaster.csv';
-  a.click();
-}
-
-/* ---------- change password ---------- */
-function openChange(){
-  document.getElementById('appCard').classList.add('hidden');
-  document.getElementById('changeCard').classList.remove('hidden');
-  document.getElementById('changeMsg').textContent='';
-}
-
-function closeChange(){
-  document.getElementById('changeCard').classList.add('hidden');
-  document.getElementById('appCard').classList.remove('hidden');
-}
-
-function changePassword(){
-  const oldP = document.getElementById('oldPass').value;
-  const newP = document.getElementById('newPass').value;
-  const msg = document.getElementById('changeMsg');
-  if(!oldP || !newP){ msg.textContent='Enter both fields'; return; }
-  if(!currentUser){ msg.textContent='No user'; return; }
-  if(oldP !== currentUser.Password){ msg.textContent='Old password incorrect'; return; }
-  currentUser.Password = newP;
-  msg.textContent='Password updated (session only)';
-  msg.style.color='var(--ok)';
-  setTimeout(closeChange, 900);
-}
-
-/* ---------- init ---------- */
-renderTable();
 </script>
+
 </body>
 </html>
